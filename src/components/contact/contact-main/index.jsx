@@ -3,45 +3,53 @@
 import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
 import { MdArrowOutward } from "react-icons/md"
-import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
+import { FiPhone, FiMail, FiMapPin, FiExternalLink } from "react-icons/fi"
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
 
 const OFFICES = [
     {
-        city: "New Delhi (Head Office)",
+        city: "India (Delhi) — Head Office",
         address: "71A, 3rd Floor, Block A, Taimoor Nagar, New Friends Colony, New Delhi 110065",
         phone: "+91 93152 26961",
         email: "info@tahaairwaves.com",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.0354236570394!2d77.27019731108668!3d28.56851337571177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3cd4f5e5c5b%3A0x2b6e8b8f8e8e8e8e!2sTaimoor%20Nagar%2C%20New%20Friends%20Colony%2C%20New%20Delhi%2C%20Delhi%20110065!5e0!3m2!1sen!2sin!4v1711100000000!5m2!1sen!2sin",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.0!2d77.2708078!3d28.5721053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3d4eb682229%3A0xa52bff5d678144c5!2sTaha%20Airwaves!5e0!3m2!1sen!2sin!4v1",
+        mapLink: "https://maps.app.goo.gl/GvS2Xn4ZrGqcfmbS8",
     },
     {
-        city: "Noida (Branch Office)",
-        address: "Sector 62, Noida, Uttar Pradesh 201301",
-        phone: "+91 93152 26961",
-        email: "info@tahaairwaves.com",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14009.857932791997!2d77.36098!3d28.62682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sSector%2062%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1711100000000!5m2!1sen!2sin",
+        city: "India (Noida)",
+        address: "Bhutani Alphathum, Tower C, 2nd Floor, A06, Sector 90, Noida, Uttar Pradesh 201304",
+        email: "marketing@tahaairwaves.com",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8811434315994!2d77.4107801!3d28.513235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce9fcbe0273a1%3A0xd8ed754838e2f8a4!2sBhutani%20Alphathum!5e0!3m2!1sen!2sin!4v1774001112471!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/8hj6U2PwFGQviqBCA",
     },
     {
         city: "Jeddah, Saudi Arabia",
-        address: "Al Balad District, Jeddah, Saudi Arabia",
-        phone: "+966 XX XXX XXXX",
-        email: "jeddah@tahaairwaves.com",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29762.148!2d39.17257!3d21.48583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d01fb1137e59%3A0xe059579737b118db!2sAl%20Balad%2C%20Jeddah%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1711100000000!5m2!1sen!2ssa",
+        address: "056, King Fahad Road, Al-Safa District, Jeddah",
+        phone: "+966 532 464 195",
+        email: "ksa@tahaairwaves.com",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118645.1611797207!2d39.117145217436034!3d21.58525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d11159b4f451%3A0x15f5f6e033478b8f!2sAl-Safa%2C%2BJeddah%2BSaudi%2BArabia!5e0!3m2!1sen!2sin!4v1742492931109!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/zH53vbogocDCBoAe6",
     },
     {
         city: "Moscow, Russia",
-        address: "Business District, Moscow, Russia",
-        phone: "+7 XXX XXX XXXX",
-        email: "moscow@tahaairwaves.com",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d71998.77!2d37.6173!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2sMoscow%2C%20Russia!5e0!3m2!1sen!2sru!4v1711100000000!5m2!1sen!2sru",
+        address: "Skolkovo Innovation Center, Malevicha Street, 2k4, 143026",
+        phone: "+7 985 074-88-28",
+        email: "info@tahaairwaves.ru",
+        website: "www.tahaairwaves.ru",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.1426425262143!2d37.3377322!3d55.7212732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54fc19d3da9ab%3A0xa53e316700ab8ad7!2zVGFoYSBBaXJ3YXZlcyBSdXNzaWEgLSDQrdC60YHQv9C10YDRgtGLINC_0L4g0L_QvtC00LHQvtGA0YMg0LjQvdC00LjQudGB0LrQuNGFINGA0LDQsdC_0YLQvdC40LrQvtCyINCyINCg0L7RgdGB0LjQuA!5e0!3m2!1sen!2sin!4v1774001324192!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/z8SxP7mCixzbLGqcA",
     },
     {
         city: "Dubai, UAE",
-        address: "Business Bay, Dubai, UAE",
-        phone: "+971 XX XXX XXXX",
-        email: "dubai@tahaairwaves.com",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28937.15!2d55.2744!3d25.1872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e2385751f06!2sBusiness%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1711100000000!5m2!1sen!2sae",
+        address: "Jafza Sales Center, Building 15, Jafza 15, Sheikh Zayed Rd, Jebel Ali Freezone, Dubai",
+        email: "uae@tahaairwaves.com",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14457.747069172462!2d55.039148487158226!3d25.0532296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f1333f6c9d1f9%3A0x5ec239c20b4c3185!2sJebel%2BAli%2BPort!5e0!3m2!1sen!2sin!4v1742493054173!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/QTDPTA1U4btyfcBf7",
     },
 ]
 
@@ -256,16 +264,32 @@ export default function ContactMain() {
                                 </div>
                             </div>
                             <div className="space-y-3 pt-4" style={{ borderTop: "1px solid rgba(142,9,53,0.08)" }}>
-                                <a href={`tel:${OFFICES[selectedOffice].phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
-                                    style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
-                                    <FiPhone className="flex-shrink-0" style={{ color: "#BC264B" }} />
-                                    {OFFICES[selectedOffice].phone}
-                                </a>
+                                {OFFICES[selectedOffice].phone && (
+                                    <a href={`tel:${OFFICES[selectedOffice].phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
+                                        style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
+                                        <FiPhone className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                        {OFFICES[selectedOffice].phone}
+                                    </a>
+                                )}
                                 <a href={`mailto:${OFFICES[selectedOffice].email}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
                                     style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
                                     <FiMail className="flex-shrink-0" style={{ color: "#BC264B" }} />
                                     {OFFICES[selectedOffice].email}
                                 </a>
+                                {OFFICES[selectedOffice].website && (
+                                    <a href={`https://${OFFICES[selectedOffice].website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
+                                        style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
+                                        <FiExternalLink className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                        {OFFICES[selectedOffice].website}
+                                    </a>
+                                )}
+                                {OFFICES[selectedOffice].mapLink && (
+                                    <a href={OFFICES[selectedOffice].mapLink} target="_blank" rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-300 hover:opacity-80"
+                                        style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-lato)" }}>
+                                        <FiExternalLink /> View on Google Maps
+                                    </a>
+                                )}
                             </div>
                         </div>
 
