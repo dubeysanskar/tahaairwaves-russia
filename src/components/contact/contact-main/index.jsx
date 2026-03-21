@@ -10,38 +10,38 @@ import { FaXTwitter } from "react-icons/fa6"
 const OFFICES = [
     {
         city: "New Delhi (Head Office)",
-        address: "71A, 3rd Floor, Taimoor Nagar, New Friends Colony, New Delhi 110025",
+        address: "71A, 3rd Floor, Block A, Taimoor Nagar, New Friends Colony, New Delhi 110065",
         phone: "+91 93152 26961",
         email: "info@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=28.5671,77.2700",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.0354236570394!2d77.27019731108668!3d28.56851337571177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3cd4f5e5c5b%3A0x2b6e8b8f8e8e8e8e!2sTaimoor%20Nagar%2C%20New%20Friends%20Colony%2C%20New%20Delhi%2C%20Delhi%20110065!5e0!3m2!1sen!2sin!4v1711100000000!5m2!1sen!2sin",
     },
     {
         city: "Noida (Branch Office)",
         address: "Sector 62, Noida, Uttar Pradesh 201301",
         phone: "+91 93152 26961",
         email: "info@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=28.6270,77.3737",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14009.857932791997!2d77.36098!3d28.62682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sSector%2062%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1711100000000!5m2!1sen!2sin",
     },
     {
         city: "Jeddah, Saudi Arabia",
         address: "Al Balad District, Jeddah, Saudi Arabia",
         phone: "+966 XX XXX XXXX",
         email: "jeddah@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=21.4858,39.1925",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29762.148!2d39.17257!3d21.48583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d01fb1137e59%3A0xe059579737b118db!2sAl%20Balad%2C%20Jeddah%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1711100000000!5m2!1sen!2ssa",
     },
     {
         city: "Moscow, Russia",
         address: "Business District, Moscow, Russia",
         phone: "+7 XXX XXX XXXX",
         email: "moscow@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=55.7558,37.6173",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d71998.77!2d37.6173!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2sMoscow%2C%20Russia!5e0!3m2!1sen!2sru!4v1711100000000!5m2!1sen!2sru",
     },
     {
         city: "Dubai, UAE",
         address: "Business Bay, Dubai, UAE",
         phone: "+971 XX XXX XXXX",
         email: "dubai@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=25.1872,55.2744",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28937.15!2d55.2744!3d25.1872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e2385751f06!2sBusiness%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1711100000000!5m2!1sen!2sae",
     },
 ]
 
@@ -66,19 +66,25 @@ export default function ContactMain() {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' })
     const [sending, setSending] = useState(false)
     const [sent, setSent] = useState(false)
+    const [error, setError] = useState('')
+    const [selectedOffice, setSelectedOffice] = useState(0)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setSending(true)
+        setError('')
         try {
-            await fetch('/api/contact', {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             })
+            if (!res.ok) throw new Error('Failed to send message')
             setSent(true)
             setFormData({ name: '', email: '', phone: '', service: '', message: '' })
-        } catch { }
+        } catch (err) {
+            setError('Failed to send message. Please try again or contact us directly.')
+        }
         setSending(false)
     }
 
@@ -136,6 +142,9 @@ export default function ContactMain() {
                                 onChange={e => setFormData({ ...formData, message: e.target.value })}
                                 className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
                                 style={{ border: "1px solid rgba(142,9,53,0.15)", fontFamily: "var(--font-poppins)", color: "#1a0a10" }} />
+                            {error && (
+                                <p className="text-sm" style={{ color: "#BC264B", fontFamily: "var(--font-poppins)" }}>{error}</p>
+                            )}
                             <button type="submit" disabled={sending}
                                 className="flex items-center gap-2 px-7 py-3.5 rounded-full text-sm tracking-[0.1em] uppercase font-semibold cursor-pointer transition-all duration-300 disabled:opacity-50"
                                 style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-lato)" }}>
@@ -202,48 +211,78 @@ export default function ContactMain() {
                     </motion.div>
                 </div>
 
-                {/* Offices */}
+                {/* Offices with Embedded Maps */}
                 <div className="mb-12">
                     <h2 className="mb-8" style={{ fontFamily: "var(--font-cormorant-garamond)", fontSize: "2rem", fontWeight: 600, color: "#1a0a10" }}>
                         Our <span style={{ color: "#8E0935" }}>Offices</span>
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {OFFICES.map((office) => (
-                            <a key={office.city} href={office.mapUrl} target="_blank" rel="noopener noreferrer"
-                                className="group p-5 rounded-2xl transition-all duration-300 hover:shadow-lg"
-                                style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}>
-                                <div className="flex items-start gap-3">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                                        style={{ background: "rgba(142,9,53,0.08)" }}>
-                                        <FiMapPin style={{ color: "#8E0935" }} />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="font-bold text-sm mb-1 group-hover:text-[#8E0935] transition-colors"
-                                            style={{ fontFamily: "var(--font-lato)", color: "#1a0a10" }}>
-                                            {office.city}
-                                        </h3>
-                                        <p className="text-xs leading-relaxed" style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
-                                            {office.address}
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
+
+                    {/* Office Tabs */}
+                    <div className="flex flex-wrap gap-3 mb-6">
+                        {OFFICES.map((office, i) => (
+                            <button
+                                key={office.city}
+                                onClick={() => setSelectedOffice(i)}
+                                className="px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer"
+                                style={{
+                                    background: selectedOffice === i ? "#8E0935" : "#fff",
+                                    color: selectedOffice === i ? "#FDFBEF" : "#1a0a10",
+                                    border: selectedOffice === i ? "1px solid #8E0935" : "1px solid rgba(142,9,53,0.15)",
+                                    fontFamily: "var(--font-lato)",
+                                }}
+                            >
+                                {office.city}
+                            </button>
                         ))}
                     </div>
-                </div>
 
-                {/* Google Maps */}
-                <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(142,9,53,0.1)" }}>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.5671231!2d77.2700!3d28.5671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM0JzAxLjYiTiA3N8KwMTYnMTIuMCJF!5e0!3m2!1sen!2sin!4v1"
-                        width="100%"
-                        height="350"
-                        style={{ border: 0 }}
-                        allowFullScreen=""
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Taha Airwaves Office Location"
-                    />
+                    {/* Selected Office Detail + Map */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        {/* Office Info Card */}
+                        <div className="p-6 rounded-2xl" style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}>
+                            <div className="flex items-start gap-3 mb-4">
+                                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                                    style={{ background: "rgba(142,9,53,0.08)" }}>
+                                    <FiMapPin style={{ color: "#8E0935" }} />
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="font-bold text-base mb-1"
+                                        style={{ fontFamily: "var(--font-lato)", color: "#8E0935" }}>
+                                        {OFFICES[selectedOffice].city}
+                                    </h3>
+                                    <p className="text-sm leading-relaxed" style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
+                                        {OFFICES[selectedOffice].address}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="space-y-3 pt-4" style={{ borderTop: "1px solid rgba(142,9,53,0.08)" }}>
+                                <a href={`tel:${OFFICES[selectedOffice].phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
+                                    style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
+                                    <FiPhone className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                    {OFFICES[selectedOffice].phone}
+                                </a>
+                                <a href={`mailto:${OFFICES[selectedOffice].email}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
+                                    style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
+                                    <FiMail className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                    {OFFICES[selectedOffice].email}
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Embedded Map */}
+                        <div className="lg:col-span-2 rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(142,9,53,0.1)" }}>
+                            <iframe
+                                src={OFFICES[selectedOffice].mapEmbed}
+                                width="100%"
+                                height="350"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title={`${OFFICES[selectedOffice].city} Office Location`}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

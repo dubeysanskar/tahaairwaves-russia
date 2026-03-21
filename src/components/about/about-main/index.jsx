@@ -57,8 +57,8 @@ export default function AboutMain() {
 
             {/* Ambient orbs */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div style={{ position:"absolute", width:"520px", height:"520px", top:"-80px", right:"-120px", borderRadius:"50%", background:"radial-gradient(circle, rgba(188,38,75,0.15) 0%, transparent 70%)", filter:"blur(100px)" }} />
-                <div style={{ position:"absolute", width:"380px", height:"380px", top:"300px", left:"-100px", borderRadius:"50%", background:"radial-gradient(circle, rgba(142,9,53,0.12) 0%, transparent 70%)", filter:"blur(90px)" }} />
+                <div style={{ position:"absolute", width:"520px", height:"520px", top:"-80px", right:"-120px", borderRadius:"50%", background:"rgba(188,38,75,0.08)", filter:"blur(100px)" }} />
+                <div style={{ position:"absolute", width:"380px", height:"380px", top:"300px", left:"-100px", borderRadius:"50%", background:"rgba(142,9,53,0.06)", filter:"blur(90px)" }} />
             </div>
 
             {/* HERO */}
@@ -84,7 +84,7 @@ export default function AboutMain() {
 
             {/* Divider */}
             <AnimatedSection className="max-w-6xl mx-auto px-6 lg:px-12 mb-16 relative z-10">
-                <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 1.1 } } }} className="origin-left h-px" style={{ background: "linear-gradient(to right, #BC264B44, #BC264B, transparent)" }} />
+                <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 1.1 } } }} className="origin-left h-px" style={{ background: "rgba(188,38,75,0.4)" }} />
             </AnimatedSection>
 
             {/* STATS */}
@@ -141,13 +141,13 @@ export default function AboutMain() {
                     <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         {/* Left — license card */}
                         <div className="bg-[#1a0a10] rounded-3xl p-10 relative overflow-hidden">
-                            <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full bg-[radial-gradient(circle,rgba(188,38,75,0.2)_0%,transparent_70%)] blur-[60px]" />
+                            <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full blur-[60px]" style={{ background: "rgba(188,38,75,0.12)" }} />
                             <div className="relative z-10">
                                 <p className="text-xs tracking-[0.2em] uppercase font-lato font-bold text-[#BC264B] mb-6">Government Licensed Agency</p>
                                 <div className="space-y-4">
                                     <div className="border border-white/10 rounded-xl p-4">
                                         <p className="text-xs text-white/40 font-poppins mb-1">Agency Name</p>
-                                        <p className="text-lg font-poppins font-medium text-cream">Taha Airwaves Private Limited</p>
+                                        <p className="text-lg font-poppins font-medium" style={{ color: "#FDFBEF" }}>Taha Airwaves Private Limited</p>
                                     </div>
                                     <div className="border border-white/10 rounded-xl p-4">
                                         <p className="text-xs text-white/40 font-poppins mb-1">RA License Number</p>
@@ -159,7 +159,7 @@ export default function AboutMain() {
                                     </div>
                                     <div className="border border-white/10 rounded-xl p-4">
                                         <p className="text-xs text-white/40 font-poppins mb-1">Established</p>
-                                        <p className="text-lg font-poppins font-medium text-cream">2005</p>
+                                        <p className="text-lg font-poppins font-medium" style={{ color: "#FDFBEF" }}>2005</p>
                                     </div>
                                 </div>
                             </div>
