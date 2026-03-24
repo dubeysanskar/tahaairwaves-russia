@@ -6,7 +6,7 @@ import { MdArrowOutward } from "react-icons/md";
 
 const data = {
     title: "• Why Choose Us",
-    description: "Government-licensed, trade-tested workforce deployment with end-to-end recruitment, visa processing, and compliance — trusted by employers across Russia, CIS, and GCC.",
+    description: "Government-licensed, verified workforce deployment with end-to-end recruitment, visa processing, and compliance — trusted by employers across Russia.",
     part1: [
         {
             title: "Government Licensed",
@@ -14,27 +14,27 @@ const data = {
             projects: "RA B-3260"
         },
         {
-            title: "Trade-Tested Workforce",
-            desc: "Every candidate undergoes rigorous trade testing, skill verification, and background checks before deployment — guaranteeing quality manpower to employers.",
-            projects: "5000+ Deployed"
+            title: "Verified Workforce",
+            desc: "Every candidate undergoes rigorous trade testing, verification, and background checks before deployment — guaranteeing quality manpower to Russian employers.",
+            projects: "500+ in Russia"
         },
         {
-            title: "Global Reach",
-            desc: "Successfully deploying workforce to 11+ countries including Russia, UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, Jordan, Egypt, Mauritius, and Malaysia.",
-            projects: "11+ Countries"
+            title: "Russia Expertise",
+            desc: "Dedicated Moscow office with a specialized team for the Russian market since 2022. Deep understanding of Russian employment regulations and industry requirements.",
+            projects: "Since 2022"
         }
     ],
     part2: {
-        title: "Decades of Trust in Global Workforce Deployment",
-        desc: "With 20+ years in the overseas manpower industry, Taha Airwaves has built a reputation for reliability, speed, and compliance. From sourcing the right candidates to ensuring smooth deployment, we handle every detail so employers can focus on their projects. Our exclusive partnerships with international employers, rigorous screening processes, and dedicated deployment teams set us apart.",
+        title: "Decades of Trust in Workforce Deployment for Russia",
+        desc: "With 20+ years in the overseas manpower industry and a dedicated Russia operations team since 2022, Taha Airwaves has built a reputation for reliability, speed, and compliance in the Russian market. From sourcing the right candidates to ensuring smooth deployment and documentation, we handle every detail so employers can focus on their projects.",
         stats: [
             {
-                number: "5000+",
-                label: "Workers Deployed"
+                number: "500+",
+                label: "Workers in Russia"
             },
             {
-                number: "11+",
-                label: "Countries Served"
+                number: "20+",
+                label: "Years Experience"
             }
         ]
     }
@@ -42,7 +42,7 @@ const data = {
 
 export default function WhyUs() {
     return (
-        <section className="pt-28 pb-20">
+        <section className="pt-28 pb-20" style={{ background: "#FFFFFF" }}>
             <Container>
                 <div className="space-y-10">
                     <div className="flex flex-col md:flex-row justify-between gap-8 border-b border-gray-300 pb-6">
@@ -94,8 +94,8 @@ export default function WhyUs() {
                                     <Link href="/contact">
                                         <button className="px-4 py-2 font-poppins transition cursor-pointer flex items-center gap-3"
                                             style={{ border: "1px solid rgba(26,10,16,0.3)", color: "#1a0a10" }}
-                                            onMouseEnter={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#FDFBEF" }}
-                                            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a0a10" }}>
+                                            onMouseEnter={e => { e.currentTarget.style.background = "#8E0935"; e.currentTarget.style.color = "#FDFBEF"; e.currentTarget.style.borderColor = "#8E0935" }}
+                                            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a0a10"; e.currentTarget.style.borderColor = "rgba(26,10,16,0.3)" }}>
                                             Get in touch
                                             <MdArrowOutward size={18} />
                                         </button>

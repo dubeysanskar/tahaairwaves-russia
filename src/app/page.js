@@ -1,13 +1,17 @@
 import Cta from "@/components/home/cta";
 import Hero from "@/components/home/hero";
 import HomeAbout from "@/components/home/home-about";
-import HomeServiceBento from "@/components/home/home-service-bento";
+import OurStrength from "@/components/home/our-strength";
+import WhatWeDo from "@/components/home/what-we-do";
+import HowItWorks from "@/components/home/how-it-works";
 import CardCarousel from "@/components/home/home-services";
+import HomeServiceBento from "@/components/home/home-service-bento";
 import ServicesShowcase from "@/components/home/home-projects";
 import WhyUs from "@/components/home/why-us";
 import CountriesWeServe from "@/components/home/countries-we-serve";
 import IndustriesWeServe from "@/components/home/industries-we-serve";
 import Partners from "@/components/home/partners";
+import Testimonials from "@/components/home/testimonial";
 import BlogPreview from "@/components/home/blog-preview";
 
 export default function Home() {
@@ -15,6 +19,9 @@ export default function Home() {
         <>
             <Hero />
             <HomeAbout />
+            <OurStrength />
+            <WhatWeDo />
+            <HowItWorks />
             <CardCarousel />
             <HomeServiceBento />
             <ServicesShowcase />
@@ -22,6 +29,7 @@ export default function Home() {
             <IndustriesWeServe />
             <WhyUs />
             <Partners />
+            <Testimonials />
             <BlogPreview />
             <Cta />
         </>

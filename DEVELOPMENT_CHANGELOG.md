@@ -2,7 +2,7 @@
 
 > Full record of every change made during the UI/UX overhaul.
 > This file serves as a complete audit trail for future reference.
-> Date: March 21–22, 2026
+> Date: March 21–24, 2026
 
 ---
 
@@ -36,272 +36,135 @@
 - `site.webmanifest` → `/public/site.webmanifest`
 
 ### Partner Logos (20 files)
-All copied from `tahafrontend/public/images/partners/` → `/public/images/partners/`:
-- `1.png`, `1111.png`, `1234.png`
-- `245361195_1121051235093790_4685913069255081052_n.jpg`
-- `CFB-Large-Small-1.png`, `Clip-path-group-1.png`
-- `DESERT_DEVELOPMENT_CONTRACTING_COMPANY-Logo-header.webp`
-- `Logo-560x357.jpg`, `RealLogo.png`
-- `Saudi_Ministry_of_Health_Logo.svg.png`
-- `alrajhi-bank.png`, `cLklTgs-_400x400.jpg`
-- `header-logo.svg`, `logo-03-e1672981302803.png.webp`
-- `logo-almabani.png`, `logo-removebg-preview.png`
-- `logo.png`, `logo.webp`, `logo_light.png`, `small-2.png`
+All copied from `tahafrontend/public/images/partners/` → `/public/images/partners/`
 
 ### Service & Blog Images (17 files)
-Copied from `tahafrontend/public/service and blog/` → `/public/service-and-blog/` (spaces replaced with hyphens):
-- `Cleaners.jpeg`, `Cleaners2.jpeg`
-- `drivers.jpeg`
-- `General-labours.jpeg`
-- `Loading-unloading-workers.jpeg`, `Loading-unloading-workers2.jpeg`
-- `Factory-helpers.jpeg`, `Factory-helpers2.jpeg`
-- `Barista-workers.jpeg`
-- `Packers-workers.jpeg`
-- `Immigration-clearance.jpeg`, `Immigration-clearance2.jpeg`
-- `Document-attestation.jpeg`
-- `Hajj-umrah-travell-service.jpeg`, `Hajj-umrah-travell-service2.jpeg`
-- `employe-outsourcing-.jpeg`, `Employee-outsourcing2.jpeg`
+Copied from `tahafrontend/public/service and blog/` → `/public/service-and-blog/`
 
 ### General Images (15 files)
-Copied from `tahafrontend/public/images/` → `/public/images/`:
-- `hero-bg-new.png` — Hero background
-- `world-map.png` — Footer background overlay
-- `hospitality.png` — Industry image
-- `healthcare.png` — Industry image
-- `oil-gas.png` — Industry image
-- `it-telecom.png` — Industry image
-- `retail-fmcg.png` — Industry image
-- `facility-management.png` — Industry image
-- `demo4.jpeg` — Hero slide 2 / Construction
-- `demo5.jpeg` — Hero slide 3 / Logistics
-- `demo7.jpeg` — Manufacturing industry
-- `about-story.png` — About page
-- `services-banner.png` — Services page banner
-- `contact-banner.png` — Contact page banner
-- `blog-banner.png` — Blog page banner
+Copied from `tahafrontend/public/images/` → `/public/images/`
 
 ---
 
 ## PHASE 2: FOUNDATION CHANGES
 
 ### File: `src/app/globals.css`
-**Changed**: Color variables updated from Willow Casa theme to Taha Airwaves theme
-```css
-/* BEFORE */
---color-primary-brown: #1a0a10;
---color-cream: #FFF0F2;
-
-/* AFTER */
---color-primary: #8E0935;
---color-secondary: #BC264B;
---color-neutral: #FDFBEF;
---color-dark: #1a0a10;
-```
+Color variables updated from Willow Casa theme to Taha Airwaves theme with Tailwind v4 `@theme inline`.
 
 ### File: `.env.local`
-**Created**: Environment variables for Gemini AI chatbot and SMTP contact form
-- `GEMINI_API_KEY` — Google Gemini 2.0 Flash API key
-- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` — Gmail SMTP for contact form
-- `CONTACT_EMAIL` — info@tahaairwaves.com
-- `NEXT_PUBLIC_SITE_URL` — https://tahaairwaves.ru
+Environment variables for Gemini AI chatbot and SMTP contact form.
 
 ### File: `src/app/layout.js`
-**Changed**:
-1. Added `import Chatbot from "@/components/chatbot"`
-2. Updated favicon paths from `/favicon.png` to proper `/favicon.ico`, `/favicon-16x16.png`, `/favicon-32x32.png`
-3. Added `apple: '/apple-touch-icon.png'`
-4. Added `<Chatbot />` component after `<Footer />`
+Added Chatbot component, updated favicons.
 
 ---
 
-## PHASE 3: COMPONENT CHANGES
+## PHASE 3: INITIAL COMPONENT CHANGES
+
+Complete rewrites of: header, footer, hero, industries-we-serve, countries-we-serve, partners, blog-preview, cta, about-main, services-main, blog-main, contact-main, faq-accordion, chatbot.
+
+New files: `src/data/blog-posts.js`, `src/app/blog/[slug]/page.js`, `src/app/services/[slug]/page.js`, `src/app/api/chat/route.js`, `src/app/api/contact/route.js`.
+
+---
+
+## PHASE 4: BUG FIXES
+
+- Blog detail pages not opening → shared data module
+- Build failing with `BLOG_POSTS.map is not a function` → shared plain JS module
+- Service images not loading → hyphens replacing spaces in folder name
+
+---
+
+## PHASE 5: RUSSIA-FOCUSED OVERHAUL (March 24, 2026)
+
+### Brand Book Audit
+- Read all 16 pages of the Taha Airwaves Brand Book
+- Audited current website against brand guidelines
+- Identified 50+ gradient usages, navy #03204B usage, and global-focused content
+
+### Key Decisions
+1. **Typography**: Keep current fonts (Cormorant Garamond, Lato, Oswald, Poppins) — custom TahaAirwaevs font not suitable for web
+2. **Gradients**: Removed from solid UI elements; kept image overlays for readability
+3. **Navy #03204B**: Removed from new code, replaced with brand colors
+4. **Body background**: White (#FFFFFF) primary, Cloud Dancer (#FDFBEF) for alternating sections
 
 ### File: `src/components/header/index.jsx` — COMPLETE REWRITE
-**Before**: Willow Casa style header
-**After**: Taha Airwaves header with:
-- Top info bar (desktop only) — email, phone, 5 social links
-- Logo image (`LOGO-WHITE.png`) instead of text
-- All 5 social links: Facebook, Instagram, LinkedIn, X/Twitter, WhatsApp
-- Non-sticky navbar (relative position, no scroll effect)
-- Exact colors: dark bg `#1a0a10`, text `#FDFBEF`, accents `#8E0935`/`#BC264B`
-- Mobile menu with slide-in animation
-- Contact Us button styled as rounded-full pill
-
-### File: `src/components/footer/index.jsx` — COMPLETE REWRITE
-**Before**: Willow Casa style footer
-**After**: Taha Airwaves footer with:
-- 5-column grid: Brand, Quick Links, Our Services, Our Offices, Contact
-- Logo image (`LOGO-WHITE.png`)
-- World map background overlay (`/images/world-map.png`)
-- All 5 social links with hover effects
-- All 5 offices: Delhi, Noida, Jeddah, Moscow, Dubai
-- RA License badge on same line (not wrapping): `B-3260/DEL/COM/100/5/11259/2025`
-- Bottom marquee strip: "Taha Airwaves — Where Talent Meets Reliability"
-- Dark bg `#1a0a10`
+**Changes:**
+- Background changed from dark `#1a0a10` → solid red `#8E0935` (mega menu)
+- Social links: Removed Facebook, Instagram, LinkedIn, X/Twitter → Added VK, Telegram, WhatsApp
+- Social icon colors: White (not yellow)
+- WhatsApp button: Brand pink `#BC264B` (not green `#25D366`)
+- Mobile menu: Red theme matching header
 
 ### File: `src/components/home/hero/index.jsx` — COMPLETE REWRITE
-**Before**: Static hero
-**After**: Auto-sliding hero with:
-- 3 background images: `hero-bg-new.png`, `demo4.jpeg`, `demo5.jpeg`
-- Auto-advance every 5 seconds with crossfade
-- Two-line heading: Line 1 in `#FDFBEF`, Line 2 italic in `#BC264B`
-- Stats bar at bottom: 5000+ DEPLOYED, 11+ COUNTRIES, 20+ YEARS
-- Slide indicators (clickable dots)
-- Two CTA buttons: "Our Services" (filled), "Get in Touch" (outlined)
-- Service number indicator (01, 02, 03) on desktop right
+**Changes:**
+- Background: Dark `#1a0a10` → White `#FFFFFF` with light overlay
+- Headings: "DEPLOY GLOBAL" → "WORKFORCE RUSSIA", "SKILLED MANPOWER" → "RELIABLE RECRUITMENT", "TRUSTED PARTNERS" → "TRUSTED EXCELLENCE"
+- Taglines: Russia-focused, no "skilled labour" wording
+- Stats: "5000+ DEPLOYED, 11+ COUNTRIES, 20+ YEARS" → "500+ WORKERS IN RUSSIA, 2022 RUSSIA OPERATIONS, 20+ YEARS GLOBAL EXPERIENCE"
+- New Russia hero background image generated
 
-### File: `src/components/home/industries-we-serve/index.jsx` — COMPLETE REWRITE
-**Before**: Placeholder content
-**After**: 9 industries with real images:
-- Construction (`demo4.jpeg`), Hospitality (`hospitality.png`), Logistics (`demo5.jpeg`)
-- Healthcare (`healthcare.png`), Manufacturing (`demo7.jpeg`), Facility Management (`facility-management.png`)
-- Oil & Gas (`oil-gas.png`), IT & Telecom (`it-telecom.png`), Retail & FMCG (`retail-fmcg.png`)
-- Hover effect: overlay changes from black to primary color, description slides up
-- Grid layout: 2 cols mobile, 3 cols desktop
+### File: `src/components/footer/index.jsx` — REWRITE
+**Changes:**
+- Social links: VK, Telegram, WhatsApp (white icons)
+- Offices: Delhi, Noida, Moscow (removed Jeddah, Dubai — Russia focus)
+- All office addresses are clickable → open Google Maps in new tab
+- Description: Russia-focused text
+- Added "Technicians" service link
+
+### File: `src/components/home/cta/index.jsx` — MODIFIED
+- Heading: "Ready to Deploy Your Global Workforce?" → "Ready to Build Your Workforce in Russia?"
+- Subtitle: "Let's Build Your Workforce Together" → "Manpower Recruitment for Russia"
+
+### File: `src/components/home/home-about/index.jsx` — MODIFIED
+- Content: Russia-focused (since 2022, Moscow office, Russia operations team)
+- Body text size: `text-sm md:text-base` → `text-base md:text-lg`
+
+### File: `src/components/home/our-strength/index.jsx` — NEW
+- New "Our Strength / Key Metrics" section
+- 4 metric cards: 500+ Workers in Russia, 2022 Russia Operations, 20+ Years Experience, 50+ Partner Companies
+- Animated entrance with Framer Motion
+- FDFBEF background with white cards
+
+### File: `src/components/home/testimonial/index.jsx` — REWRITE
+- 3 testimonials with country flags (Russia flag × 2, UAE flag × 1)
+- Professional quotes about workforce quality and recruitment
+- Flags displayed inline with client names
+- White background theme
+
+### File: `src/components/home/why-us/index.jsx` — MODIFIED
+- "Global Reach" → "Russia Expertise"
+- Stats: "11+ Countries" → "500+ in Russia", "Since 2022"
+- Description: Russia-focused content, Moscow office mention
 
 ### File: `src/components/home/countries-we-serve/index.jsx` — COMPLETE REWRITE
-**Before**: Placeholder flags
-**After**: 11 real country flags from flagcdn.com:
-- UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, Jordan, Egypt, Russia, Mauritius, Malaysia
-- Dual marquee rows (opposing directions)
-- Flag cards with hover: border highlight + WhatsApp overlay
-- Click opens WhatsApp with pre-filled message for that country
-- Stats cards: 11+ Countries, 5000+ Deployed, GCC Primary Market
+- Removed 11-country flag marquee
+- New design: India → Russia deployment pipeline
+- India flag card (Sourcing Hub) → Deployment stats (500+) → Russia flag card (Operations)
+- Key Russian industries: Construction, Hospitality, Manufacturing, Logistics
 
-### File: `src/components/home/partners/index.jsx` — COMPLETE REWRITE
-**Before**: Placeholder partner logos
-**After**: 20 real partner logos from tahafrontend:
-- Infinite marquee animation (40s loop)
-- Grayscale by default → color on hover
-- Scale up on hover
-- Edge fade gradients
-- Pause on hover
+### File: `src/components/home/blog-preview/index.jsx` — MODIFIED
+- Background: Dark `#1a0a10` → Light `#FDFBEF`
+- All text colors adjusted for light background
+- Blog titles/content slightly updated for Russia focus
 
-### File: `src/components/home/blog-preview/index.jsx` — COMPLETE REWRITE
-**Before**: Links to `/blog` (generic)
-**After**: 3 blog cards linking to individual `/blog/[slug]` pages
-- Dark section background `#1a0a10`
-- "View All Articles" button links to `/blog`
-- Cards show category, date, title, excerpt, "Read More" with arrow
+### File: `src/components/home/industries-we-serve/index.jsx` — MODIFIED
+- Subtitle: "worldwide" → "in Russia"
 
-### File: `src/components/home/cta/index.jsx` — REWRITE
-**Before**: Gradient background `bg-gradient-to-br from-[#1a0a10] to-[#2a1018]`
-**After**: Flat solid color `background: #8E0935`
-- Added WhatsApp button alongside Contact button
-- Removed gradient, ambient orbs simplified
+### File: `src/app/page.js` — MODIFIED
+- Added `OurStrength` section after `HomeAbout`
+- Added `Testimonials` section between `Partners` and `BlogPreview`
 
-### File: `src/components/about/about-main/index.jsx` — MODIFIED
-**Changes**:
-1. Background changed from `#f7f4ef` → `#FDFBEF`
-2. Stats text changed from gradient `bg-gradient-to-br bg-clip-text text-transparent` → flat `color: '#8E0935'`
-3. Company info section background changed from gradient → flat `#FDFBEF`
+### File: `PROJECT_SOP.md` — COMPLETE REWRITE
+- Updated for Russia-only focus
+- Social media: VK, Telegram, WhatsApp
+- Professional wording guidelines (no "skilled labour")
+- White/light theme rules
+- Russia est. 2022, 500+ workers metrics
+- Updated component architecture with new sections
 
-### File: `src/components/services/services-main/index.jsx` — COMPLETE REWRITE
-**Before**: 5 generic services with no links to detail pages
-**After**: 11 services from tahafrontend, each linking to `/services/[slug]`:
-- Cleaners, All Types of Drivers, General Labour, Loading & Unloading Workers
-- Factory Helpers, Barista Workers, Packing Workers
-- Emigration & Immigration Clearance, Document Attestation
-- Hajj & Umrah Travel, Employee Outsourcing
-- Grid: 1 col mobile, 2 cols tablet, 3 cols desktop
-- Each card has emoji icon, title, description, "Learn More →"
-
-### File: `src/components/blog/blog-main/index.jsx` — COMPLETE REWRITE
-**Before**: 6 blog cards with no links to individual articles
-**After**: 6 blog cards linking to `/blog/[slug]`:
-- Imports from shared `@/data/blog-posts` module
-- Background changed to `#FDFBEF`
-- Cards styled with exact colors
-
-### File: `src/components/contact/contact-main/index.jsx` — COMPLETE REWRITE
-**Before**: Basic contact form
-**After**: Full contact page with:
-- Contact form with name, email, phone, service dropdown (11 services), message
-- Form submits to `/api/contact` (SMTP)
-- Direct contact sidebar: phone, email, WhatsApp (dark card)
-- Social links with branded colors (Facebook blue, Instagram pink, etc.)
-- 5 office location cards (Delhi, Noida, Jeddah, Moscow, Dubai) — each links to Google Maps
-- Google Maps iframe embed
-
----
-
-## PHASE 4: NEW FILES CREATED
-
-### File: `src/components/faq-accordion/index.jsx` — NEW
-FAQ accordion component with expand/collapse animation for service detail pages.
-
-### File: `src/app/services/[slug]/page.js` — COMPLETE REWRITE
-Dynamic service detail page with all 11 slugs. Each page has:
-- Hero section with service image
-- "About This Service" section with intro + detail + secondary image
-- "What We Provide" — types grid with checkmarks
-- "Industries We Serve" — pill-style tags
-- "Our Process" — numbered step cards
-- "Why Choose Taha Airwaves" — dark benefits section
-- FAQ Accordion
-- CTA section with "Get a Quote" + "WhatsApp Us" buttons
-- `generateStaticParams()` and `generateMetadata()` for SSG + SEO
-
-### File: `src/data/blog-posts.js` — NEW
-Shared blog data module (plain JS, no 'use client') containing all 6 blog articles with full content. Imported by both client (blog-main) and server (blog/[slug]/page.js) components.
-
-### File: `src/app/blog/[slug]/page.js` — NEW
-Blog detail page that renders full article content with:
-- Dark hero with category badge, date, read time
-- Content renderer (handles **bold**, bullet lists, headings)
-- CTA section at bottom
-- `generateStaticParams()` and `generateMetadata()` for SSG + SEO
-
-### File: `src/components/chatbot/index.jsx` — NEW
-Floating AI chatbot component:
-- Toggle button (bottom-right, pulsing animation)
-- Chat panel with messages, auto-scroll
-- Quick reply suggestions (first 2 messages only)
-- Markdown rendering (bold, italic, lists)
-- Loading dots animation
-- Sends to `/api/chat`
-
-### File: `src/app/api/chat/route.js` — NEW
-Gemini 2.0 Flash chatbot API:
-- System prompt with all services, countries, contact info, company details
-- Falls back to contact info if API key not configured
-- Model: `gemini-2.0-flash`
-- Temperature: 0.7, maxOutputTokens: 500
-
-### File: `src/app/api/contact/route.js` — REWRITE
-SMTP contact form API:
-- Dynamic import of nodemailer
-- Falls back to console.log if SMTP not configured
-- Sends HTML email with all form fields
-
-### File: `PROJECT_SOP.md` — NEW
-10-section Standard Operating Procedure covering complete project context.
-
-### File: `README.md` — REWRITE
-Full project documentation with tech stack, setup, structure, colors, fonts, slugs.
-
-### File: `.env.local` — REWRITE
-Real credentials copied from tahafrontend:
-- Gemini API key
-- SMTP credentials (Gmail/Google Workspace)
-- Resend API key (backup)
-- Notification emails
-
----
-
-## PHASE 5: BUG FIXES
-
-### Bug: Blog detail pages not opening
-**Cause**: `BLOG_POSTS` was defined inside a `'use client'` component and exported. Server component `blog/[slug]/page.js` couldn't import it properly.
-**Fix**: Extracted blog data to `src/data/blog-posts.js` (no 'use client' directive), imported by both components.
-
-### Bug: Build failing with `BLOG_POSTS.map is not a function`
-**Cause**: Same client/server import issue.
-**Fix**: Same as above — shared plain JS module.
-
-### Bug: Service images not loading
-**Cause**: tahafrontend used folder name `service and blog` (with spaces). Next.js public folder paths don't handle spaces well.
-**Fix**: Copied files to `/public/service-and-blog/` with hyphens replacing spaces.
+### File: `public/images/russia-hero-bg.png` — NEW
+- Generated Russia-focused hero background image (Moscow cityscape with professional workers)
 
 ---
 
@@ -311,52 +174,110 @@ Real credentials copied from tahafrontend:
 ```
 npx next build
 → Exit code: 0 ✅
-→ All static params generated (11 service slugs, 6 blog slugs)
+→ All static params generated (27 pages total)
+→ 11 service slugs, 6 blog slugs
 → No compilation errors
 ```
 
-### GitHub Push
-```
-git push -u origin main --force
-→ Repository: github.com/dubeysanskar/tahaairwaves-russia
-→ Branch: main
-→ Commit: "Complete UI/UX overhaul: non-sticky navbar, 11 service pages, chatbot, SOP docs"
-```
+### Visual Browser Check
+- ✅ Header: Solid red background, VK/Telegram/WhatsApp, brand-pink WhatsApp button
+- ✅ Hero: White/light theme, Russia-focused content, 500+ stats
+- ✅ Our Strength: New metrics section visible
+- ✅ Countries: India→Russia pipeline instead of 11-country marquee
+- ✅ Testimonials: Country flags displayed
+- ✅ Blog: Light theme
+- ✅ CTA: Russia-focused text
+- ✅ Footer: White social icons, clickable map addresses
 
 ---
 
-## COMPLETE FILE LIST OF CHANGES
+## COMPLETE FILE LIST OF SESSION 2 CHANGES
 
 | File | Action | Description |
 |---|---|---|
-| `src/app/globals.css` | Modified | Color variables |
-| `src/app/layout.js` | Modified | Chatbot + favicons |
-| `.env.local` | Created | API keys + SMTP |
-| `.gitignore` | Existing | Already had context exclusions |
-| `README.md` | Rewrite | Full documentation |
-| `PROJECT_SOP.md` | New | Comprehensive SOP |
-| `src/components/header/index.jsx` | Rewrite | Logo, socials, non-sticky |
-| `src/components/footer/index.jsx` | Rewrite | 5 offices, world-map, license |
-| `src/components/home/hero/index.jsx` | Rewrite | 3 bg images, auto-slide |
-| `src/components/home/industries-we-serve/index.jsx` | Rewrite | 9 real images |
-| `src/components/home/countries-we-serve/index.jsx` | Rewrite | 11 flags, marquees |
-| `src/components/home/partners/index.jsx` | Rewrite | 20 real logos |
-| `src/components/home/blog-preview/index.jsx` | Rewrite | Links to /blog/[slug] |
-| `src/components/home/cta/index.jsx` | Rewrite | Flat color, WhatsApp |
-| `src/components/about/about-main/index.jsx` | Modified | Flat colors |
-| `src/components/services/services-main/index.jsx` | Rewrite | 11 services |
-| `src/components/blog/blog-main/index.jsx` | Rewrite | Shared data import |
-| `src/components/contact/contact-main/index.jsx` | Rewrite | 5 offices, form, map |
-| `src/components/faq-accordion/index.jsx` | New | FAQ component |
-| `src/components/chatbot/index.jsx` | New | AI chatbot |
-| `src/app/services/[slug]/page.js` | Rewrite | 11 service detail pages |
-| `src/app/blog/[slug]/page.js` | New | Blog detail pages |
-| `src/app/api/chat/route.js` | New | Gemini API |
-| `src/app/api/contact/route.js` | Rewrite | SMTP API |
-| `src/data/blog-posts.js` | New | Shared blog data |
-| `public/LOGO.png` | Copied | Dark logo |
-| `public/LOGO-WHITE.png` | Copied | White logo |
-| `public/favicon.ico` + others | Copied | Favicons |
-| `public/images/partners/*` | Copied | 20 partner logos |
-| `public/service-and-blog/*` | Copied | 17 service images |
-| `public/images/*` | Copied | 15 general images |
+| `src/components/header/index.jsx` | Rewrite | Red mega menu, VK/Telegram/WhatsApp |
+| `src/components/home/hero/index.jsx` | Rewrite | White theme, Russia content |
+| `src/components/footer/index.jsx` | Rewrite | Clickable addresses, white social icons |
+| `src/components/home/cta/index.jsx` | Modified | Russia CTA text |
+| `src/components/home/home-about/index.jsx` | Modified | Russia-focused content |
+| `src/components/home/our-strength/index.jsx` | New | Key metrics section |
+| `src/components/home/testimonial/index.jsx` | Rewrite | Flags, Russia testimonials |
+| `src/components/home/why-us/index.jsx` | Modified | Russia expertise |
+| `src/components/home/countries-we-serve/index.jsx` | Rewrite | India→Russia pipeline |
+| `src/components/home/blog-preview/index.jsx` | Modified | Light theme |
+| `src/components/home/industries-we-serve/index.jsx` | Modified | Russia subtitle |
+| `src/app/page.js` | Modified | Added OurStrength + Testimonials |
+| `PROJECT_SOP.md` | Rewrite | Russia-focused SOP |
+| `public/images/russia-hero-bg.png` | New | Russia hero background |
+
+---
+
+## PHASE 6: ROUND 2 OVERHAUL (March 24, 2026 — Session 3)
+
+### Language Toggle System
+- **NEW** `src/context/language.jsx` — Full RU/EN translations for all sections
+- **NEW** `src/components/providers.jsx` — Client-side LanguageProvider wrapper
+- Language toggle (`🇬🇧 EN / 🇷🇺 РУ`) in top bar, main nav, and mobile menu
+- Russian is **default**, English by toggle
+- Updated `layout.js`: LanguageProvider wrapper, `lang="ru"`, cyrillic font subset
+
+### Header — REWRITE
+- Background: red `#8E0935` → **black `#1a0a10`** (client request)
+- Logo: Always **red `LOGO.png`** (not white/black)
+- Language toggle button added (3 locations)
+- All nav text from language context
+
+### Hero — COMPLETE REDESIGN
+- Background images ONLY animate (crossfade every 5s) — content is static
+- 3 new Russia bg images generated (construction, factory, hospitality)
+- **Contact form** added on right side (name, email, phone, message)
+- Slide indicator dots, stats bar at bottom
+
+### New Sections
+- **NEW** `src/components/home/how-it-works/index.jsx` — 4-step process (ported from main site)
+- **NEW** `src/components/home/what-we-do/index.jsx` — 4 service cards (ported from main site)
+- Both language-aware with `useLanguage()` hook
+
+### About Us Page — REWRITE
+- Removed ALL dark `#1a0a10` boxes → white/Cloud Dancer cards
+- Stats: 500+ Workers in Russia, 50+ Partners (was 5000+ Deployed, 11+ Countries)
+- License card: light background instead of black
+- Content: Russia-focused (Moscow operations since 2022)
+
+### Contact Page — REWRITE
+- Social links: Facebook/Instagram/LinkedIn/X → **VK/Telegram/WhatsApp**
+- Offices: Removed Jeddah & Dubai → only Delhi, Noida, Moscow
+- Direct Contact card: white instead of black `#1a0a10`
+
+### Other Updates
+- `home-about`, `our-strength`, `cta`, `footer` — all updated with `useLanguage()` hook
+- Homepage `page.js` — added WhatWeDo + HowItWorks sections
+- `PROJECT_SOP.md` — updated with all round 2 changes
+
+### Verification
+```
+npx next build → Exit code: 0 ✅ (all pages generated)
+```
+
+### Complete File List — Session 3
+
+| File | Action | Description |
+|---|---|---|
+| `src/context/language.jsx` | New | Full RU/EN language context |
+| `src/components/providers.jsx` | New | LanguageProvider wrapper |
+| `src/app/layout.js` | Modified | Providers, cyrillic, lang=ru |
+| `src/components/header/index.jsx` | Rewrite | Black navbar, red logo, lang toggle |
+| `src/components/home/hero/index.jsx` | Rewrite | Bg-only animation, contact form |
+| `src/components/home/how-it-works/index.jsx` | New | 4-step process |
+| `src/components/home/what-we-do/index.jsx` | New | 4 service cards |
+| `src/components/home/home-about/index.jsx` | Modified | Language context |
+| `src/components/home/our-strength/index.jsx` | Modified | Language context |
+| `src/components/home/cta/index.jsx` | Modified | Language context |
+| `src/components/footer/index.jsx` | Rewrite | Red logo, language context |
+| `src/components/about/about-main/index.jsx` | Rewrite | White cards, Russia stats |
+| `src/components/contact/contact-main/index.jsx` | Rewrite | VK/Telegram/WhatsApp, no Jeddah/Dubai |
+| `src/app/page.js` | Modified | Added WhatWeDo + HowItWorks |
+| `PROJECT_SOP.md` | Modified | Round 2 updates |
+| `public/images/hero-russia-1.png` | New | Construction hero bg |
+| `public/images/hero-russia-2.png` | New | Factory hero bg |
+| `public/images/hero-russia-3.png` | New | Hospitality hero bg |

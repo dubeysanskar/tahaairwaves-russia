@@ -1,69 +1,87 @@
+'use client'
+
 import Container from "@/components/container";
-import TestimonialSlider from "./testimonial-card";
-
-const data = {
-
-    title: "• Testimonials",
-
-}
+import { motion } from "framer-motion";
+import { FaQuoteLeft } from "react-icons/fa";
 
 const testimonials = [
     {
-        name: "Adriana O’Sullivan",
-        title: "Interior Designer",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-        testimonial:
-            "The furniture brings a sense of calm and balance into our living space. The natural materials and thoughtful design create a warm atmosphere that feels both refined and comfortable for everyday life."
+        name: "Aleksei Petrov",
+        role: "HR Director, Construction Corp",
+        country: "Russia",
+        flag: "https://flagcdn.com/w40/ru.png",
+        text: "Taha Airwaves delivered exactly what we needed — qualified workers who were ready to contribute from day one. Their recruitment process is professional and efficient.",
     },
     {
-        name: "Michael Carter",
-        title: "Architect",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
-        testimonial:
-            "The craftsmanship is immediately noticeable. Each piece feels timeless and blends effortlessly with the architecture of our home, adding warmth and character without overpowering the space."
+        name: "Dmitry Volkov",
+        role: "Operations Manager, Industrial Group",
+        country: "Russia",
+        flag: "https://flagcdn.com/w40/ru.png",
+        text: "We have been working with Taha Airwaves since 2022 and the quality of workforce they provide is consistently excellent. Their documentation process is seamless.",
     },
     {
-        name: "Sophie Laurent",
-        title: "Art Director",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
-        testimonial:
-            "I love the balance between simplicity and elegance. The design feels minimal yet inviting, creating a space that is calm, warm, and beautifully put together."
+        name: "Mohammad Al-Rashid",
+        role: "Project Manager, Gulf Enterprises",
+        country: "UAE",
+        flag: "https://flagcdn.com/w40/ae.png",
+        text: "Their end-to-end recruitment service from sourcing to deployment is outstanding. They understand the compliance requirements and deliver on time, every time.",
     },
-    {
-        name: "Daniel Kim",
-        title: "Product Designer",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
-        testimonial:
-            "Every detail feels carefully considered, from the materials to the proportions. The pieces elevate the room in a subtle way while still being comfortable for everyday living."
-    },
-    {
-        name: "Isabella Rossi",
-        title: "Creative Consultant",
-        image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
-        testimonial:
-            "These pieces completely changed the feel of our home. The textures and tones create a warm and balanced environment that feels both modern and timeless."
-    }
 ]
 
-export default function Testimonial() {
-
+export default function Testimonials() {
     return (
-
-        <section className="py-20">
+        <section className="py-20 lg:py-28" style={{ background: "#FFFFFF" }}>
             <Container>
-                <div className="flex flex-col lg:flex-row gap-10">
-                    <div className="md:w-1/4">
-                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
-                            {data.title}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                >
+                    {/* Header */}
+                    <div className="text-center mb-14">
+                        <div className="w-14 h-1 mx-auto rounded-full mb-6" style={{ background: "#8E0935" }} />
+                        <h2 style={{ fontFamily: "var(--font-cormorant-garamond)", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 600, color: "#1a0a10" }}>
+                            What Our <span className="italic" style={{ color: "#8E0935" }}>Clients Say</span>
                         </h2>
+                        <p className="max-w-2xl mx-auto mt-4" style={{ fontFamily: "var(--font-poppins)", fontSize: "1.05rem", color: "#6B7280" }}>
+                            Trusted by employers across Russia and the Gulf region
+                        </p>
                     </div>
-                    <div className="md:w-3/4">
-                        <TestimonialSlider testimonials={testimonials} />
+
+                    {/* Testimonials Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {testimonials.map((t, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.15, duration: 0.5 }}
+                                className="p-8 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                                style={{ background: "#FDFBEF", border: "1px solid rgba(142,9,53,0.1)" }}
+                            >
+                                <FaQuoteLeft className="text-2xl mb-4" style={{ color: "#8E0935" }} />
+                                <p className="text-base leading-relaxed mb-6" style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
+                                    &ldquo;{t.text}&rdquo;
+                                </p>
+                                <div className="flex items-center gap-3">
+                                    {/* Flag */}
+                                    <img src={t.flag} alt={`${t.country} flag`} className="w-8 h-auto rounded-sm" loading="lazy" />
+                                    <div>
+                                        <p className="font-bold text-sm" style={{ color: "#1a0a10", fontFamily: "var(--font-lato)" }}>
+                                            {t.name}
+                                        </p>
+                                        <p className="text-xs" style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
+                                            {t.role} · {t.country}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
-                </div>
+                </motion.div>
             </Container>
         </section>
-
     )
-
 }

@@ -4,16 +4,17 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import LenisProvider from "@/components/lenis-provider";
 import Chatbot from "@/components/chatbot";
+import Providers from "@/components/providers";
 
 const cormorantGaramond = Cormorant_Garamond({
     variable: "--font-cormorant-garamond",
-    subsets: ["latin"],
+    subsets: ["latin", "cyrillic"],
 });
 
 const lato = Lato({
 	variable: "--font-lato",
 	weight: ["100","300", "400", "700", "900"],
-	subsets: ["latin"],
+	subsets: ["latin", "latin-ext"],
 });
 
 export const oswald = Oswald({
@@ -24,7 +25,7 @@ export const oswald = Oswald({
 
 export const poppins = Poppins({
 	variable: "--font-poppins",
-	subsets: ["latin"],
+	subsets: ["latin", "latin-ext"],
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
@@ -114,16 +115,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
+		<html lang="ru">
 			<body
 				className={`${cormorantGaramond.variable} ${lato.variable} ${oswald.variable} ${poppins.variable} antialiased`}
 			>
-				<Header />
-				<LenisProvider>
-					{children}
-				</LenisProvider>
-				<Footer />
-				<Chatbot />
+				<Providers>
+					<Header />
+					<LenisProvider>
+						{children}
+					</LenisProvider>
+					<Footer />
+					<Chatbot />
+				</Providers>
 			</body>
 		</html>
 	);

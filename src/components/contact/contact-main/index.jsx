@@ -4,8 +4,7 @@ import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
 import { MdArrowOutward } from "react-icons/md"
 import { FiPhone, FiMail, FiMapPin, FiExternalLink } from "react-icons/fi"
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa"
-import { FaXTwitter } from "react-icons/fa6"
+import { FaWhatsapp, FaTelegramPlane, FaVk } from "react-icons/fa"
 
 const OFFICES = [
     {
@@ -26,15 +25,6 @@ const OFFICES = [
         mapLink: "https://maps.app.goo.gl/8hj6U2PwFGQviqBCA",
     },
     {
-        city: "Jeddah, Saudi Arabia",
-        address: "056, King Fahad Road, Al-Safa District, Jeddah",
-        phone: "+966 532 464 195",
-        email: "ksa@tahaairwaves.com",
-        website: "www.tahaairwaves.com",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118645.1611797207!2d39.117145217436034!3d21.58525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d11159b4f451%3A0x15f5f6e033478b8f!2sAl-Safa%2C%2BJeddah%2BSaudi%2BArabia!5e0!3m2!1sen!2sin!4v1742492931109!5m2!1sen!2sin",
-        mapLink: "https://maps.app.goo.gl/zH53vbogocDCBoAe6",
-    },
-    {
         city: "Moscow, Russia",
         address: "Skolkovo Innovation Center, Malevicha Street, 2k4, 143026",
         phone: "+7 985 074-88-28",
@@ -43,28 +33,17 @@ const OFFICES = [
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.1426425262143!2d37.3377322!3d55.7212732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54fc19d3da9ab%3A0xa53e316700ab8ad7!2zVGFoYSBBaXJ3YXZlcyBSdXNzaWEgLSDQrdC60YHQv9C10YDRgtGLINC_0L4g0L_QvtC00LHQvtGA0YMg0LjQvdC00LjQudGB0LrQuNGFINGA0LDQsdC_0YLQvdC40LrQvtCyINCyINCg0L7RgdGB0LjQuA!5e0!3m2!1sen!2sin!4v1774001324192!5m2!1sen!2sin",
         mapLink: "https://maps.app.goo.gl/z8SxP7mCixzbLGqcA",
     },
-    {
-        city: "Dubai, UAE",
-        address: "Jafza Sales Center, Building 15, Jafza 15, Sheikh Zayed Rd, Jebel Ali Freezone, Dubai",
-        email: "uae@tahaairwaves.com",
-        website: "www.tahaairwaves.com",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14457.747069172462!2d55.039148487158226!3d25.0532296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f1333f6c9d1f9%3A0x5ec239c20b4c3185!2sJebel%2BAli%2BPort!5e0!3m2!1sen!2sin!4v1742493054173!5m2!1sen!2sin",
-        mapLink: "https://maps.app.goo.gl/QTDPTA1U4btyfcBf7",
-    },
 ]
 
 const SERVICES_LIST = [
-    "Cleaners", "Drivers (All Types)", "General Labour", "Factory Helpers",
-    "Packing Workers", "Loading & Unloading", "Barista Workers",
-    "Emigration & Immigration", "Document Attestation", "Hajj & Umrah Travel",
-    "Employee Outsourcing", "Other",
+    "Cleaners", "Drivers (All Types)", "General Workers", "Factory Workers",
+    "Packing Workers", "Loading & Unloading", "Technicians",
+    "Visa & Documentation", "Employee Outsourcing", "Other",
 ]
 
 const socials = [
-    { icon: <FaFacebookF />, href: "https://facebook.com/tahaairwaves1", label: "Facebook", bg: "#1877F2" },
-    { icon: <FaInstagram />, href: "https://www.instagram.com/taha_airwaves", label: "Instagram", bg: "#E4405F" },
-    { icon: <FaLinkedinIn />, href: "https://linkedin.com/company/tahaairwaves", label: "LinkedIn", bg: "#0A66C2" },
-    { icon: <FaXTwitter />, href: "https://x.com/tahaairwaves", label: "X", bg: "#000" },
+    { icon: <FaVk />, href: "https://vk.com/tahaairwaves", label: "VK", bg: "#4680C2" },
+    { icon: <FaTelegramPlane />, href: "https://t.me/tahaairwaves", label: "Telegram", bg: "#0088CC" },
     { icon: <FaWhatsapp />, href: "https://wa.me/919315226961", label: "WhatsApp", bg: "#25D366" },
 ]
 
@@ -106,7 +85,7 @@ export default function ContactMain() {
                         Get in <span className="italic" style={{ color: "#8E0935" }}>Touch</span>
                     </h1>
                     <p className="mt-4 max-w-xl" style={{ fontFamily: "var(--font-poppins)", fontSize: "1rem", color: "#6B7280" }}>
-                        Whether you&apos;re an employer seeking manpower or a job seeker looking for opportunities, we&apos;re here to help.
+                        Whether you&apos;re an employer seeking manpower or looking for professional workforce solutions in Russia, we&apos;re here to help.
                     </p>
                 </div>
 
@@ -161,49 +140,49 @@ export default function ContactMain() {
                         </form>
                     </motion.div>
 
-                    {/* Contact Info */}
+                    {/* Contact Info — White card instead of dark */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="lg:col-span-2 space-y-6"
                     >
-                        <div className="p-6 rounded-2xl" style={{ background: "#1a0a10" }}>
-                            <h3 className="mb-4" style={{ fontFamily: "var(--font-lato)", fontSize: "1.1rem", fontWeight: 700, color: "#FDFBEF" }}>
+                        <div className="p-6 rounded-2xl" style={{ background: "#FFFFFF", border: "1px solid rgba(142,9,53,0.1)" }}>
+                            <h3 className="mb-4" style={{ fontFamily: "var(--font-lato)", fontSize: "1.1rem", fontWeight: 700, color: "#1a0a10" }}>
                                 Direct Contact
                             </h3>
                             <div className="space-y-4">
                                 <a href="tel:+919315226961" className="flex items-center gap-3 group">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(142,9,53,0.3)" }}>
-                                        <FiPhone style={{ color: "#BC264B" }} />
+                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(142,9,53,0.08)" }}>
+                                        <FiPhone style={{ color: "#8E0935" }} />
                                     </div>
                                     <div>
-                                        <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(253,251,239,0.3)", fontFamily: "var(--font-lato)" }}>Phone</p>
-                                        <p className="text-sm font-medium" style={{ color: "rgba(253,251,239,0.7)", fontFamily: "var(--font-poppins)" }}>+91 93152 26961</p>
+                                        <p className="text-xs uppercase tracking-widest" style={{ color: "#9CA3AF", fontFamily: "var(--font-lato)" }}>Phone</p>
+                                        <p className="text-sm font-medium" style={{ color: "#1a0a10", fontFamily: "var(--font-poppins)" }}>+91 93152 26961</p>
                                     </div>
                                 </a>
                                 <a href="mailto:info@tahaairwaves.com" className="flex items-center gap-3 group">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(142,9,53,0.3)" }}>
-                                        <FiMail style={{ color: "#BC264B" }} />
+                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(142,9,53,0.08)" }}>
+                                        <FiMail style={{ color: "#8E0935" }} />
                                     </div>
                                     <div>
-                                        <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(253,251,239,0.3)", fontFamily: "var(--font-lato)" }}>Email</p>
-                                        <p className="text-sm font-medium" style={{ color: "rgba(253,251,239,0.7)", fontFamily: "var(--font-poppins)" }}>info@tahaairwaves.com</p>
+                                        <p className="text-xs uppercase tracking-widest" style={{ color: "#9CA3AF", fontFamily: "var(--font-lato)" }}>Email</p>
+                                        <p className="text-sm font-medium" style={{ color: "#1a0a10", fontFamily: "var(--font-poppins)" }}>info@tahaairwaves.com</p>
                                     </div>
                                 </a>
                                 <a href="https://wa.me/919315226961" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(37,211,102,0.2)" }}>
-                                        <FaWhatsapp style={{ color: "#25D366" }} />
+                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(142,9,53,0.08)" }}>
+                                        <FaWhatsapp style={{ color: "#8E0935" }} />
                                     </div>
                                     <div>
-                                        <p className="text-xs uppercase tracking-widest" style={{ color: "rgba(253,251,239,0.3)", fontFamily: "var(--font-lato)" }}>WhatsApp</p>
-                                        <p className="text-sm font-medium" style={{ color: "rgba(253,251,239,0.7)", fontFamily: "var(--font-poppins)" }}>+91 93152 26961</p>
+                                        <p className="text-xs uppercase tracking-widest" style={{ color: "#9CA3AF", fontFamily: "var(--font-lato)" }}>WhatsApp</p>
+                                        <p className="text-sm font-medium" style={{ color: "#1a0a10", fontFamily: "var(--font-poppins)" }}>+91 93152 26961</p>
                                     </div>
                                 </a>
                             </div>
                         </div>
 
-                        {/* Social */}
+                        {/* Social — VK, Telegram, WhatsApp */}
                         <div className="p-6 rounded-2xl" style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}>
                             <h3 className="mb-4" style={{ fontFamily: "var(--font-lato)", fontSize: "1rem", fontWeight: 700, color: "#1a0a10" }}>Follow Us</h3>
                             <div className="flex gap-3">
@@ -219,7 +198,7 @@ export default function ContactMain() {
                     </motion.div>
                 </div>
 
-                {/* Offices with Embedded Maps */}
+                {/* Offices with Embedded Maps — Russia-focused (removed Jeddah/Dubai) */}
                 <div className="mb-12">
                     <h2 className="mb-8" style={{ fontFamily: "var(--font-cormorant-garamond)", fontSize: "2rem", fontWeight: 600, color: "#1a0a10" }}>
                         Our <span style={{ color: "#8E0935" }}>Offices</span>
