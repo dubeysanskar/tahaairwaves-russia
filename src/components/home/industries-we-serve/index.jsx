@@ -47,7 +47,7 @@ export default function IndustriesWeServe() {
                         fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)",
                         color: "#6B7280",
                     }}>
-                        Specialized manpower solutions across high-demand sectors worldwide
+                        Specialized workforce solutions across high-demand sectors in Russia
                     </p>
                 </div>
 
