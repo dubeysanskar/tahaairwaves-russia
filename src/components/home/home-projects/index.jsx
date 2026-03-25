@@ -14,7 +14,7 @@ const SERVICES = [
         titleEn: "Cleaners & Housekeeping", titleRu: "Уборщики и клининг",
         descEn: "Professionally trained staff for hotels, hospitals, commercial complexes, and residential facilities across Russia.",
         descRu: "Профессионально обученный персонал для отелей, больниц, коммерческих и жилых объектов России.",
-        image: "/images/services/main-img/10.jpg",
+        image: "/service-and-blog/Cleaners.jpeg",
         tags: ["Hotels", "Hospitals", "Commercial"],
     },
     {
@@ -22,7 +22,7 @@ const SERVICES = [
         titleEn: "All Types of Drivers", titleRu: "Водители всех категорий",
         descEn: "Licensed drivers for light and heavy vehicles, construction equipment, and specialized transport.",
         descRu: "Лицензированные водители для лёгкого и тяжёлого транспорта, строительной техники.",
-        image: "/images/services/main-img/11.jpg",
+        image: "/service-and-blog/drivers.jpeg",
         tags: ["Light", "Heavy", "Construction"],
     },
     {
@@ -30,7 +30,7 @@ const SERVICES = [
         titleEn: "General Labour", titleRu: "Разнорабочие",
         descEn: "Reliable labourers for construction sites, warehouses, factories, and infrastructure projects in Russia.",
         descRu: "Надёжные рабочие для строительных площадок, складов и инфраструктурных проектов в России.",
-        image: "/images/services/main-img/12.jpg",
+        image: "/service-and-blog/General-labours.jpeg",
         tags: ["Construction", "Warehouse"],
     },
     {
@@ -38,7 +38,7 @@ const SERVICES = [
         titleEn: "Factory Helpers", titleRu: "Помощники на заводе",
         descEn: "Trained assistants for manufacturing, assembly lines, packaging, QC, and production support.",
         descRu: "Обученные ассистенты для производственных линий, упаковки и контроля качества.",
-        image: "/images/services/main-img/13.png",
+        image: "/service-and-blog/Factory-helpers.jpeg",
         tags: ["Manufacturing", "Assembly"],
     },
     {
@@ -46,7 +46,7 @@ const SERVICES = [
         titleEn: "Emigration Clearance", titleRu: "Оформление эмиграции",
         descEn: "Complete visa processing, documentation, emigration clearance and compliance management for Russia.",
         descRu: "Полное визовое оформление, документация и управление соответствием для России.",
-        image: "/images/services/main-img/14.webp",
+        image: "/service-and-blog/Immigration-clearance.jpeg",
         tags: ["Visa", "Documentation"],
     },
     {
@@ -54,7 +54,7 @@ const SERVICES = [
         titleEn: "Employee Outsourcing", titleRu: "Аутсорсинг персонала",
         descEn: "Complete HR outsourcing — temporary and permanent staffing with payroll and compliance end-to-end.",
         descRu: "Комплексное кадровое обеспечение — временный и постоянный штат, расчёт зарплат.",
-        image: "/images/services/main-img/15.jpg",
+        image: "/service-and-blog/employe-outsourcing-.jpeg",
         tags: ["HR", "Staffing", "Payroll"],
     },
 ]
@@ -77,7 +77,7 @@ export default function ServicesShowcase() {
                             <div>
                                 <div className="flex items-center gap-3 mb-3">
                                     <FlowLine width={40} height={2} color="#8E0935" />
-                                    <span className="text-[10px] tracking-[0.2em] uppercase font-bold"
+                                    <span className="text-sm tracking-[0.2em] uppercase font-bold"
                                         style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
                                         {lang === 'ru' ? 'Услуги' : 'All Services'}
                                     </span>
@@ -139,13 +139,13 @@ export default function ServicesShowcase() {
                                                 style={{ fontFamily: "var(--font-inter)", color: "#1A1A1A" }}>
                                                 {lang === 'ru' ? svc.titleRu : svc.titleEn}
                                             </h3>
-                                            <p className="text-xs leading-relaxed flex-1 mb-4"
+                                            <p className="text-sm leading-relaxed flex-1 mb-4"
                                                 style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
                                                 {lang === 'ru' ? svc.descRu : svc.descEn}
                                             </p>
                                             <div className="flex flex-wrap gap-1.5">
                                                 {svc.tags.map((tag) => (
-                                                    <span key={tag} className="text-[10px] font-semibold px-2 py-0.5 rounded-sm"
+                                                    <span key={tag} className="text-xs font-semibold px-2 py-0.5 rounded-sm"
                                                         style={{ background: "rgba(142,9,53,0.06)", color: "#8E0935", fontFamily: "var(--font-inter)" }}>
                                                         {tag}
                                                     </span>

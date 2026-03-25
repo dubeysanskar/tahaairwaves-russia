@@ -26,9 +26,9 @@ const serviceLinksData = [
 ]
 
 const offices = [
-    { label: "New Delhi, India", mapUrl: "https://maps.google.com/?q=28.5699,77.2721" },
-    { label: "Noida, India", mapUrl: "https://maps.google.com/?q=28.5355,77.3910" },
-    { label: "Moscow, Russia", mapUrl: "https://maps.google.com/?q=55.7558,37.6173" },
+    { label: "New Delhi, India", href: "/contact#office-delhi" },
+    { label: "Noida, India", href: "/contact#office-noida" },
+    { label: "Moscow, Russia", href: "/contact#office-moscow" },
 ]
 
 const socials = [
@@ -47,30 +47,14 @@ export default function Footer() {
             {/* Top brand accent */}
             <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "#8E0935" }} />
 
-            {/* Globe SVG background */}
-            <svg className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 opacity-[0.04] pointer-events-none hidden lg:block" width="700" height="700" viewBox="0 0 700 700" fill="none" aria-hidden="true">
-                {/* Outer rings */}
-                <circle cx="350" cy="350" r="340" stroke="#FDFBEF" strokeWidth="0.5" />
-                <circle cx="350" cy="350" r="310" stroke="#FDFBEF" strokeWidth="0.3" strokeDasharray="8 6" />
-                <circle cx="350" cy="350" r="280" stroke="#BC264B" strokeWidth="0.6" />
-                {/* Meridians */}
-                <ellipse cx="350" cy="350" rx="280" ry="280" stroke="#FDFBEF" strokeWidth="0.4" />
-                <ellipse cx="350" cy="350" rx="190" ry="280" stroke="#FDFBEF" strokeWidth="0.3" />
-                <ellipse cx="350" cy="350" rx="100" ry="280" stroke="#FDFBEF" strokeWidth="0.3" />
-                {/* Parallels */}
-                <ellipse cx="350" cy="350" rx="280" ry="90" stroke="#FDFBEF" strokeWidth="0.3" />
-                <ellipse cx="350" cy="280" rx="260" ry="60" stroke="#FDFBEF" strokeWidth="0.2" />
-                <ellipse cx="350" cy="420" rx="260" ry="60" stroke="#FDFBEF" strokeWidth="0.2" />
-                <ellipse cx="350" cy="200" rx="200" ry="40" stroke="#FDFBEF" strokeWidth="0.2" />
-                <ellipse cx="350" cy="500" rx="200" ry="40" stroke="#FDFBEF" strokeWidth="0.2" />
-                {/* Rotating dash ring */}
-                <circle cx="350" cy="350" r="260" stroke="#BC264B" strokeWidth="0.8" strokeDasharray="6 4">
-                    <animateTransform attributeName="transform" type="rotate" values="0 350 350;360 350 350" dur="60s" repeatCount="indefinite" />
-                </circle>
-                {/* Marker dots */}
-                <circle cx="420" cy="250" r="4" fill="#8E0935" opacity="0.5" />
-                <circle cx="400" cy="400" r="4" fill="#BC264B" opacity="0.5" />
-            </svg>
+            {/* World map image background */}
+            <img
+                src="/images/world-map.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full max-w-[900px]"
+                style={{ objectFit: "contain", opacity: 0.08 }}
+            />
 
             {/* Dot pattern — top left */}
             <svg className="absolute top-10 left-10 opacity-[0.06] hidden lg:block" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
@@ -95,7 +79,7 @@ export default function Footer() {
                         <Link href="/">
                             <Image src="/LOGO.png" alt="Taha Airwaves" width={160} height={50} className="h-10 w-auto mb-4" />
                         </Link>
-                        <p className="text-xs leading-relaxed mb-4"
+                        <p className="text-sm leading-relaxed mb-4"
                             style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-poppins)" }}>
                             {t('footerDesc')}
                         </p>
@@ -121,7 +105,7 @@ export default function Footer() {
                             {quickLinksData.map((l) => (
                                 <li key={l.key}>
                                     <Link href={l.href}
-                                        className="text-xs transition-colors duration-200 hover:text-white"
+                                        className="text-sm transition-colors duration-200 hover:text-white"
                                         style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
                                         {t(l.key)}
                                     </Link>
@@ -140,7 +124,7 @@ export default function Footer() {
                             {serviceLinksData.map((l) => (
                                 <li key={l.key}>
                                     <Link href={l.href}
-                                        className="text-xs transition-colors duration-200 hover:text-white"
+                                        className="text-sm transition-colors duration-200 hover:text-white"
                                         style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
                                         {t(l.key)}
                                     </Link>
@@ -152,45 +136,50 @@ export default function Footer() {
                     {/* Offices */}
                     <div>
                         <h4 className="text-[10px] tracking-[0.2em] uppercase font-bold mb-5"
-                            style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
+                            style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
                             {t('ourOffices')}
                         </h4>
                         <ul className="space-y-2">
                             {offices.map((o) => (
                                 <li key={o.label}>
-                                    <a href={o.mapUrl} target="_blank" rel="noopener noreferrer"
-                                        className="text-xs flex items-center gap-1.5 transition-colors duration-200 hover:text-white"
+                                    <Link href={o.href}
+                                        className="text-sm flex items-center gap-1.5 transition-colors duration-200 hover:text-white"
                                         style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
                                         <FiMapPin style={{ color: "#BC264B", flexShrink: 0 }} size={10} />
                                         {o.label}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Contact */}
+                    {/* Contact — Russian data */}
                     <div>
                         <h4 className="text-[10px] tracking-[0.2em] uppercase font-bold mb-5"
-                            style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
+                            style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
                             {t('contact')}
                         </h4>
                         <div className="space-y-2.5">
+                            <a href="tel:+74951234567"
+                                className="flex items-center gap-2 text-sm hover:text-white transition-colors"
+                                style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
+                                <FiPhone style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> +7 (495) 123-45-67
+                            </a>
                             <a href="tel:+919315226961"
-                                className="flex items-center gap-2 text-xs hover:text-white transition-colors"
+                                className="flex items-center gap-2 text-sm hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
                                 <FiPhone style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> +91 93152 26961
                             </a>
-                            <a href="mailto:info@tahaairwaves.com"
-                                className="flex items-center gap-2 text-xs hover:text-white transition-colors"
+                            <a href="mailto:russia@tahaairwaves.ru"
+                                className="flex items-center gap-2 text-sm hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
-                                <FiMail style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> info@tahaairwaves.com
+                                <FiMail style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> russia@tahaairwaves.ru
                             </a>
-                            <a href="https://maps.google.com/?q=28.5699,77.2721" target="_blank" rel="noopener noreferrer"
-                                className="flex items-start gap-2 text-xs hover:text-white transition-colors"
+                            <a href="https://maps.google.com/?q=55.7558,37.6173" target="_blank" rel="noopener noreferrer"
+                                className="flex items-start gap-2 text-sm hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
                                 <FiMapPin style={{ color: "#BC264B", flexShrink: 0, marginTop: "2px" }} size={11} />
-                                71A, 3rd Floor, New Friends Colony, New Delhi 110025
+                                Москва, Россия
                             </a>
                         </div>
                     </div>

@@ -398,3 +398,101 @@ Comprehensive redesign round addressing client feedback: hero text/form visibili
 ### Build status
 - Session 6 build: ✅ Exit code 0 (27 pages generated)
 
+---
+
+## SESSION 7 — Splash Screen, Section Redesigns & Services/About Overhaul (March 25, 2026)
+
+### New Files
+| File | Purpose |
+|---|---|
+| `src/components/splash/index.jsx` | Multilingual "Hello" splash screen — EN first (300ms), 8 rapid greetings (80ms each), Russian last (350ms), total ~1.5s |
+
+### Modified Components
+
+#### Splash Screen (`src/components/splash/index.jsx`)
+- 10 languages: Hello, Bonjour, Hola, مرحباً, नमस्ते, Olá, Hallo, こんにちは, 你好, Привет
+- Dark background, subtle globe SVG, magenta progress bar, logo at bottom
+- First/last greetings brighter + longer, middle ones rapid + dimmer
+
+#### Providers (`src/components/providers.jsx`)
+- Integrated SplashScreen on mount, children hidden until splash completes
+
+#### What We Do (`src/components/home/what-we-do/index.jsx`)
+- **Complete redesign**: Horizontal card layout with icon + content side-by-side
+- FlowLine connectors, hover icon rotation, CornerOrnaments
+- Hardcoded bilingual text, CircuitLines background decoration
+
+#### How It Works (`src/components/home/how-it-works/index.jsx`)
+- **Complete redesign**: Dark section with animated vertical timeline
+- Alternating left/right cards, step nodes on timeline
+- Animated connector line (grows on scroll), custom SVG icons
+- DotGrid, GeometricFrame, CircuitLines decorations
+
+#### Services Page (`src/components/services/services-main/index.jsx`)
+- **Complete redesign**: Full-width hero banner with background image + dark gradient
+- GlobeWireframe, CornerOrnaments, DotGrid decorations
+- Premium card grid with hover zoom, number badges, arrow overlays
+- All text hardcoded bilingual (no translation key dependencies)
+
+#### About Page (`src/components/about/about-main/index.jsx`)
+- **Hero banner**: Full-width with `about-story.png`, dark gradient, GlobeWireframe
+- Stats cards with hover effects, values cards with accent bars + CornerOrnaments
+- Global Presence dark card with GlobeWireframe background
+- All text hardcoded bilingual, updated to brand colors (#8E0935, #BC264B, #FDFBEF)
+
+### Build status
+- Session 7 build: ✅ Exit code 0
+
+---
+
+## PHASE 8: SESSION 7f — SPLASH FIX, FONT SIZES, ABOUT EXPANSION (March 25, 2026)
+
+### File: `src/components/providers.jsx` — SPLASH SCREEN FIX
+**Root cause**: Previous implementation caused two issues:
+1. An opacity wrapper div (`opacity: 0 → 1`) created a "curtain" fade-in effect
+2. Hydration mismatch (`typeof window` check in useState) caused a flash of the splash on every render
+
+**Final fix**:
+- `showSplash` starts as `false` (matches server render → no hydration mismatch)
+- `useEffect` runs once on mount: if no `sessionStorage('taha_sp')` key → show splash
+- After splash completes, key is set → splash never shows again during session
+- On client navigation, Providers stays mounted → `useEffect` never re-runs → no splash flash
+- Removed: opacity wrapper div, `window.__TAHA_SPLASH_SHOWN` flag, all inline HTML splash attempts
+
+### File: `src/app/layout.js` — CLEANED
+- Removed inline HTML/CSS/script splash that was breaking the site
+- Clean layout with only: Providers > Header > LenisProvider > children > Footer > Chatbot
+
+### File: `src/components/home/what-we-do/index.jsx` — BENTO LAYOUT REDESIGN
+- Top 2 cards: large, dark gradient backgrounds (magenta/burgundy), glassmorphism icon blocks
+- Bottom 3 cards: white with gradient accent bars, hover -translate-y-2 + shadow-2xl
+- Ghost numbering (04–05), corner ornaments, FlowLine connectors
+- All text `text-base` for descriptions, `text-lg`/`text-xl` for headings
+
+### File: `src/components/about/about-main/index.jsx` — FULL CONTENT EXPANSION
+**New sections added:**
+- **Our Story**: 3 full paragraphs (company overview, objective, RA License info)
+- **Mission / Vision / Strategy**: Dark `#1A1A1A` section, 3 large cards with icons
+- **Core Values**: Integrity, Excellence, Global Reach, People First (4 cards)
+- **Industries We Cover**: 17 industry tags (IT, Banking, Construction, Healthcare, etc.)
+- Global Presence + License info sections retained
+- All text hardcoded bilingual (EN/RU)
+
+### Grey Font Size Increases (global)
+| File | Change |
+|---|---|
+| `our-strength/index.jsx` | subtitle `text-sm→text-base`, metric labels `text-xs→text-sm`, descriptions `text-xs→text-sm` |
+| `home-projects/index.jsx` | descriptions `text-xs→text-sm`, tags `text-[10px]→text-xs`, section label `text-[10px]→text-sm` |
+| `footer/index.jsx` | intro para `text-xs→text-sm`, all links `text-xs→text-sm`, contact details `text-xs→text-sm` |
+| `about-main/index.jsx` | hero subtitle `text-sm→text-base`, story text `text-base`, all descriptions `text-base` |
+
+### File: `src/components/contact/contact-main/index.jsx` — HASH NAVIGATION
+- Added unique IDs: `office-delhi`, `office-noida`, `office-moscow`
+- `useEffect` on mount detects URL hash → auto-selects matching office tab + scrolls
+
+### File: `src/components/footer/index.jsx` — HASH LINKS + MAP BG
+- Office links now use hash navigation: `/contact#office-delhi`, `/contact#office-noida`, `/contact#office-moscow`
+- Integrated `world-map.png` as subtle footer background (8% opacity)
+
+### Build status
+- Session 7f: Verified via browser — all pages render, splash only on first load

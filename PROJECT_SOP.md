@@ -2,7 +2,7 @@
 
 > **Standard Operating Procedure & Complete Context Document**
 > This document provides full context for any developer or AI tool working on this project.
-> Last updated: March 25, 2026 (Session 6 — SVG Decorations & Component Redesign)
+> Last updated: March 25, 2026 (Session 7f — Splash Fix, Font Sizes, About Expansion & Git Push)
 
 ---
 
@@ -209,6 +209,9 @@ npm run build && npm start  # Production
 9. **Russian default** — Site loads in Russian, toggle switches to English
 10. **Hero bg-only animation** — Only background images crossfade, content is static
 11. **Hero contact form** — Right side of hero on desktop
+12. **Splash screen** — Multilingual "Hello" greeting animation in `src/components/splash/index.jsx`. Controlled by `providers.jsx` via `sessionStorage('taha_sp')` — shows ONLY on first page load, NEVER on client-side navigation. `showSplash` state starts `false` → `useEffect` enables it once if no key. NEVER use inline HTML splash in layout.js (causes site breakage).
+13. **About page** — Full content: Our Story (3 paragraphs), Mission/Vision/Strategy, Core Values (4 cards), Industries (17 tags), Global Presence
+14. **Footer office links** — Hash navigation to contact page: `/contact#office-delhi`, `/contact#office-noida`, `/contact#office-moscow`
 
 ---
 

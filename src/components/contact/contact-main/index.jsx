@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useInView } from "framer-motion"
 import { MdArrowOutward } from "react-icons/md"
 import { FiPhone, FiMail, FiMapPin, FiExternalLink } from "react-icons/fi"
@@ -9,6 +9,7 @@ import { useLanguage } from "@/context/language"
 
 const OFFICES = [
     {
+        id: "office-delhi",
         city: "India (Delhi) — Head Office",
         address: "71A, 3rd Floor, Block A, Taimoor Nagar, New Friends Colony, New Delhi 110065",
         phone: "+91 93152 26961",
@@ -18,6 +19,7 @@ const OFFICES = [
         mapLink: "https://maps.app.goo.gl/GvS2Xn4ZrGqcfmbS8",
     },
     {
+        id: "office-noida",
         city: "India (Noida)",
         address: "Bhutani Alphathum, Tower C, 2nd Floor, A06, Sector 90, Noida, Uttar Pradesh 201304",
         email: "marketing@tahaairwaves.com",
@@ -26,6 +28,7 @@ const OFFICES = [
         mapLink: "https://maps.app.goo.gl/8hj6U2PwFGQviqBCA",
     },
     {
+        id: "office-moscow",
         city: "Moscow, Russia",
         address: "Skolkovo Innovation Center, Malevicha Street, 2k4, 143026",
         phone: "+7 985 074-88-28",
@@ -57,6 +60,22 @@ export default function ContactMain() {
     const [sent, setSent] = useState(false)
     const [error, setError] = useState('')
     const [selectedOffice, setSelectedOffice] = useState(0)
+
+    // Handle URL hash to auto-select office tab and scroll
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '')
+        if (hash) {
+            const officeIndex = OFFICES.findIndex(o => o.id === hash)
+            if (officeIndex !== -1) {
+                setSelectedOffice(officeIndex)
+                // Wait for render then scroll to offices section
+                setTimeout(() => {
+                    const el = document.getElementById('offices-section')
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }, 300)
+            }
+        }
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -194,8 +213,8 @@ export default function ContactMain() {
                     </motion.div>
                 </div>
 
-                {/* Offices with Embedded Maps — Russia-focused (removed Jeddah/Dubai) */}
-                <div className="mb-12">
+                {/* Offices with Embedded Maps — Russia-focused */}
+                <div id="offices-section" className="mb-12">
                     <h2 className="mb-8 font-black" style={{ fontFamily: "var(--font-inter)", fontSize: "2rem", color: "#262626" }}>
                         {lang === 'ru' ? 'Наши' : 'Our'} <span style={{ color: "#8A0029" }}>{lang === 'ru' ? 'офисы' : 'Offices'}</span>
                     </h2>

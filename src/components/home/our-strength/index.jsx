@@ -80,7 +80,7 @@ export default function OurStrength() {
                             style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FDFBEF" }}>
                             {t('strengthTitle')} <span style={{ color: "#BC264B" }}>{t('strengthTitleAccent')}</span>
                         </h2>
-                        <p className="text-sm" style={{ fontFamily: "var(--font-poppins)", color: "rgba(253,251,239,0.4)" }}>
+                        <p className="text-base" style={{ fontFamily: "var(--font-poppins)", color: "rgba(253,251,239,0.4)" }}>
                             {t('strengthSubtitle')}
                         </p>
                     </motion.div>
@@ -108,11 +108,11 @@ export default function OurStrength() {
                                     <AnimatedCounter value={t(m.valueKey).replace('+', '')} inView={inView} />
                                     {m.suffix}
                                 </p>
-                                <p className="text-xs font-bold uppercase tracking-wider mb-2"
+                                <p className="text-sm font-bold uppercase tracking-wider mb-2"
                                     style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
                                     {t(m.labelKey)}
                                 </p>
-                                <p className="text-xs leading-relaxed"
+                                <p className="text-sm leading-relaxed"
                                     style={{ color: "rgba(253,251,239,0.3)", fontFamily: "var(--font-poppins)" }}>
                                     {t(m.descKey)}
                                 </p>
