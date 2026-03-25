@@ -32,7 +32,7 @@ export default function BlogPage() {
                     >
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-bold"
+                            <span className="text-sm tracking-[0.2em] uppercase font-bold"
                                 style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
                                 {t('pageBlogTitle')}
                             </span>
@@ -45,7 +45,7 @@ export default function BlogPage() {
                                 <>Latest <span style={{ color: "#8A0029" }}>Insights</span></>
                             )}
                         </h1>
-                        <p className="max-w-lg text-sm leading-relaxed"
+                        <p className="max-w-lg text-base leading-relaxed"
                             style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
                             {lang === 'ru'
                                 ? "Тенденции российского рынка труда, руководства по развёртыванию, обновления по соответствию требованиям и аналитика."
@@ -73,24 +73,24 @@ export default function BlogPage() {
 
                                         {/* Category + read time */}
                                         <div className="flex items-center justify-between">
-                                            <span className="text-[10px] tracking-[0.15em] uppercase font-black px-2 py-0.5 rounded"
+                                            <span className="text-xs tracking-[0.15em] uppercase font-black px-2.5 py-1 rounded"
                                                 style={{ background: "rgba(138,0,41,0.08)", color: "#8A0029", fontFamily: "var(--font-inter)" }}>
-                                                {post.category}
+                                                {lang === 'ru' && post.category_ru ? post.category_ru : post.category}
                                             </span>
-                                            <span className="text-[10px]"
+                                            <span className="text-sm"
                                                 style={{ color: "#9CA3AF", fontFamily: "var(--font-inter)" }}>
-                                                {post.readTime}
+                                                {lang === 'ru' && post.readTime_ru ? post.readTime_ru : post.readTime}
                                             </span>
                                         </div>
 
                                         {/* Title */}
-                                        <h3 className="text-base font-black leading-snug transition-colors duration-300 group-hover:text-[#8A0029]"
+                                        <h3 className="text-lg font-black leading-snug transition-colors duration-300 group-hover:text-[#8A0029]"
                                             style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
                                             {lang === 'ru' && post.title_ru ? post.title_ru : post.title}
                                         </h3>
 
                                         {/* Excerpt */}
-                                        <p className="text-xs leading-relaxed flex-1"
+                                        <p className="text-sm leading-relaxed flex-1"
                                             style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
                                             {lang === 'ru' && post.excerpt_ru ? post.excerpt_ru : post.excerpt}
                                         </p>
@@ -98,7 +98,7 @@ export default function BlogPage() {
                                         {/* Footer */}
                                         <div className="flex items-center justify-between pt-4"
                                             style={{ borderTop: "1px solid rgba(38,38,38,0.07)" }}>
-                                            <span className="text-[10px] font-medium"
+                                            <span className="text-sm font-medium"
                                                 style={{ color: "#9CA3AF", fontFamily: "var(--font-inter)" }}>{post.date}</span>
                                             <div className="flex items-center gap-1.5 text-xs font-black transition-all duration-300 group-hover:gap-2.5"
                                                 style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>

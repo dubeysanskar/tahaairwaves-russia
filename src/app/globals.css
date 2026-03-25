@@ -30,22 +30,7 @@ body {
 	outline-offset: 2px;
 }
 
-/* === SHUTTER ANIMATION — Hero reveal === */
-@keyframes shutterLeft {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(-100%); }
-}
-@keyframes shutterRight {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(100%); }
-}
 
-.shutter-panel-left {
-	animation: shutterLeft 1.2s cubic-bezier(0.76, 0, 0.24, 1) 0.5s forwards;
-}
-.shutter-panel-right {
-	animation: shutterRight 1.2s cubic-bezier(0.76, 0, 0.24, 1) 0.5s forwards;
-}
 
 /* === SCROLL REVEAL utilities === */
 @keyframes fadeSlideUp {

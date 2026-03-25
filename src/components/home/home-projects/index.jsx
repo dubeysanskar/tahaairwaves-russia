@@ -15,7 +15,7 @@ const SERVICES = [
         descEn: "Professionally trained staff for hotels, hospitals, commercial complexes, and residential facilities across Russia.",
         descRu: "Профессионально обученный персонал для отелей, больниц, коммерческих и жилых объектов России.",
         image: "/service-and-blog/Cleaners.jpeg",
-        tags: ["Hotels", "Hospitals", "Commercial"],
+        tags: ["Hotels", "Hospitals", "Commercial"], tags_ru: ["Отели", "Больницы", "Коммерция"],
     },
     {
         id: "02", slug: "all-types-of-drivers",
@@ -23,7 +23,7 @@ const SERVICES = [
         descEn: "Licensed drivers for light and heavy vehicles, construction equipment, and specialized transport.",
         descRu: "Лицензированные водители для лёгкого и тяжёлого транспорта, строительной техники.",
         image: "/service-and-blog/drivers.jpeg",
-        tags: ["Light", "Heavy", "Construction"],
+        tags: ["Light", "Heavy", "Construction"], tags_ru: ["Лёгкие", "Тяжёлые", "Строительство"],
     },
     {
         id: "03", slug: "general-labour",
@@ -31,7 +31,7 @@ const SERVICES = [
         descEn: "Reliable labourers for construction sites, warehouses, factories, and infrastructure projects in Russia.",
         descRu: "Надёжные рабочие для строительных площадок, складов и инфраструктурных проектов в России.",
         image: "/service-and-blog/General-labours.jpeg",
-        tags: ["Construction", "Warehouse"],
+        tags: ["Construction", "Warehouse"], tags_ru: ["Строительство", "Склад"],
     },
     {
         id: "04", slug: "factory-helpers",
@@ -39,7 +39,7 @@ const SERVICES = [
         descEn: "Trained assistants for manufacturing, assembly lines, packaging, QC, and production support.",
         descRu: "Обученные ассистенты для производственных линий, упаковки и контроля качества.",
         image: "/service-and-blog/Factory-helpers.jpeg",
-        tags: ["Manufacturing", "Assembly"],
+        tags: ["Manufacturing", "Assembly"], tags_ru: ["Производство", "Сборка"],
     },
     {
         id: "05", slug: "emigration-immigration-clearance",
@@ -47,7 +47,7 @@ const SERVICES = [
         descEn: "Complete visa processing, documentation, emigration clearance and compliance management for Russia.",
         descRu: "Полное визовое оформление, документация и управление соответствием для России.",
         image: "/service-and-blog/Immigration-clearance.jpeg",
-        tags: ["Visa", "Documentation"],
+        tags: ["Visa", "Documentation"], tags_ru: ["Виза", "Документы"],
     },
     {
         id: "06", slug: "employee-outsourcing-solutions",
@@ -55,7 +55,7 @@ const SERVICES = [
         descEn: "Complete HR outsourcing — temporary and permanent staffing with payroll and compliance end-to-end.",
         descRu: "Комплексное кадровое обеспечение — временный и постоянный штат, расчёт зарплат.",
         image: "/service-and-blog/employe-outsourcing-.jpeg",
-        tags: ["HR", "Staffing", "Payroll"],
+        tags: ["HR", "Staffing", "Payroll"], tags_ru: ["Кадры", "Персонал", "Зарплата"],
     },
 ]
 
@@ -144,8 +144,8 @@ export default function ServicesShowcase() {
                                                 {lang === 'ru' ? svc.descRu : svc.descEn}
                                             </p>
                                             <div className="flex flex-wrap gap-1.5">
-                                                {svc.tags.map((tag) => (
-                                                    <span key={tag} className="text-xs font-semibold px-2 py-0.5 rounded-sm"
+                                                {(lang === 'ru' ? svc.tags_ru : svc.tags).map((tag, ti) => (
+                                                    <span key={ti} className="text-xs font-semibold px-2 py-0.5 rounded-sm"
                                                         style={{ background: "rgba(142,9,53,0.06)", color: "#8E0935", fontFamily: "var(--font-inter)" }}>
                                                         {tag}
                                                     </span>

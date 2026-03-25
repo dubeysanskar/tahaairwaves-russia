@@ -2,7 +2,7 @@
 
 > **Standard Operating Procedure & Complete Context Document**
 > This document provides full context for any developer or AI tool working on this project.
-> Last updated: March 25, 2026 (Session 7f — Splash Fix, Font Sizes, About Expansion & Git Push)
+> Last updated: March 25, 2026 (Session 8 — Full Localization, Contact Update, Blog & Service Pages Russia Focus)
 
 ---
 
@@ -58,22 +58,22 @@ This website is a **Russia-market focused** deployment of Taha Airwaves, serving
 
 ### 2.2 Typography
 
-All fonts loaded via `next/font/google` in `layout.js`. Cormorant Garamond includes `cyrillic` subset for Russian text.
+All fonts loaded via `next/font/google` in `layout.js`. Inter includes `cyrillic` subset for Russian text.
 
 | Font | CSS Variable | Weight(s) | Usage |
 |---|---|---|---|
-| **Cormorant Garamond** | `--font-cormorant-garamond` | 300,400,600 | Hero headings, section titles, page titles |
-| **Lato** | `--font-lato` | 100,300,400,700,900 | Navigation, buttons, labels, footer headings |
-| **Oswald** | `--font-oswald` | 200–700 | Stats numbers ONLY |
+| **Inter** | `--font-inter` | 400,600,700,800,900 | **PRIMARY**: All headings, navigation, buttons, labels, stats, section titles |
 | **Poppins** | `--font-poppins` | 100–900 | Body text, paragraphs, descriptions |
 
+> ⚠️ **NEVER use Cormorant Garamond, Lato, or Oswald**. Inter is the ONLY heading/UI font. Poppins is the ONLY body font.
+
 **Font size pattern (bigger for visibility):**
-- Hero headings: `clamp(4rem, 10vw, 9rem)`
-- Section headings: `clamp(2.5rem, 5vw, 4rem)`
-- Sub-headings: `1.75rem – 2.25rem`
-- Body text: `1rem – 1.15rem`
-- Labels/tags: `0.85rem – 0.95rem`
-- Stats: `2.5rem – 3.5rem` (Oswald)
+- Hero headings: `clamp(4rem, 10vw, 9rem)` (Inter, font-weight: 900)
+- Section headings: `clamp(1.8rem, 3.5vw, 2.5rem)` (Inter, font-weight: 900)
+- Sub-headings: `1.5rem – 1.8rem` (Inter, font-weight: 700)
+- Body text: `1rem – 1.15rem` (Poppins)
+- Labels/tags: `0.85rem – 0.95rem` (Inter)
+- Stats: `2.5rem – 3.5rem` (Inter, font-weight: 900)
 
 ### 2.3 Design Patterns
 
@@ -95,20 +95,23 @@ All services must reference Russia specifically. No other country names in servi
 
 **Slugs:** cleaners, all-types-of-drivers, general-labour, loading-unloading-workers, factory-helpers, barista, packing-workers, skilled-labourers-technicians, emigration-immigration-clearance, document-attestation-services, employee-outsourcing-solutions
 
+> Each service detail page (`src/app/services/[slug]/page.js`) passes bilingual data to a client component (`src/components/services/service-detail/index.jsx`) that renders based on the current language. All services have `title_ru`, `intro_ru`, `types_ru`, `industries_ru`, `process_ru`, `benefits_ru`, `faqs_ru`.
+
 ### 3.2 Social Media (Russia-relevant platforms)
 
 | Platform | Icon Color | URL |
 |---|---|---|
-| VK | White | https://vk.com/tahaairwaves |
-| Telegram | White | https://t.me/tahaairwaves |
-| WhatsApp | Light Pink (brand) | https://wa.me/919315226961 |
+| VK | White (footer) / Brand #8E0935 (contact) | https://vk.com/tahaairwaves |
+| Telegram | White (footer) / Brand #8E0935 (contact) | https://t.me/tahaairwaves |
+| WhatsApp | White (footer) / Brand #8E0935 (contact) | https://wa.me/79850748828 |
 
 ### 3.3 Key Metrics / Our Strength
 
 - Workers recruited in Russia: **500+**
 - Russia operations since: **2022**
-- Global experience: **20+ years**
-- Countries served globally: **11+**
+- Partners: **120+**
+- Placement rate: **95%**
+- Countries served globally: **21+**
 
 ### 3.4 Company Info
 
@@ -116,9 +119,18 @@ All services must reference Russia specifically. No other country names in servi
 - **RA License**: B-3260/DEL/COM/100/5/11259/2025
 - **Established**: 2005 (global), 2022 (Russia operations)
 - **Head Office**: 71A, 3rd Floor, Taimoor Nagar, New Friends Colony, New Delhi 110025
-- **Moscow Office**: Moscow, Russia
-- **Phone**: +91 93152 26961
-- **Email**: info@tahaairwaves.com
+- **Moscow Office**: Skolkovo Innovation Center, Malevicha Street, 2k4, 143026
+- **Phone (Russia)**: +7 985 074-88-28
+- **Email (Russia)**: info@tahaairwaves.ru
+- **Website (Russia)**: www.tahaairwaves.ru
+- **Phone (India)**: +91 93152 26961
+- **Email (India)**: info@tahaairwaves.com
+
+### 3.5 Blog Content
+
+- 6 blog posts in `src/data/blog-posts.js`
+- All posts have: `title_ru`, `excerpt_ru`, `content_ru`, `category_ru`, `readTime_ru`
+- Blog detail page uses client component `src/components/blog/blog-detail/index.jsx` for language switching
 
 ---
 
@@ -210,8 +222,10 @@ npm run build && npm start  # Production
 10. **Hero bg-only animation** — Only background images crossfade, content is static
 11. **Hero contact form** — Right side of hero on desktop
 12. **Splash screen** — Multilingual "Hello" greeting animation in `src/components/splash/index.jsx`. Controlled by `providers.jsx` via `sessionStorage('taha_sp')` — shows ONLY on first page load, NEVER on client-side navigation. `showSplash` state starts `false` → `useEffect` enables it once if no key. NEVER use inline HTML splash in layout.js (causes site breakage).
-13. **About page** — Full content: Our Story (3 paragraphs), Mission/Vision/Strategy, Core Values (4 cards), Industries (17 tags), Global Presence
+13. **About page** — Full content: Our Story (3 paragraphs), Mission/Vision/Strategy, Core Values (4 cards), Industries (17 tags with `{en, ru}`), Global Presence (with `details_ru`), Countries Served (with `name_ru`)
 14. **Footer office links** — Hash navigation to contact page: `/contact#office-delhi`, `/contact#office-noida`, `/contact#office-moscow`
+15. **Service detail pages** — All content Russia-focused. No GCC/Gulf country lists. Uses Russia Deployment card instead of Countries We Deploy To. All data bilingual (en/ru).
+16. **Navbar & Contact page** — Show Russian contact info: `+7 985 074-88-28`, `info@tahaairwaves.ru`. Social icons use brand color `#8E0935` (not platform colors).
 
 ---
 

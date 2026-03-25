@@ -55,7 +55,6 @@ const STATS = [
 export default function Hero() {
     const { lang, t } = useLanguage()
     const [currentImg, setCurrentImg] = useState(0)
-    const [shutterDone, setShutterDone] = useState(false)
     const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" })
 
     useEffect(() => {
@@ -63,10 +62,7 @@ export default function Hero() {
         return () => clearInterval(iv)
     }, [])
 
-    useEffect(() => {
-        const t = setTimeout(() => setShutterDone(true), 1700)
-        return () => clearTimeout(t)
-    }, [])
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -92,25 +88,6 @@ export default function Hero() {
                     background: "linear-gradient(to right, rgba(26,26,26,0.92) 0%, rgba(26,26,26,0.85) 40%, rgba(26,26,26,0.7) 70%, rgba(26,26,26,0.55) 100%)"
                 }} />
 
-                {/* ── Shutter Animation ── */}
-                {!shutterDone && (
-                    <>
-                        <motion.div
-                            initial={{ x: 0 }}
-                            animate={{ x: "-100%" }}
-                            transition={{ duration: 1.2, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-                            className="fixed inset-y-0 left-0 w-1/2 z-[100]"
-                            style={{ background: "#8E0935" }}
-                        />
-                        <motion.div
-                            initial={{ x: 0 }}
-                            animate={{ x: "100%" }}
-                            transition={{ duration: 1.2, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-                            className="fixed inset-y-0 right-0 w-1/2 z-[100]"
-                            style={{ background: "#1A1A1A" }}
-                        />
-                    </>
-                )}
 
                 {/* ══ SVG Decorations ══ */}
                 <DotGrid rows={6} cols={4} color="#FDFBEF" opacity={0.06} spacing={24} className="absolute top-20 left-6 z-[2] hidden lg:block" />
@@ -131,7 +108,7 @@ export default function Hero() {
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 1.8, duration: 0.6 }}
+                                transition={{ delay: 0.1, duration: 0.6 }}
                                 className="inline-flex items-center gap-2 px-4 py-2 rounded-sm"
                                 style={{ background: "rgba(142,9,53,0.25)", border: "1px solid rgba(142,9,53,0.3)" }}
                             >
@@ -146,7 +123,7 @@ export default function Hero() {
                             <motion.h1
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                                 className="font-black leading-[0.92] tracking-tight"
                                 style={{
                                     fontFamily: "var(--font-inter)",
@@ -165,7 +142,7 @@ export default function Hero() {
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 2.3, duration: 0.6 }}
+                                transition={{ delay: 0.3, duration: 0.6 }}
                                 className="max-w-lg text-lg lg:text-xl leading-relaxed"
                                 style={{ color: "rgba(253,251,239,0.75)", fontFamily: "var(--font-poppins)" }}
                             >
@@ -179,7 +156,7 @@ export default function Hero() {
                             <motion.div
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
-                                transition={{ delay: 2.4, duration: 0.5 }}
+                                transition={{ delay: 0.35, duration: 0.5 }}
                                 className="origin-left"
                             >
                                 <FlowLine width={120} height={2} color="#BC264B" className="opacity-40" />
@@ -189,7 +166,7 @@ export default function Hero() {
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 2.5, duration: 0.6 }}
+                                transition={{ delay: 0.4, duration: 0.6 }}
                                 className="flex flex-wrap gap-4 pt-1"
                             >
                                 <Link href="/services">
@@ -211,7 +188,7 @@ export default function Hero() {
                         <motion.div
                             initial={{ opacity: 0, x: 40 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 2.2, duration: 0.8 }}
+                            transition={{ delay: 0.3, duration: 0.8 }}
                             className="lg:col-span-2"
                         >
                             <div className="rounded-lg p-7 relative"
@@ -310,7 +287,7 @@ export default function Hero() {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 2.6, duration: 0.7, ease: "easeOut" }}
+                        transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
                         className="rounded-xl px-6 sm:px-8 md:px-10 py-6 md:py-7 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 relative overflow-hidden"
                         style={{ background: "white", boxShadow: "0 20px 60px -12px rgba(142,9,53,0.12)", border: "1px solid rgba(142,9,53,0.06)" }}
                     >

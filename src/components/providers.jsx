@@ -1,28 +1,31 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { LanguageProvider } from '@/context/language'
 import SplashScreen from '@/components/splash'
 
+// Module-level flag:
+// - On page refresh: JS reloads → flag resets to false → splash shows
+// - On client navigation: module stays loaded → flag stays true → no splash
+let splashPlayed = false
+
 export default function Providers({ children }) {
-    // Start FALSE — no splash on server or hydration (no flash, no mismatch)
-    const [showSplash, setShowSplash] = useState(false)
+    // useState initializer runs on first mount ONLY (synchronous, no delay)
+    // On server: splashPlayed=false → showSplash=true → splash in initial HTML
+    // On client hydration: same → no mismatch
+    // After splash done: splashPlayed=true, showSplash=false
+    // On navigation: component stays mounted, state stays false
+    // On refresh: module reloads, splashPlayed=false, fresh mount → splash shows
+    const [showSplash, setShowSplash] = useState(() => !splashPlayed)
 
-    useEffect(() => {
-        // Runs ONCE on mount. On navigation, Providers stays mounted, so this never re-runs.
-        if (!sessionStorage.getItem('taha_sp')) {
-            setShowSplash(true) // First visit only → show splash
-        }
-    }, [])
-
-    const handleSplashComplete = () => {
-        sessionStorage.setItem('taha_sp', '1')
+    const handleDone = () => {
+        splashPlayed = true
         setShowSplash(false)
     }
 
     return (
         <LanguageProvider>
-            {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+            {showSplash && <SplashScreen onComplete={handleDone} />}
             {children}
         </LanguageProvider>
     )

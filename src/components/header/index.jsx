@@ -51,18 +51,18 @@ export default function Header() {
             <div className="hidden lg:block w-full" style={{ background: C.white, borderBottom: "1px solid rgba(142,9,53,0.08)" }}>
                 <div className="max-w-[1400px] mx-auto px-8 py-1.5 flex justify-between items-center">
                     <div className="flex items-center gap-5">
-                        <a href="mailto:info@tahaairwaves.com"
+                        <a href="mailto:info@tahaairwaves.ru"
                             className="flex items-center gap-2 text-xs transition-colors hover:text-[#8E0935]"
                             style={{ color: "#4B5563", fontFamily: "var(--font-inter)" }}>
                             <FiMail style={{ color: C.accent }} size={11} />
-                            info@tahaairwaves.com
+                            info@tahaairwaves.ru
                         </a>
                         <div className="h-3 w-px" style={{ background: "rgba(142,9,53,0.12)" }} />
-                        <a href="tel:+919315226961"
+                        <a href="tel:+79850748828"
                             className="flex items-center gap-2 text-xs font-semibold transition-colors hover:text-[#8E0935]"
                             style={{ color: "#4B5563", fontFamily: "var(--font-inter)" }}>
                             <FiPhone style={{ color: C.accent }} size={11} />
-                            +91 93152 26961
+                            +7 985 074-88-28
                         </a>
                     </div>
                     <div className="flex items-center gap-3">
@@ -181,15 +181,15 @@ export default function Header() {
 
                         <div className="mt-auto space-y-4 pt-6 border-t" style={{ borderColor: "rgba(142,9,53,0.08)" }}>
                             <div className="space-y-2">
-                                <a href="mailto:info@tahaairwaves.com"
+                                <a href="mailto:info@tahaairwaves.ru"
                                     className="flex items-center gap-3 text-sm"
                                     style={{ color: "#4B5563", fontFamily: "var(--font-inter)" }}>
-                                    <FiMail style={{ color: C.accent }} /> info@tahaairwaves.com
+                                    <FiMail style={{ color: C.accent }} /> info@tahaairwaves.ru
                                 </a>
-                                <a href="tel:+919315226961"
+                                <a href="tel:+79850748828"
                                     className="flex items-center gap-3 text-sm font-bold"
                                     style={{ color: "#4B5563", fontFamily: "var(--font-inter)" }}>
-                                    <FiPhone style={{ color: C.accent }} /> +91 93152 26961
+                                    <FiPhone style={{ color: C.accent }} /> +7 985 074-88-28
                                 </a>
                             </div>
                             <div className="flex gap-3">

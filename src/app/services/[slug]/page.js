@@ -1,360 +1,265 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaCheckCircle, FaWhatsapp, FaGlobeAsia } from 'react-icons/fa';
-import { MdVerified } from 'react-icons/md';
-import FaqAccordion from '@/components/faq-accordion';
+import { BLOG_POSTS } from '@/data/blog-posts'
+import ServiceDetailContent from '@/components/services/service-detail'
 
 const servicesData = {
     'cleaners': {
         title: 'Cleaners Manpower Services',
-        metaDesc: 'Hire skilled cleaners manpower for GCC & global industries.',
+        title_ru: 'Услуги по подбору уборщиков',
+        metaDesc: 'Hire skilled cleaners for Russian industrial and commercial facilities.',
+        metaDesc_ru: 'Подбор квалифицированного персонала для уборки на российских объектах.',
         images: ['/service-and-blog/Cleaners.jpeg', '/service-and-blog/Cleaners2.jpeg'],
-        intro: 'Taha Airwaves is a leading manpower outsourcing consultancy specializing in cleaners manpower supply for domestic and international requirements. With 10+ years of experience in workforce solutions and deployment, we provide qualified and verified cleaners across Saudi Arabia, UAE, Qatar, Kuwait, Oman, Bahrain, Jordan, Egypt, Mauritius, Malaysia, and Russia.',
-        detailedDesc: 'Our comprehensive cleaners staffing services cater to a wide range of industry demands, including hospitality, oil & gas, healthcare, construction, manufacturing, and corporate organizations.',
-        types: ['General Cleaners – Everyday sanitation and maintenance.', 'Deep Clean Specialists – Intensive cleaning for facilities and large spaces.', 'Janitors & Maintenance Staff – Regular cleaning, waste handling, and space upkeep.', 'Industrial Cleaners – Specialized cleaning for factories, warehouses, and sites.', 'Hospital & Healthcare Cleaners – Hygiene compliance roles for medical environments.', 'Hospitality & Housekeeping Teams – Hotel, resort, and guest-service cleaning professionals.'],
-        industries: ['Hospitality & Hotel Sector', 'Healthcare & Pharmaceuticals', 'Construction & Engineering', 'Oil & Gas', 'Logistics & Manufacturing', 'Banking, Financial Services & Corporate Offices'],
-        process: ['Requirement Analysis – Understanding your project scope, number of cleaners needed, and country regulations.', 'Candidate Sourcing – Identifying suitable candidates from our verified talent pool.', 'Screening & Evaluation – Identity verification, background checks, skill assessments.', 'Client Matching – Sharing shortlisted profiles for final client approval.', 'Documentation & Mobilization – Compliance formalities, visa processing, and departure coordination.'],
-        benefits: ['Access to verified and experienced cleaners across multiple countries', 'Industry-ready personnel trained for your specific environment', 'Reduced HR burden and administrative workload', 'Fast turnaround and mobilization support', 'Full documentation and compliance handling'],
-        faqs: [{ q: 'Which countries do you supply cleaners to?', a: 'We provide cleaners manpower to Saudi Arabia, UAE, Qatar, Kuwait, Oman, Bahrain, Jordan, Egypt, Mauritius, Malaysia, and Russia.' }, { q: 'Are cleaners verified before deployment?', a: 'Yes, every cleaner undergoes screening, background checks, and verification before placement.' }, { q: 'Can you supply cleaners for hotel and hospitality needs?', a: 'Absolutely. We provide housekeeping and cleaning teams for hotels, resorts, and service apartments.' }, { q: 'Do you handle documentation for overseas deployment?', a: 'Yes, we manage visas, travel documentation, and regulatory compliance processes.' }],
+        intro: 'Taha Airwaves is a leading manpower consultancy specializing in professional cleaners deployment for the Russian market. With our Moscow representative office and 500+ workers deployed, we provide trained and verified cleaning personnel for industrial, commercial, and hospitality facilities across Russia.',
+        intro_ru: 'Taha Airwaves — ведущая кадровая консалтинговая компания, специализирующаяся на подборе профессиональных уборщиков для российского рынка. Через наше представительство в Москве мы предоставляем обученный и проверенный персонал для уборки промышленных, коммерческих и гостиничных объектов по всей России.',
+        detailedDesc: 'Our comprehensive cleaners staffing services cater to the demands of Russian industries including hospitality, oil & gas, healthcare, construction, manufacturing, and corporate organizations.',
+        detailedDesc_ru: 'Наши комплексные услуги по подбору уборщиков отвечают потребностям российской промышленности, включая гостиничный бизнес, нефтегазовый сектор, здравоохранение, строительство и производство.',
+        types: ['General Cleaners – Everyday sanitation and maintenance for Russian facilities.', 'Deep Clean Specialists – Intensive cleaning for industrial and commercial spaces.', 'Janitors & Maintenance Staff – Regular cleaning, waste handling, and space upkeep.', 'Industrial Cleaners – Specialized cleaning for factories, warehouses, and construction sites.', 'Hospital & Healthcare Cleaners – Hygiene compliance roles for medical environments.', 'Hospitality & Housekeeping Teams – Hotel, resort, and guest-service cleaning professionals.'],
+        types_ru: ['Уборщики общего профиля – Ежедневная санитарная обработка и обслуживание объектов.', 'Специалисты по глубокой уборке – Интенсивная уборка промышленных и коммерческих помещений.', 'Дворники и техперсонал – Регулярная уборка, вывоз мусора и содержание помещений.', 'Промышленные уборщики – Специализированная уборка заводов, складов и стройплощадок.', 'Уборщики в медучреждениях – Соблюдение гигиенических стандартов в больницах.', 'Персонал гостеприимства – Уборка в отелях, курортах и сервисных объектах.'],
+        industries: ['Hospitality & Hotels', 'Healthcare', 'Construction', 'Oil & Gas', 'Manufacturing', 'Corporate Offices'],
+        industries_ru: ['Гостиницы и отели', 'Здравоохранение', 'Строительство', 'Нефть и газ', 'Производство', 'Корпоративные офисы'],
+        process: ['Requirement Analysis – Understanding your project scope and Russian regulatory needs.', 'Candidate Sourcing – Identifying suitable candidates from our verified talent pool.', 'Screening & Evaluation – Identity verification, background checks, skill assessments.', 'Client Matching – Sharing shortlisted profiles for final approval.', 'Documentation & Mobilization – Visa processing for Russia and departure coordination.'],
+        process_ru: ['Анализ требований – Изучение масштабов проекта и российских нормативов.', 'Подбор кандидатов – Поиск подходящих кандидатов из проверенной базы.', 'Проверка и оценка – Верификация личности, опыта и навыков.', 'Согласование с клиентом – Предоставление профилей для утверждения.', 'Документация и мобилизация – Визовое оформление для России и координация выезда.'],
+        benefits: ['Verified and experienced cleaners for Russian facilities', 'Industry-ready personnel trained for your environment', 'Reduced HR burden and administrative workload', 'Fast deployment to Russia with visa support', 'Full documentation and compliance handling'],
+        benefits_ru: ['Проверенные и опытные уборщики для российских объектов', 'Персонал, обученный для вашей отрасли', 'Снижение HR-нагрузки и администрирования', 'Быстрое размещение в России с визовой поддержкой', 'Полное оформление документов и соответствие нормативам'],
+        faqs: [{ q: 'Which regions in Russia do you deploy cleaners to?', a: 'We deploy to Moscow, St. Petersburg, Siberia, and industrial zones across Russia.' }, { q: 'Are cleaners verified before deployment?', a: 'Yes, every cleaner undergoes screening, background checks, and verification.' }, { q: 'Do you handle visa processing for Russia?', a: 'Yes, we manage complete visa processing and documentation for Russian deployment.' }],
+        faqs_ru: [{ q: 'В какие регионы России вы направляете уборщиков?', a: 'Мы направляем в Москву, Санкт-Петербург, Сибирь и промышленные зоны по всей России.' }, { q: 'Проверяются ли уборщики перед размещением?', a: 'Да, каждый уборщик проходит проверку данных, квалификации и безопасности.' }, { q: 'Вы оформляете визы для России?', a: 'Да, мы полностью управляем визовым процессом и документацией для России.' }],
     },
     'all-types-of-drivers': {
         title: 'All Types of Drivers Manpower Services',
-        metaDesc: 'Hire skilled light, heavy & commercial drivers for GCC & global projects.',
+        title_ru: 'Услуги по подбору водителей всех категорий',
+        metaDesc: 'Hire skilled light, heavy & commercial drivers for Russian projects.',
+        metaDesc_ru: 'Подбор водителей лёгкого, тяжёлого и коммерческого транспорта для России.',
         images: ['/service-and-blog/drivers.jpeg', '/service-and-blog/drivers.jpeg'],
-        intro: 'Taha Airwaves is a trusted manpower outsourcing consultancy providing all types of professional drivers for domestic and international projects across GCC, Russia, and global markets.',
-        detailedDesc: 'Our driver manpower solutions meet the operational demands of logistics companies, construction firms, oil & gas contractors, hospitality groups, and corporate organizations.',
-        types: ['Light Vehicle Drivers – For corporate transport, staff mobility, and executive travel.', 'Heavy Vehicle Drivers – For trucks, trailers, tankers, and logistics fleets.', 'Bus Drivers – For institutional, workforce, and public transportation.', 'Construction Vehicle Drivers – For heavy equipment and site-based mobility.', 'Delivery & Commercial Drivers – For distribution and supply chain operations.', 'Executive Chauffeurs – For VIP and corporate transport requirements.'],
-        industries: ['Construction & Engineering', 'Oil & Gas', 'Logistics & Supply Chain', 'IT & Non-IT Corporates', 'Banking & Financial Services', 'Manufacturing & Automobiles'],
-        process: ['Requirement Understanding – Analyzing vehicle category, experience level, and compliance needs.', 'Sourcing & Screening – Shortlisting from our verified talent pool.', 'License & Background Verification – Driving licenses and history validated.', 'Client Approval – Profiles shared for final selection.', 'Documentation & Mobilization – Visa processing, documentation, and travel coordination.'],
-        benefits: ['Experienced manpower outsourcing consultancy', 'Strong deployment network across GCC & global markets', 'Verified and licensed driver database', 'Fast recruitment turnaround time', 'Complete documentation and compliance handling'],
-        faqs: [{ q: 'Which countries do you supply drivers to?', a: 'We supply drivers to Saudi Arabia, UAE, Qatar, Kuwait, Oman, Bahrain, Jordan, Egypt, Mauritius, Malaysia, and Russia.' }, { q: 'Do you verify driving licenses before deployment?', a: 'Yes, all driving licenses are validated as per vehicle category and country requirements.' }, { q: 'Can you provide heavy truck drivers for construction?', a: 'Yes, we supply experienced heavy vehicle drivers for construction and infrastructure projects.' }],
+        intro: 'Taha Airwaves provides professional drivers of all categories for deployment across Russia — from light vehicles to heavy construction equipment, logistics transport, and executive services.',
+        intro_ru: 'Taha Airwaves предоставляет профессиональных водителей всех категорий для работы в России — от лёгкого транспорта до тяжёлой строительной техники, логистики и представительских услуг.',
+        detailedDesc: 'Our driver manpower solutions meet the operational demands of Russian construction sites, logistics companies, oil & gas operations, and corporate transport needs.',
+        detailedDesc_ru: 'Наши кадровые решения для водителей отвечают потребностям российских строительных площадок, логистических компаний, нефтегазовых операций и корпоративного транспорта.',
+        types: ['Light Vehicle Drivers – Corporate transport and staff mobility.', 'Heavy Vehicle Drivers – Trucks, trailers, and tankers.', 'Bus Drivers – Workforce and institutional transport.', 'Construction Vehicle Drivers – Heavy equipment on-site.', 'Delivery & Commercial Drivers – Distribution and supply chain.', 'Executive Chauffeurs – VIP and corporate transport.'],
+        types_ru: ['Водители лёгкого транспорта – Корпоративные перевозки и мобильность персонала.', 'Водители тяжёлого транспорта – Грузовики, прицепы и цистерны.', 'Водители автобусов – Рабочие и институциональные перевозки.', 'Водители строительной техники – Тяжёлое оборудование на площадке.', 'Водители доставки – Дистрибуция и цепочки поставок.', 'Представительские водители – VIP и корпоративный транспорт.'],
+        industries: ['Construction', 'Oil & Gas', 'Logistics & Supply Chain', 'Corporate', 'Manufacturing'],
+        industries_ru: ['Строительство', 'Нефть и газ', 'Логистика', 'Корпорации', 'Производство'],
+        process: ['Requirement Understanding – Vehicle category, experience, compliance.', 'Sourcing & Screening – From our verified talent pool.', 'License & Background Verification – Driving licenses validated.', 'Client Approval – Profiles for final selection.', 'Documentation & Mobilization – Visa processing and travel to Russia.'],
+        process_ru: ['Анализ требований – Категория ТС, опыт, соответствие.', 'Подбор и проверка – Из нашей проверенной базы.', 'Верификация прав – Проверка водительских удостоверений.', 'Согласование с клиентом – Профили для утверждения.', 'Документация и мобилизация – Визовое оформление и выезд в Россию.'],
+        benefits: ['Licensed drivers for Russian roads', 'Heavy and light vehicle specialists', 'Fast deployment with visa support', 'Verified driving history and records', 'Complete compliance handling'],
+        benefits_ru: ['Лицензированные водители для российских дорог', 'Специалисты по тяжёлому и лёгкому транспорту', 'Быстрое размещение с визовой поддержкой', 'Проверенная история вождения', 'Полное оформление документов'],
+        faqs: [{ q: 'Do you supply heavy truck drivers for Russia?', a: 'Yes, we supply experienced heavy vehicle drivers for construction and logistics in Russia.' }, { q: 'Do you verify driving licenses?', a: 'Yes, all driving licenses are validated per vehicle category and Russian requirements.' }],
+        faqs_ru: [{ q: 'Вы поставляете водителей для тяжёлого транспорта в Россию?', a: 'Да, мы предоставляем опытных водителей тяжёлого транспорта для строительства и логистики в России.' }, { q: 'Вы проверяете водительские права?', a: 'Да, все водительские удостоверения проверяются по категории транспорта и российским требованиям.' }],
     },
     'general-labour': {
         title: 'Skilled General Labour Manpower Services',
-        metaDesc: 'Hire skilled general labour manpower for GCC & global projects.',
+        title_ru: 'Услуги по подбору разнорабочих',
+        metaDesc: 'Hire skilled general labour for Russian construction and industrial projects.',
+        metaDesc_ru: 'Подбор квалифицированных разнорабочих для строительных и промышленных проектов в России.',
         images: ['/service-and-blog/General-labours.jpeg', '/service-and-blog/General-labours.jpeg'],
-        intro: 'Taha Airwaves is a trusted consultancy specializing in the recruitment and deployment of skilled and reliable general labour manpower across GCC, Russia, and global markets.',
-        detailedDesc: 'We provide disciplined, physically fit, and task-ready general workers to support large-scale industrial operations, infrastructure projects, logistics networks, and commercial establishments.',
-        types: ['Construction Labourers – For civil works, site preparation, material handling.', 'Warehouse & Loading Workers – For cargo handling, packing, unloading, sorting.', 'Factory & Manufacturing Helpers – For production line assistance and plant maintenance.', 'Industrial Site Workers – For oil & gas fields, engineering projects, and plant operations.', 'Hospitality Support Staff – For housekeeping assistance, kitchen helpers, and facility maintenance.', 'Maintenance & Utility Labour – For cleaning, general repairs assistance, and facility upkeep.'],
-        industries: ['Construction & Engineering', 'Oil & Gas', 'Manufacturing & Automobiles', 'Logistics & Supply Chain', 'Healthcare & Pharmaceuticals', 'Hospitality, Hotel & Restaurant'],
-        process: ['Requirement Assessment – Understanding project scope, skill needs, and country regulations.', 'Candidate Sourcing – Shortlisting from our verified labour database.', 'Screening & Fitness Check – Evaluating physical capability, discipline, and safety awareness.', 'Documentation & Compliance – Managing paperwork, visa coordination, and legal formalities.', 'Mobilization & Deployment – Coordinating travel and site placement.'],
-        benefits: ['Strong manpower network across GCC & international markets', 'Professionally screened and disciplined workforce', 'Compliance-driven overseas deployment process', 'Quick mobilization for urgent project requirements', 'Industry-specific manpower customization'],
-        faqs: [{ q: 'Which countries do you supply general labour to?', a: 'We deploy manpower to Saudi Arabia, UAE, Qatar, Kuwait, Oman, Bahrain, Jordan, Egypt, Mauritius, Malaysia, and Russia.' }, { q: 'Are general labourers screened before deployment?', a: 'Yes, all candidates undergo screening, background verification, and fitness evaluation.' }],
+        intro: 'Taha Airwaves specializes in recruiting and deploying skilled, reliable general labourers for Russian construction sites, industrial facilities, warehouses, and infrastructure projects.',
+        intro_ru: 'Taha Airwaves специализируется на подборе и размещении надёжных разнорабочих для российских строительных площадок, промышленных объектов, складов и инфраструктурных проектов.',
+        detailedDesc: 'We provide disciplined, physically fit, and task-ready workers for large-scale operations across Russia.',
+        detailedDesc_ru: 'Мы предоставляем дисциплинированных, физически подготовленных работников для масштабных операций по всей России.',
+        types: ['Construction Labourers – Civil works and site preparation.', 'Warehouse & Loading Workers – Cargo handling and sorting.', 'Factory Helpers – Production line assistance.', 'Industrial Site Workers – Oil & gas and engineering.', 'Maintenance Labour – Repairs and facility upkeep.'],
+        types_ru: ['Строительные рабочие – Общестроительные работы и подготовка площадок.', 'Складские и грузовые работники – Обработка грузов и сортировка.', 'Помощники на заводе – Помощь на производственных линиях.', 'Промышленные работники – Нефтегаз и инженерные проекты.', 'Обслуживающий персонал – Ремонт и содержание объектов.'],
+        industries: ['Construction', 'Oil & Gas', 'Manufacturing', 'Logistics', 'Healthcare'],
+        industries_ru: ['Строительство', 'Нефть и газ', 'Производство', 'Логистика', 'Здравоохранение'],
+        process: ['Requirement Assessment – Project scope and Russian regulations.', 'Candidate Sourcing – From our verified database.', 'Screening & Fitness Check – Physical capability and safety.', 'Documentation & Compliance – Visa coordination for Russia.', 'Mobilization & Deployment – Travel and site placement.'],
+        process_ru: ['Оценка требований – Масштаб проекта и нормативы РФ.', 'Подбор кандидатов – Из проверенной базы данных.', 'Проверка и фитнес-тест – Физические способности и безопасность.', 'Документация – Визовая координация для России.', 'Мобилизация и размещение – Поездка и интеграция на объекте.'],
+        benefits: ['Physically fit workers for Russian projects', 'Professionally screened workforce', 'Quick deployment to Russia', 'Compliance with Russian labour standards', 'Industry-specific customization'],
+        benefits_ru: ['Физически подготовленные работники для российских проектов', 'Профессионально проверенный персонал', 'Быстрое размещение в России', 'Соответствие российским трудовым стандартам', 'Адаптация под конкретную отрасль'],
+        faqs: [{ q: 'Where in Russia do you deploy general labour?', a: 'We deploy to Moscow, Siberia, Far East, and all major industrial zones.' }, { q: 'Are workers screened before deployment?', a: 'Yes, all candidates undergo screening, verification, and fitness evaluation.' }],
+        faqs_ru: [{ q: 'Куда в России вы направляете разнорабочих?', a: 'В Москву, Сибирь, Дальний Восток и все крупные промзоны.' }, { q: 'Проверяются ли работники перед размещением?', a: 'Да, все кандидаты проходят проверку данных, квалификации и физической подготовки.' }],
     },
     'loading-unloading-workers': {
         title: 'Loading & Unloading Workers Manpower Supply',
-        metaDesc: 'Hire skilled loading & unloading workers for GCC and global logistics.',
+        title_ru: 'Услуги по подбору грузчиков',
+        metaDesc: 'Hire skilled loading & unloading workers for Russian logistics and construction.',
+        metaDesc_ru: 'Подбор грузчиков для логистических и строительных проектов в России.',
         images: ['/service-and-blog/Loading-unloading-workers.jpeg', '/service-and-blog/Loading-unloading-workers2.jpeg'],
-        intro: 'Taha Airwaves provides verified and deployment-ready loading & unloading workers for businesses across GCC, Russia, and global markets.',
-        detailedDesc: 'Our loading and unloading manpower services support logistics firms, warehousing companies, distribution networks, construction operations, and port authorities.',
-        types: ['Cargo Loaders & Unloaders – Manual handling of incoming and outgoing shipments.', 'Warehouse Loading Staff – Sorting, stacking, and organizing goods.', 'Dock & Port Workers – Handling container cargo, ship-to-shore operations.', 'Palletizers & Stacking Workers – Arranging products on pallets for dispatch.', 'Material Movers – Transferring materials between production, storage, and loading zones.'],
-        industries: ['Logistics & Supply Chain', 'Manufacturing & Industrial', 'Construction & Engineering', 'Oil & Gas', 'Retail & Distribution'],
-        process: ['Requirement Assessment – Understanding project scope and safety needs.', 'Candidate Sourcing – Identifying suitable workers from our verified talent pool.', 'Screening & Evaluation – Background checks and safety assessment.', 'Documentation & Compliance – Handling paperwork and visa processing.', 'Mobilization & Deployment – Coordinating travel logistics and on-site integration.'],
-        benefits: ['Verified and disciplined manpower pool', 'Cross-country deployment capabilities', 'Safety-oriented workforce', 'Flexible manpower solutions for all project types'],
-        faqs: [{ q: 'Which countries do you supply workers to?', a: 'We supply across GCC countries, Jordan, Egypt, Mauritius, Malaysia, and Russia.' }, { q: 'Are workers physically assessed before deployment?', a: 'Yes, we assess physical capability, stamina, and fitness for task readiness.' }],
+        intro: 'Taha Airwaves provides verified and deployment-ready loading & unloading workers for Russian logistics operations, warehouses, construction sites, and distribution centres.',
+        intro_ru: 'Taha Airwaves предоставляет проверенных и готовых к работе грузчиков для российских логистических операций, складов, строительных площадок и распределительных центров.',
+        detailedDesc: 'Our loading and unloading manpower services support logistics firms, warehousing companies, and construction operations across Russia.',
+        detailedDesc_ru: 'Наши услуги по подбору грузчиков обеспечивают логистические компании, складские предприятия и строительные площадки по всей России.',
+        types: ['Cargo Loaders & Unloaders – Manual handling of shipments.', 'Warehouse Loading Staff – Sorting, stacking, and organizing.', 'Material Movers – Transferring materials between zones.', 'Palletizers – Arranging products for dispatch.'],
+        types_ru: ['Грузчики – Ручная обработка грузов и отгрузок.', 'Складской персонал – Сортировка, укладка и организация.', 'Перевозчики материалов – Перемещение между зонами.', 'Паллетизаторы – Подготовка продукции к отправке.'],
+        industries: ['Logistics', 'Manufacturing', 'Construction', 'Oil & Gas', 'Retail'],
+        industries_ru: ['Логистика', 'Производство', 'Строительство', 'Нефть и газ', 'Розничная торговля'],
+        process: ['Requirement Assessment – Scope and safety needs.', 'Candidate Sourcing – Verified talent pool.', 'Screening – Background and safety checks.', 'Documentation – Visa processing for Russia.', 'Deployment – Travel and on-site integration.'],
+        process_ru: ['Оценка требований – Масштаб и требования безопасности.', 'Подбор кандидатов – Из проверенной базы.', 'Проверка – Безопасность и данные.', 'Документация – Визовое оформление для России.', 'Размещение – Поездка и интеграция на объекте.'],
+        benefits: ['Disciplined and verified workers', 'Safety-oriented workforce', 'Fast deployment to Russia', 'Flexible solutions for all project types'],
+        benefits_ru: ['Дисциплинированные и проверенные работники', 'Персонал, ориентированный на безопасность', 'Быстрое размещение в России', 'Гибкие решения для любых проектов'],
+        faqs: [{ q: 'Do you deploy loading workers to Russia?', a: 'Yes, we deploy verified loading and unloading workers across Russia.' }, { q: 'Are workers physically assessed?', a: 'Yes, we assess physical capability and fitness.' }],
+        faqs_ru: [{ q: 'Вы направляете грузчиков в Россию?', a: 'Да, мы размещаем проверенных грузчиков по всей России.' }, { q: 'Проходят ли работники физическую оценку?', a: 'Да, мы оцениваем физические способности и подготовку.' }],
     },
     'factory-helpers': {
         title: 'Factory Helpers Manpower Supply',
-        metaDesc: 'Hire skilled factory helpers for GCC & global industries.',
+        title_ru: 'Услуги по подбору помощников на производстве',
+        metaDesc: 'Hire skilled factory helpers for Russian manufacturing and industrial facilities.',
+        metaDesc_ru: 'Подбор помощников на производстве для российских заводов и промышленных объектов.',
         images: ['/service-and-blog/Factory-helpers.jpeg', '/service-and-blog/Factory-helpers2.jpeg'],
-        intro: 'Taha Airwaves provides professional Factory Helpers manpower supply services tailored to businesses across GCC, Russia, and global markets.',
-        detailedDesc: 'Our recruitment expertise focuses on delivering dependable, task-ready factory helpers experienced in supporting manufacturing lines, production units, and plant maintenance.',
-        types: ['Production Line Helpers – Support for assembly lines and manufacturing stages.', 'Machine Operation Assistants – Support staff for CNC, packaging, and industrial machinery.', 'Material Handling Helpers – Movement, sorting, and staging of raw materials.', 'Quality Check Assistants – Support in inspecting finished products.', 'Plant Maintenance Helpers – Facility cleaning, equipment upkeep, and minor repair assistance.'],
-        industries: ['Manufacturing & Automobiles', 'Logistics & Warehousing', 'Construction & Engineering', 'Oil & Gas', 'Healthcare', 'Hospitality'],
-        process: ['Requirement Assessment – Understanding project scope and factory needs.', 'Candidate Sourcing – Shortlisting from verified talent pool.', 'Skill & Safety Screening – Evaluating skill level and safety awareness.', 'Documentation & Compliance – Managing paperwork and visa coordination.', 'Mobilization & Deployment – Travel coordination and site integration.'],
-        benefits: ['Skilled, task-ready factory workers', 'Safety-aware and discipline-focused workforce', 'Comprehensive documentation support', 'Flexible solutions for short, long, and seasonal projects'],
-        faqs: [{ q: 'Which countries do you provide factory helpers to?', a: 'We supply to Saudi Arabia, UAE, Qatar, Kuwait, Oman, Bahrain, Jordan, Egypt, Mauritius, Malaysia, and Russia.' }, { q: 'Are factory helpers screened for safety?', a: 'Yes, all candidates undergo skill verification, physical assessment, and safety awareness checks.' }],
+        intro: 'Taha Airwaves provides professional factory helpers for Russian manufacturing plants, production lines, and industrial facilities. Our workers are trained, verified, and deployment-ready.',
+        intro_ru: 'Taha Airwaves предоставляет профессиональных помощников для российских заводов, производственных линий и промышленных объектов. Наши работники обучены, проверены и готовы к размещению.',
+        detailedDesc: 'Our recruitment expertise focuses on delivering dependable, task-ready factory helpers for Russian manufacturing and industrial sectors.',
+        detailedDesc_ru: 'Наша экспертиза подбора сосредоточена на предоставлении надёжных помощников для российского производственного и промышленного секторов.',
+        types: ['Production Line Helpers – Assembly and manufacturing.', 'Machine Operation Assistants – CNC and industrial machinery.', 'Material Handling Helpers – Raw material management.', 'Quality Check Assistants – Product inspection.', 'Plant Maintenance Helpers – Facility upkeep.'],
+        types_ru: ['Помощники на конвейере – Сборка и производство.', 'Ассистенты операторов станков – ЧПУ и промоборудование.', 'Грузчики материалов – Управление сырьём.', 'Ассистенты контроля качества – Инспекция продукции.', 'Обслуживающий персонал – Содержание предприятия.'],
+        industries: ['Manufacturing', 'Logistics', 'Construction', 'Oil & Gas', 'Healthcare'],
+        industries_ru: ['Производство', 'Логистика', 'Строительство', 'Нефть и газ', 'Здравоохранение'],
+        process: ['Requirement Assessment – Factory needs analysis.', 'Candidate Sourcing – Verified talent pool.', 'Skill & Safety Screening – Evaluation.', 'Documentation – Visa coordination for Russia.', 'Deployment – Travel and site integration.'],
+        process_ru: ['Оценка требований – Анализ нужд завода.', 'Подбор кандидатов – Из проверенной базы.', 'Оценка квалификации – Проверка навыков.', 'Документация – Визовая координация для России.', 'Размещение – Поездка и интеграция.'],
+        benefits: ['Skilled, task-ready factory workers', 'Safety-aware workforce', 'Complete documentation for Russia', 'Flexible solutions for all project durations'],
+        benefits_ru: ['Квалифицированные работники для заводов', 'Персонал, знающий технику безопасности', 'Полная документация для России', 'Гибкие решения на любой срок проекта'],
+        faqs: [{ q: 'Do you provide factory helpers for Russia?', a: 'Yes, we deploy trained factory helpers across Russian industrial zones.' }, { q: 'Are they screened for safety?', a: 'Yes, all candidates undergo skill and safety checks.' }],
+        faqs_ru: [{ q: 'Вы предоставляете помощников для российских заводов?', a: 'Да, мы размещаем обученных помощников по всей промышленной зоне России.' }, { q: 'Проверяются ли они на безопасность?', a: 'Да, все кандидаты проходят проверку навыков и безопасности.' }],
     },
     'barista': {
         title: 'Skilled Barista Workers Manpower Services',
-        metaDesc: 'Hire skilled barista workers for GCC & global hospitality projects.',
+        title_ru: 'Услуги по подбору бариста',
+        metaDesc: 'Hire skilled barista and cafe staff for Russian hospitality sector.',
+        metaDesc_ru: 'Подбор бариста и персонала кафе для российского гостиничного сектора.',
         images: ['/service-and-blog/Barista-workers.jpeg', '/service-and-blog/Barista-workers.jpeg'],
-        intro: 'Taha Airwaves provides reliable barista workers manpower supply services to businesses across GCC, Russia, and global markets.',
-        detailedDesc: 'Our specialized recruitment solutions deliver experienced, disciplined, and customer-oriented baristas who enhance your beverage service quality while ensuring operational efficiency.',
-        types: ['Experienced Café Baristas – Skilled in specialty coffee and beverage presentation.', 'Hotel & Resort Baristas – Professional baristas for high-end clientele.', 'Event & Catering Baristas – Mobile service baristas for corporate events.', 'Retail Coffee Shop Staff – Fast-paced baristas for busy QSR and café environments.'],
-        industries: ['Coffee Shops & Cafes', 'Hotels & Resorts', 'Restaurants & QSR Chains', 'Corporate Food Courts', 'Event & Catering Services'],
-        process: ['Requirement Understanding – Analyzing service style and skill expectations.', 'Candidate Sourcing – Shortlisting from our hospitality talent pool.', 'Skill & Service Assessment – Evaluating coffee preparation and customer service.', 'Client Review – Sharing profiles for final selection.', 'Documentation & Deployment – Visa, medical, and travel coordination.'],
-        benefits: ['Pre-trained, customer-oriented barista workforce', 'Skilled in specialty coffee and latte art', 'Deployment-ready with compliance documentation', 'Flexible staffing for permanent and seasonal roles'],
-        faqs: [{ q: 'Which countries do you supply barista workers to?', a: 'We supply to Saudi Arabia, UAE, Qatar, Kuwait, Oman, and beyond.' }, { q: 'Are barista workers trained before deployment?', a: 'Yes, we supply baristas with verified coffee preparation skills and service training.' }],
+        intro: 'Taha Airwaves provides experienced barista workers and cafe staff for Russian hospitality businesses, hotels, restaurants, and corporate food courts.',
+        intro_ru: 'Taha Airwaves предоставляет опытных бариста и персонал кафе для российского гостиничного бизнеса, отелей, ресторанов и корпоративных фуд-кортов.',
+        detailedDesc: 'Our barista workers are trained in specialty coffee preparation, customer service standards, and high-volume cafe operations.',
+        detailedDesc_ru: 'Наши бариста обучены приготовлению кофе, стандартам обслуживания и работе в загруженных кафе.',
+        types: ['Café Baristas – Specialty coffee and beverages.', 'Hotel Baristas – High-end hospitality.', 'Event Baristas – Corporate events and catering.', 'Retail Coffee Staff – Busy café environments.'],
+        types_ru: ['Бариста в кафе – Спецкофе и напитки.', 'Бариста в отелях – Премиальное гостеприимство.', 'Бариста для мероприятий – Корпоративные ивенты.', 'Персонал кофеен – Загруженные кафе.'],
+        industries: ['Coffee Shops & Cafes', 'Hotels & Resorts', 'Restaurants', 'Corporate Food Courts'],
+        industries_ru: ['Кофейни и кафе', 'Отели и курорты', 'Рестораны', 'Корпоративные фуд-корты'],
+        process: ['Requirement Understanding – Service style and skills.', 'Candidate Sourcing – Hospitality talent pool.', 'Skill Assessment – Coffee and service evaluation.', 'Client Review – Profile selection.', 'Documentation & Deployment – Visa and travel to Russia.'],
+        process_ru: ['Анализ требований – Стиль сервиса.', 'Подбор – Из базы гостиничного персонала.', 'Оценка навыков – Кофе и обслуживание.', 'Согласование – Выбор профилей.', 'Документация и размещение – Виза и поездка в Россию.'],
+        benefits: ['Pre-trained barista workforce', 'Specialty coffee skills', 'Russia deployment-ready', 'Flexible staffing solutions'],
+        benefits_ru: ['Обученные бариста', 'Навыки спецкофе', 'Готовность к размещению в России', 'Гибкие кадровые решения'],
+        faqs: [{ q: 'Do you supply barista workers to Russia?', a: 'Yes, we deploy trained baristas to Russian hospitality businesses.' }, { q: 'Are they trained in specialty coffee?', a: 'Yes, all baristas have verified coffee preparation skills.' }],
+        faqs_ru: [{ q: 'Вы предоставляете бариста в Россию?', a: 'Да, мы размещаем обученных бариста в российском гостиничном бизнесе.' }, { q: 'Они обучены спецкофе?', a: 'Да, все бариста имеют подтверждённые навыки приготовления кофе.' }],
     },
     'packing-workers': {
         title: 'Skilled Packing Workers Manpower Services',
-        metaDesc: 'Hire skilled packing workers across GCC & global industries.',
+        title_ru: 'Услуги по подбору упаковщиков',
+        metaDesc: 'Hire skilled packing workers for Russian warehousing and logistics.',
+        metaDesc_ru: 'Подбор упаковщиков для российских складов и логистики.',
         images: ['/service-and-blog/Packers-workers.jpeg', '/service-and-blog/Packers-workers.jpeg'],
-        intro: 'Taha Airwaves provides professional Packing Workers manpower supply services designed to meet the needs of businesses across GCC, Russia, and global markets.',
-        detailedDesc: 'We specialize in sourcing, screening, and deploying dependable packing workers with expertise in packing, sorting, inspection, labeling, and material preparation.',
-        types: ['General Packing Workers – Routine packing, sealing, labeling, and packaging.', 'Material Preparation Packers – Preparing packing materials and inventory staging.', 'Quality Control Packing Staff – Inspecting product quality before packing.', 'Labeling & Documentation Helpers – Proper labeling, tagging, and shipping preparation.', 'Container & Pallet Packing Labour – Loading pallets and stuffing containers.'],
-        industries: ['Logistics & Supply Chain', 'Manufacturing & Automobiles', 'Construction & Engineering', 'Oil & Gas', 'Retail & E-Commerce'],
-        process: ['Requirement Assessment – Understanding packing needs and compliance.', 'Candidate Sourcing – Identifying workers from our verified talent pool.', 'Screening & Evaluation – Task-specific ability checks and background verification.', 'Documentation & Compliance – Handling paperwork and visa processing.', 'Mobilization & Deployment – Travel logistics and on-site integration.'],
-        benefits: ['Verified and disciplined packing workforce', 'Attention to detail and quality standards', 'Cross-country deployment capabilities', 'Flexible solutions for seasonal and project needs'],
-        faqs: [{ q: 'Which countries do you supply packing workers to?', a: 'We supply to GCC countries, Russia, and beyond.' }, { q: 'Can workers handle quality control packing?', a: 'Yes, we supply workers trained in inspection and quality control packing.' }],
+        intro: 'Taha Airwaves provides professional packing workers for Russian warehouses, manufacturing facilities, and logistics operations.',
+        intro_ru: 'Taha Airwaves предоставляет профессиональных упаковщиков для российских складов, производственных предприятий и логистических операций.',
+        detailedDesc: 'We specialize in sourcing verified packing workers with expertise in packing, sorting, quality inspection, and material preparation for the Russian market.',
+        detailedDesc_ru: 'Мы специализируемся на подборе проверенных упаковщиков с навыками упаковки, сортировки и подготовки материалов для российского рынка.',
+        types: ['General Packing Workers – Packing, sealing, labeling.', 'Quality Control Staff – Inspection before packing.', 'Container Packing Labour – Pallets and containers.', 'Documentation Helpers – Labeling and shipping prep.'],
+        types_ru: ['Упаковщики – Упаковка, герметизация, маркировка.', 'Контролёры качества – Инспекция перед упаковкой.', 'Контейнерная упаковка – Паллеты и контейнеры.', 'Помощники по документации – Маркировка и подготовка к отправке.'],
+        industries: ['Logistics', 'Manufacturing', 'Construction', 'Oil & Gas', 'Retail'],
+        industries_ru: ['Логистика', 'Производство', 'Строительство', 'Нефть и газ', 'Розничная торговля'],
+        process: ['Requirement Assessment – Packing needs.', 'Candidate Sourcing – Verified pool.', 'Screening – Task-specific checks.', 'Documentation – Visa for Russia.', 'Deployment – Travel and integration.'],
+        process_ru: ['Оценка требований – Потребности в упаковке.', 'Подбор кандидатов – Проверенная база.', 'Проверка – Проверка навыков.', 'Документация – Виза для России.', 'Размещение – Поездка и интеграция.'],
+        benefits: ['Verified packing workforce', 'Attention to quality standards', 'Fast Russia deployment', 'Flexible for seasonal needs'],
+        benefits_ru: ['Проверенные упаковщики', 'Внимание к стандартам качества', 'Быстрое размещение в России', 'Гибкость для сезонных нужд'],
+        faqs: [{ q: 'Do you supply packing workers to Russia?', a: 'Yes, we deploy verified packing workers to Russian logistics and manufacturing facilities.' }],
+        faqs_ru: [{ q: 'Вы поставляете упаковщиков в Россию?', a: 'Да, мы размещаем проверенных упаковщиков на российских логистических и производственных объектах.' }],
     },
     'emigration-immigration-clearance': {
         title: 'Emigration & Immigration Clearance Services',
-        metaDesc: 'Structured emigration and immigration clearance services for cross-border workforce deployment.',
+        title_ru: 'Эмиграционное и иммиграционное оформление',
+        metaDesc: 'Complete emigration clearance and immigration support for Russia deployment.',
+        metaDesc_ru: 'Полное эмиграционное оформление и иммиграционная поддержка для размещения в России.',
         images: ['/service-and-blog/Immigration-clearance.jpeg', '/service-and-blog/Immigration-clearance2.jpeg'],
-        intro: 'Taha Airwaves delivers structured Emigration and Immigration Clearance Services aligned with Indian regulatory authorities and destination-country immigration frameworks.',
-        detailedDesc: 'Our structured compliance process ensures documentation accuracy, verified candidate records, employer documentation validation, and alignment with jurisdictional requirements across India and GCC countries.',
-        types: ['Emigration Clearance – POE registration and Indian emigration compliance.', 'Immigration Documentation – Visa processing and destination country clearance.', 'Contract Validation – Employment contract review and compliance checks.', 'Regulatory Submissions – Government liaison and authority coordination.', 'Bulk Workforce Clearance – Large-scale deployment documentation.'],
-        industries: ['All GCC-Bound Employment', 'Construction & Engineering', 'Oil & Gas', 'Manufacturing', 'Facilities Management', 'Hospitality'],
-        process: ['Documentation Collection – Gathering worker and employer documents.', 'Verification & Validation – Cross-checking all records for accuracy.', 'Regulatory Submission – Filing with appropriate authorities.', 'Status Tracking – Monitoring clearance progress and timelines.', 'Final Clearance & Handover – Completing all formalities for deployment.'],
-        benefits: ['Process-driven clearance framework', 'Regulatory compliance across jurisdictions', 'Structured documentation validation', 'Transparent execution timelines', 'Operational accountability at every stage'],
-        faqs: [{ q: 'What is included in emigration clearance?', a: 'We manage documentation verification, regulatory submissions, contract validation, and coordination with authorized authorities.' }, { q: 'Do you handle GCC immigration clearance?', a: 'Yes, we coordinate immigration documentation and compliance for all GCC countries.' }],
+        intro: 'Taha Airwaves delivers end-to-end emigration and immigration clearance services for Indian workers deploying to Russia, ensuring full compliance with both Indian and Russian regulatory frameworks.',
+        intro_ru: 'Taha Airwaves обеспечивает полный цикл эмиграционного и иммиграционного оформления для индийских работников, направляемых в Россию, с полным соответствием нормативам Индии и России.',
+        detailedDesc: 'Our compliance process ensures documentation accuracy, verified candidate records, and alignment with requirements of both India and Russia.',
+        detailedDesc_ru: 'Наш процесс соответствия обеспечивает точность документации, проверенные данные кандидатов и соответствие требованиям обеих стран.',
+        types: ['Emigration Clearance – POE registration and Indian compliance.', 'Immigration Documentation – Russian visa and work permit processing.', 'Contract Validation – Employment contract review.', 'Regulatory Submissions – Government liaison.', 'Bulk Workforce Clearance – Large-scale deployment documentation.'],
+        types_ru: ['Эмиграционное оформление – Регистрация POE и индийское соответствие.', 'Иммиграционная документация – Российская виза и разрешение на работу.', 'Валидация контрактов – Проверка трудовых договоров.', 'Нормативные заявки – Связь с госорганами.', 'Массовое оформление – Документация для крупных партий.'],
+        industries: ['All Russia-Bound Employment', 'Construction', 'Oil & Gas', 'Manufacturing', 'Facilities Management'],
+        industries_ru: ['Все направления в Россию', 'Строительство', 'Нефть и газ', 'Производство', 'Управление объектами'],
+        process: ['Document Collection – Worker and employer documents.', 'Verification – Cross-checking records.', 'Regulatory Submission – Filing with authorities.', 'Status Tracking – Progress monitoring.', 'Final Clearance – Completing formalities.'],
+        process_ru: ['Сбор документов – Документы работника и работодателя.', 'Верификация – Перекрёстная проверка данных.', 'Подача в органы – Подача в компетентные органы.', 'Отслеживание статуса – Мониторинг прогресса.', 'Финальное оформление – Завершение формальностей.'],
+        benefits: ['Process-driven clearance framework', 'Compliance across India and Russia', 'Transparent timelines', 'Accountability at every stage'],
+        benefits_ru: ['Системный процесс оформления', 'Соответствие нормативам Индии и России', 'Прозрачные сроки', 'Ответственность на каждом этапе'],
+        faqs: [{ q: 'Do you handle Russian immigration clearance?', a: 'Yes, we coordinate complete immigration documentation and compliance for Russia.' }],
+        faqs_ru: [{ q: 'Вы оформляете российскую иммиграцию?', a: 'Да, мы координируем полное иммиграционное оформление и соответствие для России.' }],
     },
     'document-attestation-services': {
         title: 'Document Attestation Services',
-        metaDesc: 'Professional document attestation and legalization services for cross-border workforce deployment.',
+        title_ru: 'Аттестация документов',
+        metaDesc: 'Professional document attestation for Russian workforce deployment.',
+        metaDesc_ru: 'Профессиональная аттестация документов для размещения персонала в России.',
         images: ['/service-and-blog/Document-attestation.jpeg', '/service-and-blog/Document-attestation.jpeg'],
-        intro: 'Taha Airwaves delivers structured Document Attestation Services aligned with regulatory authorities and destination-country legal frameworks.',
-        detailedDesc: 'The service supports lawful cross-border workforce deployment by ensuring all documents are authenticated, validated, and recognized by relevant government and embassy authorities.',
-        types: ['Educational Certificates – Degree, diploma, and transcript attestation.', 'Technical & Professional Qualifications – Trade certificates and skill attestation.', 'Experience Certificates – Employment and work experience validation.', 'Employment Contracts – Contract legalization and authentication.', 'Commercial & Corporate Documents – Business and organizational documents.'],
-        industries: ['All Industries Requiring Overseas Deployment', 'Construction', 'Oil & Gas', 'Healthcare', 'IT & Corporate', 'Hospitality'],
-        process: ['Document Collection – Gathering original documents.', 'State-Level Authentication – HRD and Home Department attestation.', 'MEA Attestation – Ministry of External Affairs authentication.', 'Embassy Attestation – Destination country embassy legalization.', 'Document Return – Secure delivery of attested documents.'],
-        benefits: ['End-to-end attestation coordination', 'MEA and embassy attestation handled', 'Apostille services for applicable countries', 'Secure document handling and tracking'],
-        faqs: [{ q: 'What documents can be attested?', a: 'We handle educational certificates, employment contracts, experience letters, and commercial documents.' }, { q: 'Do you handle embassy attestation?', a: 'Yes, we coordinate attestation with embassies of GCC and other destination countries.' }],
+        intro: 'Taha Airwaves provides complete document attestation services for workers deploying to Russia, ensuring all documents are authenticated and recognized by relevant authorities.',
+        intro_ru: 'Taha Airwaves предоставляет полные услуги по аттестации документов для работников, направляемых в Россию, обеспечивая аутентификацию и признание всех документов.',
+        detailedDesc: 'The service ensures lawful deployment by authenticating educational, professional, and employment documents.',
+        detailedDesc_ru: 'Услуга обеспечивает законное размещение путём аутентификации образовательных, профессиональных и трудовых документов.',
+        types: ['Educational Certificates – Degree and diploma attestation.', 'Professional Qualifications – Trade certificates.', 'Experience Certificates – Employment validation.', 'Employment Contracts – Contract legalization.'],
+        types_ru: ['Образовательные сертификаты – Аттестация дипломов.', 'Профессиональные квалификации – Торговые сертификаты.', 'Свидетельства об опыте – Валидация трудового стажа.', 'Трудовые договоры – Легализация контрактов.'],
+        industries: ['All Industries', 'Construction', 'Oil & Gas', 'Healthcare', 'Corporate'],
+        industries_ru: ['Все отрасли', 'Строительство', 'Нефть и газ', 'Здравоохранение', 'Корпорации'],
+        process: ['Document Collection – Gathering originals.', 'State Authentication – HRD attestation.', 'MEA Attestation – Ministry authentication.', 'Embassy Attestation – Russian embassy.', 'Document Return – Secure delivery.'],
+        process_ru: ['Сбор документов – Сбор оригиналов.', 'Государственная аттестация – Аттестация HRD.', 'Аттестация MEA – Аутентификация министерства.', 'Консульская аттестация – Посольство России.', 'Возврат документов – Безопасная доставка.'],
+        benefits: ['End-to-end attestation', 'MEA and embassy handled', 'Apostille services', 'Secure document tracking'],
+        benefits_ru: ['Полный цикл аттестации', 'Оформление MEA и посольства', 'Услуги апостиля', 'Безопасное отслеживание документов'],
+        faqs: [{ q: 'Do you handle Russian embassy attestation?', a: 'Yes, we coordinate attestation with the Russian embassy.' }],
+        faqs_ru: [{ q: 'Вы оформляете аттестацию в российском посольстве?', a: 'Да, мы координируем аттестацию с посольством России.' }],
     },
-    'hajj-umrah-travel-services': {
-        title: 'Hajj & Umrah Travel Services',
-        metaDesc: 'Comprehensive Hajj and Umrah travel coordination including visa processing, accommodation, and guided support.',
-        images: ['/service-and-blog/Hajj-umrah-travell-service.jpeg', '/service-and-blog/Hajj-umrah-travell-service2.jpeg'],
-        intro: 'Taha Airwaves provides comprehensive Hajj and Umrah travel coordination services designed to support pilgrims with structured, reliable, and compliant travel arrangements.',
-        detailedDesc: 'Our Hajj & Umrah travel services include itinerary planning, visa processing, accommodation, transportation, and on-ground support.',
-        types: ['Travel Coordination & Itinerary Planning – Complete travel schedules.', 'Visa Processing & Documentation – Hajj/Umrah visa application and compliance.', 'Accommodation Arrangements – Hotel stays near major Haram sites.', 'Ground Transportation – Transfers between cities and holy sites.', 'Guided Support & Welfare – On-ground guidance and welfare coordination.', 'Group Management – Customized services for groups and families.'],
-        industries: ['Individual Pilgrims', 'Families', 'Religious Groups & Community Organizations', 'Corporate Pilgrimage Sponsors'],
-        process: ['Consultation – Understanding travel dates, group size, and preferences.', 'Documentation & Visa – Processing visa applications.', 'Travel Planning – Itinerary design and flight arrangements.', 'Accommodation & Transport – Hotel and ground logistics.', 'Departure & On-Ground Support – Travel coordination and welfare assistance.'],
-        benefits: ['End-to-end pilgrimage coordination', 'Government-compliant visa processing', 'Accommodation near Haram sites', 'Ground transportation support'],
-        faqs: [{ q: 'What services are included?', a: 'We provide visa processing, accommodation, transportation, itinerary planning, and on-ground support.' }, { q: 'Do you handle group pilgrimages?', a: 'Yes, we offer tailored services for individuals, families, and groups.' }],
+    'skilled-labourers-technicians': {
+        title: 'Skilled Technicians Manpower Services',
+        title_ru: 'Услуги по подбору квалифицированных техников',
+        metaDesc: 'Hire skilled electricians, plumbers, welders for Russian construction.',
+        metaDesc_ru: 'Подбор электриков, сантехников, сварщиков для российского строительства.',
+        images: ['/service-and-blog/Factory-helpers2.jpeg', '/service-and-blog/Factory-helpers2.jpeg'],
+        intro: 'Taha Airwaves provides skilled technicians — electricians, plumbers, welders, and fitters — for Russian construction sites, industrial plants, and infrastructure projects.',
+        intro_ru: 'Taha Airwaves предоставляет квалифицированных техников — электриков, сантехников, сварщиков и слесарей — для российских строительных площадок и промышленных объектов.',
+        detailedDesc: 'Our technicians are trade-tested, certified, and deployment-ready for Russian industrial and construction operations.',
+        detailedDesc_ru: 'Наши техники прошли профтестирование, сертифицированы и готовы к работе на российских объектах.',
+        types: ['Electricians – Industrial and residential wiring.', 'Plumbers – Pipeline and plumbing systems.', 'Welders – Arc, MIG, TIG welding.', 'Fitters – Mechanical and pipe fitting.'],
+        types_ru: ['Электрики – Промышленная и бытовая проводка.', 'Сантехники – Трубопроводы и системы водоснабжения.', 'Сварщики – Дуговая, MIG, TIG сварка.', 'Слесари – Механическая и трубная сборка.'],
+        industries: ['Construction', 'Oil & Gas', 'Manufacturing', 'Infrastructure'],
+        industries_ru: ['Строительство', 'Нефть и газ', 'Производство', 'Инфраструктура'],
+        process: ['Requirement Analysis – Trade and skill specifications.', 'Sourcing – Trade-tested candidates.', 'Certification Review – License and certificate checks.', 'Documentation – Russian visa processing.', 'Deployment – Travel and site placement.'],
+        process_ru: ['Анализ требований – Специализация и навыки.', 'Подбор – Кандидаты с профтестированием.', 'Проверка сертификатов – Лицензии и квалификация.', 'Документация – Визовое оформление для России.', 'Размещение – Поездка и интеграция.'],
+        benefits: ['Trade-tested and certified technicians', 'Experience in Russian construction', 'Full compliance and documentation', 'Fast deployment'],
+        benefits_ru: ['Проверенные и сертифицированные техники', 'Опыт на российских стройках', 'Полное соответствие и документация', 'Быстрое размещение'],
+        faqs: [{ q: 'Do you deploy welders to Russia?', a: 'Yes, we deploy certified welders for construction and industrial projects in Russia.' }],
+        faqs_ru: [{ q: 'Вы направляете сварщиков в Россию?', a: 'Да, мы размещаем сертифицированных сварщиков на строительных и промышленных проектах в России.' }],
     },
     'employee-outsourcing-solutions': {
         title: 'Employee Outsourcing Solutions',
-        metaDesc: 'Structured employee outsourcing solutions for Gulf-based employers requiring compliant Indian manpower deployment.',
+        title_ru: 'Аутсорсинг персонала',
+        metaDesc: 'Complete workforce outsourcing solutions for Russian employers.',
+        metaDesc_ru: 'Комплексные решения по аутсорсингу персонала для российских работодателей.',
         images: ['/service-and-blog/employe-outsourcing-.jpeg', '/service-and-blog/Employee-outsourcing2.jpeg'],
-        intro: 'Taha Airwaves provides structured Employee Outsourcing Solutions designed for employers requiring compliant, scalable, and deployment-ready manpower.',
-        detailedDesc: 'Employee outsourcing enables employers to focus on core operations while workforce administration, compliance coordination, and cross-border processes are centrally managed.',
-        types: ['Contract Staffing – Fixed-term workforce supply aligned with project schedules.', 'Temporary Workforce – Short-duration manpower for peak periods.', 'Permanent Placement – Long-term recruitment for core roles.', 'Payroll Management – Salary processing and compliance coordination.', 'Compliance Administration – Labor law adherence and documentation management.'],
-        industries: ['Construction & Infrastructure', 'Oil & Gas Operations', 'Manufacturing Facilities', 'Industrial Plants', 'Facilities Management Services'],
-        process: ['Workforce Assessment – Understanding requirements, roles, and timelines.', 'Recruitment & Screening – Sourcing and verifying candidates.', 'Compliance & Documentation – Managing all regulatory requirements.', 'Deployment & Mobilization – Coordinating travel and on-site placement.', 'Ongoing Support – Payroll, contract management, and renewal tracking.'],
-        benefits: ['Centralized workforce administration', 'Compliance-driven deployment process', 'Predictable mobilization schedules', 'Reduced administrative burden', 'Scalable workforce solutions'],
-        faqs: [{ q: 'What are employee outsourcing solutions?', a: 'Structured workforce deployment where recruitment, compliance, documentation, and mobilization are managed by a manpower infrastructure partner.' }, { q: 'Which industries benefit from outsourcing?', a: 'Construction, oil & gas, manufacturing, facilities management, and industrial sectors across the GCC.' }],
+        intro: 'Taha Airwaves provides structured employee outsourcing solutions for Russian employers requiring compliant, scalable, and deployment-ready Indian manpower.',
+        intro_ru: 'Taha Airwaves предоставляет структурированные решения по аутсорсингу персонала для российских работодателей, нуждающихся в соответствующей, масштабируемой индийской рабочей силе.',
+        detailedDesc: 'Employee outsourcing enables Russian employers to focus on core operations while we manage recruitment, compliance, and deployment.',
+        detailedDesc_ru: 'Аутсорсинг позволяет российским работодателям сосредоточиться на основной деятельности, пока мы управляем подбором, соответствием и размещением.',
+        types: ['Contract Staffing – Fixed-term workforce for projects.', 'Temporary Workforce – Short-duration manpower.', 'Permanent Placement – Long-term core roles.', 'Payroll Management – Salary processing.', 'Compliance Administration – Labour law adherence.'],
+        types_ru: ['Контрактный персонал – Работники на срок проекта.', 'Временный персонал – Краткосрочная рабочая сила.', 'Постоянное трудоустройство – Долгосрочные ключевые роли.', 'Управление зарплатой – Обработка выплат.', 'Администрирование соответствия – Соблюдение трудового права.'],
+        industries: ['Construction', 'Oil & Gas', 'Manufacturing', 'Industrial Plants', 'Facilities Management'],
+        industries_ru: ['Строительство', 'Нефть и газ', 'Производство', 'Промышленные предприятия', 'Управление объектами'],
+        process: ['Workforce Assessment – Requirements and roles.', 'Recruitment & Screening – Verifying candidates.', 'Compliance & Documentation – All regulations.', 'Deployment & Mobilization – Travel to Russia.', 'Ongoing Support – Payroll and contract management.'],
+        process_ru: ['Оценка потребностей – Требования и роли.', 'Подбор и проверка – Верификация кандидатов.', 'Соответствие и документация – Все нормативы.', 'Размещение и мобилизация – Поездка в Россию.', 'Текущая поддержка – Зарплата и управление контрактами.'],
+        benefits: ['Centralized workforce administration', 'Compliance-driven process', 'Scalable workforce solutions', 'Reduced administrative burden', 'Dedicated Russia support'],
+        benefits_ru: ['Централизованное управление кадрами', 'Процесс на основе соответствия', 'Масштабируемые кадровые решения', 'Сниженная административная нагрузка', 'Специализированная поддержка для России'],
+        faqs: [{ q: 'What is employee outsourcing?', a: 'Structured deployment where recruitment, compliance, and mobilization are managed by Taha Airwaves for Russian employers.' }],
+        faqs_ru: [{ q: 'Что такое аутсорсинг персонала?', a: 'Структурированное размещение, при котором подбор, соответствие и мобилизация управляются Taha Airwaves для российских работодателей.' }],
     },
-};
+}
 
 export function generateStaticParams() {
-    return Object.keys(servicesData).map((slug) => ({ slug }));
+    return Object.keys(servicesData).map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }) {
-    const { slug } = await params;
-    const service = servicesData[slug] || {};
+    const { slug } = await params
+    const service = servicesData[slug] || {}
     return {
         title: `${service.title || 'Service'} — Taha Airwaves`,
         description: service.metaDesc || 'Manpower recruitment services by Taha Airwaves.',
-    };
+    }
 }
 
 export default async function ServiceDetailPage({ params }) {
-    const { slug } = await params;
-    const service = servicesData[slug];
+    const { slug } = await params
+    const service = servicesData[slug]
 
     if (!service) {
         return (
             <div style={{ padding: '120px 24px', textAlign: 'center' }}>
-                <h1 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2.5rem', marginBottom: '16px', color: '#1a0a10' }}>Service Not Found</h1>
-                <p style={{ color: '#6B7280', marginBottom: '24px', fontSize: '1.1rem', fontFamily: 'var(--font-poppins)' }}>The service you are looking for does not exist.</p>
-                <Link href="/services" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', borderRadius: '9999px', background: '#8E0935', color: '#FDFBEF', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, fontFamily: 'var(--font-lato)' }}>View All Services</Link>
+                <h1 style={{ fontFamily: 'var(--font-inter)', fontSize: '2.5rem', fontWeight: 900, color: '#1A1A1A' }}>Service Not Found</h1>
+                <p style={{ color: '#6B7280', margin: '16px 0 24px', fontFamily: 'var(--font-poppins)' }}>The service you are looking for does not exist.</p>
             </div>
-        );
+        )
     }
 
-    return (
-        <>
-            {/* Hero */}
-            <section className="relative" style={{ height: '50vh', minHeight: '350px' }}>
-                <Image src={service.images?.[0] || '/images/demo4.jpeg'} alt={service.title} fill className="object-cover" style={{ objectPosition: 'center 35%' }} priority />
-                <div className="absolute inset-0" style={{ background: 'rgba(26,10,16,0.78)' }} />
-                <div className="relative z-10 h-full flex flex-col justify-end max-w-[1100px] mx-auto px-6 pb-12">
-                    <h1 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, color: '#FDFBEF', marginBottom: '12px' }}>{service.title}</h1>
-                    <p style={{ fontFamily: 'var(--font-poppins)', fontSize: 'clamp(0.85rem, 1.2vw, 1rem)', color: 'rgba(253,251,239,0.7)', maxWidth: '600px' }}>{service.metaDesc}</p>
-                </div>
-            </section>
-
-            {/* Content */}
-            <section style={{ background: '#FDFBEF' }} className="py-16">
-                <div className="max-w-[1100px] mx-auto px-6 space-y-16">
-
-                    <Link href="/services" className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:text-[#BC264B]" style={{ color: '#8E0935', fontFamily: 'var(--font-lato)' }}>
-                        ← Back to All Services
-                    </Link>
-
-                    {/* Intro */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-                        <div>
-                            <h2 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2rem', fontWeight: 600, color: '#1a0a10', marginBottom: '16px' }}>
-                                About This <span style={{ color: '#8E0935' }}>Service</span>
-                            </h2>
-                            <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.95rem', color: '#374151', lineHeight: 1.8, marginBottom: '12px' }}>{service.intro}</p>
-                            <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.9rem', color: '#6B7280', lineHeight: 1.8 }}>{service.detailedDesc}</p>
-                        </div>
-                        {service.images?.[1] && (
-                            <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/10' }}>
-                                <Image src={service.images[1]} alt={service.title} fill className="object-cover" />
-                            </div>
-                        )}
-                    </div>
-
-                    {/* What We Provide */}
-                    <div>
-                        <h2 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2rem', fontWeight: 600, color: '#1a0a10', marginBottom: '8px' }}>
-                            What We <span style={{ color: '#8E0935' }}>Provide</span>
-                        </h2>
-                        <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.9rem', color: '#6B7280', marginBottom: '24px' }}>
-                            Comprehensive workforce solutions tailored to your specific requirements
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {service.types.map((t, i) => {
-                                const parts = t.split(' – ');
-                                return (
-                                    <div key={i} className="flex gap-3 p-4 rounded-xl" style={{ background: '#fff', border: '1px solid rgba(142,9,53,0.1)' }}>
-                                        <FaCheckCircle className="text-[#8E0935] flex-shrink-0 mt-1" />
-                                        <div>
-                                            <h3 style={{ fontFamily: 'var(--font-lato)', fontSize: '0.95rem', fontWeight: 700, color: '#1a0a10' }}>{parts[0]}</h3>
-                                            {parts[1] && <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.85rem', color: '#6B7280', marginTop: '4px' }}>{parts[1]}</p>}
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-
-                    {/* Industries */}
-                    <div>
-                        <h2 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2rem', fontWeight: 600, color: '#1a0a10', marginBottom: '16px' }}>
-                            Industries We <span style={{ color: '#8E0935' }}>Serve</span>
-                        </h2>
-                        <div className="flex flex-wrap gap-3">
-                            {service.industries.map((ind) => (
-                                <span key={ind} className="px-4 py-2 rounded-full text-sm font-medium" style={{ background: 'rgba(142,9,53,0.08)', color: '#8E0935', fontFamily: 'var(--font-lato)' }}>{ind}</span>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Countries We Deploy To */}
-                    <div>
-                        <h2 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2rem', fontWeight: 600, color: '#1a0a10', marginBottom: '8px' }}>
-                            Countries We <span style={{ color: '#8E0935' }}>Deploy To</span>
-                        </h2>
-                        <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.9rem', color: '#6B7280', marginBottom: '24px' }}>
-                            Our verified workforce reaches employers across the Gulf, Middle East, Southeast Asia, and Europe
-                        </p>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                            {[
-                                { name: 'Saudi Arabia', flag: '🇸🇦' },
-                                { name: 'UAE', flag: '🇦🇪' },
-                                { name: 'Qatar', flag: '🇶🇦' },
-                                { name: 'Kuwait', flag: '🇰🇼' },
-                                { name: 'Oman', flag: '🇴🇲' },
-                                { name: 'Bahrain', flag: '🇧🇭' },
-                                { name: 'Jordan', flag: '🇯🇴' },
-                                { name: 'Egypt', flag: '🇪🇬' },
-                                { name: 'Russia', flag: '🇷🇺' },
-                                { name: 'Mauritius', flag: '🇲🇺' },
-                                { name: 'Malaysia', flag: '🇲🇾' },
-                            ].map(c => (
-                                <div key={c.name} className="flex items-center gap-2 p-3 rounded-xl" style={{ background: '#fff', border: '1px solid rgba(142,9,53,0.08)' }}>
-                                    <span className="text-xl">{c.flag}</span>
-                                    <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-lato)', color: '#1a0a10' }}>{c.name}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Key Highlights */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {[
-                            { number: '20+', label: 'Years of Experience', icon: <MdVerified style={{ color: '#8E0935' }} /> },
-                            { number: '5000+', label: 'Workers Deployed', icon: <FaGlobeAsia style={{ color: '#8E0935' }} /> },
-                            { number: '11+', label: 'Countries Served', icon: <FaGlobeAsia style={{ color: '#BC264B' }} /> },
-                            { number: '100%', label: 'Compliance Rate', icon: <MdVerified style={{ color: '#BC264B' }} /> },
-                        ].map((stat, i) => (
-                            <div key={i} className="text-center p-6 rounded-xl" style={{ background: '#fff', border: '1px solid rgba(142,9,53,0.1)' }}>
-                                <div className="text-3xl lg:text-4xl font-bold mb-1" style={{ color: '#8E0935', fontFamily: 'var(--font-oswald)' }}>{stat.number}</div>
-                                <div className="text-sm font-medium" style={{ color: '#6B7280', fontFamily: 'var(--font-lato)' }}>{stat.label}</div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Deployment Promise */}
-                    <div className="p-8 rounded-2xl" style={{ background: 'rgba(142,9,53,0.05)', border: '1px solid rgba(142,9,53,0.1)' }}>
-                        <h3 style={{ fontFamily: 'var(--font-lato)', fontSize: '1.2rem', fontWeight: 700, color: '#1a0a10', marginBottom: '12px' }}>
-                            Our Deployment Promise
-                        </h3>
-                        <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.95rem', color: '#374151', lineHeight: 1.8 }}>
-                            Every candidate we deploy — whether cleaners, drivers, engineers, or labourers — goes through our rigorous 5-stage verification process. We handle everything from sourcing and skill assessment to visa processing, medical clearance, and travel coordination. Our government licensing (RA License No. B-3260/DEL/COM/100/5/11259/2025) ensures 100% compliance with Indian emigration laws and destination-country regulations. Employers receive deployment-ready workers with complete documentation, reducing onboarding time and operational risk.
-                        </p>
-                    </div>
-
-                    {/* Process */}
-                    <div>
-                        <h2 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2rem', fontWeight: 600, color: '#1a0a10', marginBottom: '24px' }}>
-                            Our <span style={{ color: '#8E0935' }}>Process</span>
-                        </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {service.process.map((step, i) => {
-                                const parts = step.split(' – ');
-                                return (
-                                    <div key={i} className="p-5 rounded-xl" style={{ background: '#fff', border: '1px solid rgba(142,9,53,0.1)' }}>
-                                        <div className="text-2xl font-bold mb-3" style={{ color: '#BC264B', fontFamily: 'var(--font-oswald)' }}>{i + 1}</div>
-                                        <h3 style={{ fontFamily: 'var(--font-lato)', fontSize: '1rem', fontWeight: 700, color: '#1a0a10', marginBottom: '6px' }}>{parts[0]}</h3>
-                                        {parts[1] && <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.85rem', color: '#6B7280' }}>{parts[1]}</p>}
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-
-                    {/* Benefits */}
-                    <div className="p-8 rounded-2xl" style={{ background: '#1a0a10' }}>
-                        <h2 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2rem', fontWeight: 600, color: '#FDFBEF', marginBottom: '20px' }}>
-                            Why Choose <span style={{ color: '#BC264B' }}>Taha Airwaves</span>
-                        </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {service.benefits.map((b, i) => (
-                                <div key={i} className="flex items-center gap-3">
-                                    <FaCheckCircle style={{ color: '#BC264B', flexShrink: 0 }} />
-                                    <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.9rem', color: 'rgba(253,251,239,0.7)' }}>{b}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* FAQs */}
-                    <div>
-                        <h2 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2rem', fontWeight: 600, color: '#1a0a10', marginBottom: '20px' }}>
-                            Frequently Asked <span style={{ color: '#8E0935' }}>Questions</span>
-                        </h2>
-                        <FaqAccordion faqs={service.faqs} />
-                    </div>
-
-                    {/* CTA */}
-                    <div className="text-center p-10 rounded-2xl" style={{ background: '#8E0935' }}>
-                        <h3 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 600, color: '#FDFBEF', marginBottom: '12px' }}>
-                            Need {service.title}?
-                        </h3>
-                        <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '1rem', color: 'rgba(253,251,239,0.7)', marginBottom: '24px' }}>
-                            Contact us today for a free consultation and custom workforce quote.
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold uppercase tracking-[0.1em]"
-                                style={{ background: '#FDFBEF', color: '#8E0935', fontFamily: 'var(--font-lato)' }}>Get a Quote</Link>
-                            <a href="https://wa.me/919315226961" target="_blank" rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold uppercase tracking-[0.1em]"
-                                style={{ background: 'transparent', color: '#FDFBEF', border: '1px solid rgba(253,251,239,0.4)', fontFamily: 'var(--font-lato)' }}>
-                                <FaWhatsapp /> WhatsApp Us
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </>
-    );
+    return <ServiceDetailContent service={service} />
 }

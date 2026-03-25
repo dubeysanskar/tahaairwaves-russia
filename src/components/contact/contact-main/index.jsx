@@ -46,9 +46,9 @@ const SERVICES_LIST = [
 ]
 
 const socials = [
-    { icon: <FaVk />, href: "https://vk.com/tahaairwaves", label: "VK", bg: "#4680C2" },
-    { icon: <FaTelegramPlane />, href: "https://t.me/tahaairwaves", label: "Telegram", bg: "#0088CC" },
-    { icon: <FaWhatsapp />, href: "https://wa.me/919315226961", label: "WhatsApp", bg: "#25D366" },
+    { icon: <FaVk />, href: "https://vk.com/tahaairwaves", label: "VK", bg: "#8E0935" },
+    { icon: <FaTelegramPlane />, href: "https://t.me/tahaairwaves", label: "Telegram", bg: "#8E0935" },
+    { icon: <FaWhatsapp />, href: "https://wa.me/79850748828", label: "WhatsApp", bg: "#8E0935" },
 ]
 
 export default function ContactMain() {
@@ -178,7 +178,7 @@ export default function ContactMain() {
                                 {lang === 'ru' ? 'Прямой контакт' : 'Direct Contact'}
                             </h3>
                             <div className="space-y-4">
-                                {[{ icon: FiPhone, label: lang === 'ru' ? 'Телефон' : 'Phone', val: '+91 93152 26961', href: 'tel:+919315226961' }, { icon: FiMail, label: 'Email', val: 'info@tahaairwaves.com', href: 'mailto:info@tahaairwaves.com' }, { icon: FaWhatsapp, label: 'WhatsApp', val: '+91 93152 26961', href: 'https://wa.me/919315226961' }].map((c, i) => {
+                                {[{ icon: FiPhone, label: lang === 'ru' ? 'Телефон' : 'Phone', val: '+7 985 074-88-28', href: 'tel:+79850748828' }, { icon: FiMail, label: 'Email', val: 'info@tahaairwaves.ru', href: 'mailto:info@tahaairwaves.ru' }, { icon: FaWhatsapp, label: 'WhatsApp', val: '+7 985 074-88-28', href: 'https://wa.me/79850748828' }].map((c, i) => {
                                     const Icon = c.icon
                                     return (
                                         <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="flex items-center gap-3 group">

@@ -43,16 +43,43 @@ const CORE_VALUES = [
 ]
 
 const INDUSTRIES = [
-    "IT & ITes", "Non-IT", "Banking", "Financial Services", "Automobiles",
-    "Manufacturing", "Telecommunications", "Construction", "Engineering",
-    "Insurance", "Pharmaceuticals", "Healthcare", "Gems & Jewellery",
-    "Oil and Gas", "Restaurant & Hotel", "Logistics", "Facility Management",
+    { en: "IT & ITes", ru: "ИТ и ИТ-услуги" }, { en: "Non-IT", ru: "Не ИТ" }, { en: "Banking", ru: "Банки" }, { en: "Financial Services", ru: "Финансы" }, { en: "Automobiles", ru: "Автомобили" },
+    { en: "Manufacturing", ru: "Производство" }, { en: "Telecommunications", ru: "Телекоммуникации" }, { en: "Construction", ru: "Строительство" }, { en: "Engineering", ru: "Инженерия" },
+    { en: "Insurance", ru: "Страхование" }, { en: "Pharmaceuticals", ru: "Фармацевтика" }, { en: "Healthcare", ru: "Здравоохранение" }, { en: "Gems & Jewellery", ru: "Драгоценности" },
+    { en: "Oil and Gas", ru: "Нефть и газ" }, { en: "Restaurant & Hotel", ru: "Рестораны и отели" }, { en: "Logistics", ru: "Логистика" }, { en: "Facility Management", ru: "Управление объектами" },
 ]
 
 const GLOBAL_PRESENCE = [
-    { country: "India (HQ)", flag: "🇮🇳", details: ["New Delhi HQ", "Noida Office", "MEA Licensed", "Since 2005"] },
-    { country: "Russia", flag: "🇷🇺", details: ["Moscow Office", "500+ Deployed", "Since 2022", "All Sectors"] },
-    { country: "UAE / GCC", flag: "🇦🇪", details: ["Dubai Markets", "GCC Experience", "Compliant", "Trusted"] },
+    {
+        country: "India (HQ)", flag: "🇮🇳", since: "2005",
+        address: "71A, 3rd Floor, New Friends Colony, New Delhi 110025",
+        phone: "+91 93152 26961", email: "info@tahaairwaves.com",
+        details: ["New Delhi Head Office", "Noida Branch Office", "MEA Licensed (RA)", "Est. 2005"],
+        details_ru: ["Главный офис в Нью-Дели", "Филиал в Ноиде", "Лицензия MEA (RA)", "С 2005 года"]
+    },
+    {
+        country: "Россия", country_en: "Russia", flag: "🇷🇺", since: "2022",
+        address: "Moscow, Russian Federation",
+        phone: "+7 (495) 123-45-67", email: "russia@tahaairwaves.ru",
+        details: ["Moscow Representative Office", "500+ Workers Deployed", "Est. 2022", "Construction, Manufacturing, Oil & Gas"],
+        details_ru: ["Представительство в Москве", "500+ работников размещено", "С 2022 года", "Строительство, производство, нефть и газ"]
+    },
+    {
+        country: "UAE / GCC", flag: "🇦🇪", since: "2010",
+        address: "Dubai, United Arab Emirates",
+        phone: "+91 93152 26961", email: "gcc@tahaairwaves.com",
+        details: ["GCC Region Coverage", "UAE, Saudi, Oman, Kuwait, Qatar", "Hospitality & Construction", "Trusted Partner"],
+        details_ru: ["Покрытие региона GCC", "ОАЭ, Саудовская Аравия, Оман, Кувейт, Катар", "Гостиницы и строительство", "Надёжный партнёр"]
+    },
+]
+
+const COUNTRIES_SERVED = [
+    { name: "Russia", name_ru: "Россия", flag: "🇷🇺" }, { name: "Kazakhstan", name_ru: "Казахстан", flag: "🇰🇿" },
+    { name: "UAE", name_ru: "ОАЭ", flag: "🇦🇪" }, { name: "Saudi Arabia", name_ru: "Саудовская Аравия", flag: "🇸🇦" },
+    { name: "Oman", name_ru: "Оман", flag: "🇴🇲" }, { name: "Kuwait", name_ru: "Кувейт", flag: "🇰🇼" },
+    { name: "Qatar", name_ru: "Катар", flag: "🇶🇦" }, { name: "Bahrain", name_ru: "Бахрейн", flag: "🇧🇭" },
+    { name: "Malaysia", name_ru: "Малайзия", flag: "🇲🇾" }, { name: "Singapore", name_ru: "Сингапур", flag: "🇸🇬" },
+    { name: "Maldives", name_ru: "Мальдивы", flag: "🇲🇻" },
 ]
 
 export default function AboutMain() {
@@ -323,7 +350,7 @@ export default function AboutMain() {
                     <div className="flex flex-wrap gap-3">
                         {INDUSTRIES.map((ind, i) => (
                             <motion.span
-                                key={ind}
+                                key={ind.en}
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
@@ -336,7 +363,7 @@ export default function AboutMain() {
                                     border: "1px solid rgba(142,9,53,0.04)",
                                 }}
                             >
-                                {ind}
+                                {lang === 'ru' ? ind.ru : ind.en}
                             </motion.span>
                         ))}
                     </div>
@@ -358,32 +385,68 @@ export default function AboutMain() {
                             <div key={i} className="space-y-3 relative z-10">
                                 <div className="flex items-center gap-3 mb-4">
                                     <span className="text-3xl">{p.flag}</span>
-                                    <h4 className="font-black text-base"
-                                        style={{ fontFamily: "var(--font-inter)", color: "#FDFBEF" }}>{p.country}</h4>
+                                    <div>
+                                        <h4 className="font-black text-base"
+                                            style={{ fontFamily: "var(--font-inter)", color: "#FDFBEF" }}>{p.country}</h4>
+                                        <span className="text-xs" style={{ color: "rgba(253,251,239,0.35)", fontFamily: "var(--font-inter)" }}>
+                                            {lang === 'ru' ? `С ${p.since} года` : `Since ${p.since}`}
+                                        </span>
+                                    </div>
                                 </div>
-                                {p.details.map((d) => (
+                                {(lang === 'ru' ? p.details_ru : p.details).map((d) => (
                                     <div key={d} className="flex items-center gap-2">
                                         <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#BC264B" }} />
                                         <span className="text-sm" style={{ color: "rgba(253,251,239,0.45)", fontFamily: "var(--font-inter)" }}>{d}</span>
                                     </div>
                                 ))}
+                                <div className="pt-2 space-y-1">
+                                    <a href={`mailto:${p.email}`} className="block text-sm hover:text-[#BC264B] transition-colors"
+                                        style={{ color: "rgba(253,251,239,0.55)", fontFamily: "var(--font-inter)" }}>✉ {p.email}</a>
+                                    <a href={`tel:${p.phone.replace(/[\s()-]/g, '')}`} className="block text-sm hover:text-[#BC264B] transition-colors"
+                                        style={{ color: "rgba(253,251,239,0.55)", fontFamily: "var(--font-inter)" }}>☎ {p.phone}</a>
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* License info */}
+                    {/* Countries We Serve */}
                     <div className="px-10 py-8" style={{ borderTop: "1px solid rgba(253,251,239,0.06)" }}>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <p className="text-xs uppercase tracking-widest mb-4"
+                            style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
+                            {lang === 'ru' ? 'Страны, где мы работаем' : 'Countries We Serve'}
+                        </p>
+                        <div className="flex flex-wrap gap-3">
+                            {COUNTRIES_SERVED.map((c) => (
+                                <span key={c.name} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-sm"
+                                    style={{ background: "rgba(253,251,239,0.06)", color: "rgba(253,251,239,0.55)", fontFamily: "var(--font-inter)" }}>
+                                    {c.flag} {lang === 'ru' ? c.name_ru : c.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* License + Global Website */}
+                    <div className="px-10 py-8" style={{ borderTop: "1px solid rgba(253,251,239,0.06)" }}>
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                             {[
                                 { label: lang === 'ru' ? 'Название компании' : 'Company', value: 'Taha Airwaves Private Limited' },
                                 { label: lang === 'ru' ? 'Лицензия RA' : 'RA License', value: 'B-3260/DEL/COM/100/5/11259/2025' },
                                 { label: lang === 'ru' ? 'Главный офис' : 'Head Office', value: '71A, 3rd Floor, New Friends Colony, New Delhi 110025' },
+                                { label: lang === 'ru' ? 'Глобальный сайт' : 'Global Website', value: 'tahaairwaves.com', isLink: true },
                             ].map((item, i) => (
                                 <div key={i}>
                                     <p className="text-xs uppercase tracking-widest mb-1.5"
                                         style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>{item.label}</p>
-                                    <p className="text-base font-semibold"
-                                        style={{ color: "rgba(253,251,239,0.7)", fontFamily: "var(--font-inter)" }}>{item.value}</p>
+                                    {item.isLink ? (
+                                        <a href="https://tahaairwaves.com" target="_blank" rel="noopener noreferrer"
+                                            className="text-base font-semibold hover:text-[#BC264B] transition-colors"
+                                            style={{ color: "rgba(253,251,239,0.7)", fontFamily: "var(--font-inter)" }}>
+                                            {item.value} ↗
+                                        </a>
+                                    ) : (
+                                        <p className="text-base font-semibold"
+                                            style={{ color: "rgba(253,251,239,0.7)", fontFamily: "var(--font-inter)" }}>{item.value}</p>
+                                    )}
                                 </div>
                             ))}
                         </div>
