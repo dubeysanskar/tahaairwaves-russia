@@ -7,10 +7,6 @@ import { MdArrowOutward } from "react-icons/md"
 import { FiGlobe, FiUsers, FiShield, FiBookOpen } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal"
-import { CornerOrnament } from "@/components/decorators/SVGDecorations"
-import {
-    ConcentricCircles, DotMatrix, ArrowDown, ArrowUp
-} from "@/components/decorators/SVGIllustrations"
 
 const HIGHLIGHTS = [
     { icon: FiGlobe, en: "MEA Licensed & Authorized Agency", ru: "Лицензированное агентство MEA" },
@@ -25,22 +21,6 @@ export default function HomeAbout() {
     return (
         <section className="relative overflow-hidden" style={{ background: "#FDFBEF" }}>
 
-            {/* ═══ SVG decorations — ALL at z-[1], behind content ═══ */}
-            <div className="absolute inset-0 z-[1] pointer-events-none">
-                {/* Right side — concentric circles + arrow */}
-                <ConcentricCircles size={320} opacity={0.10} className="absolute -right-12 top-[15%] hidden lg:block" />
-                <ArrowDown size={55} opacity={0.12} className="absolute right-[6%] top-[50%] hidden xl:block" />
-                <DotMatrix rows={4} cols={3} spacing={16} radius={2} opacity={0.08} className="absolute right-[4%] bottom-[15%] hidden lg:block" />
-
-                {/* Left side — small dots only */}
-                <DotMatrix rows={4} cols={3} spacing={16} radius={1.8} opacity={0.06} className="absolute top-16 left-8 hidden lg:block" />
-                <ArrowUp size={45} opacity={0.08} className="absolute left-[4%] bottom-[25%] hidden xl:block" />
-
-                {/* Corner ornaments */}
-                <CornerOrnament size={40} color="#8A0029" position="top-left" className="absolute top-8 left-8 opacity-15" />
-                <CornerOrnament size={40} color="#D32F2F" position="bottom-right" className="absolute bottom-8 right-8 opacity-15" />
-            </div>
-
             {/* ═══ CONTENT — z-10, above all decorations ═══ */}
             <Container className="py-24 lg:py-32 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -48,7 +28,7 @@ export default function HomeAbout() {
                     {/* ─── Left: Image + floating cards ─── */}
                     <ScrollReveal variant="fadeLeft" duration={0.8} className="lg:col-span-5">
                         <div className="relative">
-                            <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ minHeight: "480px" }}>
+                            <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ minHeight: "320px" }}>
                                 <Image src="/images/demo4.jpeg" alt="Taha Airwaves professional team"
                                     fill className="object-cover" sizes="(max-width: 1024px) 100vw, 42vw" loading="lazy" />
                                 <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{
@@ -76,7 +56,7 @@ export default function HomeAbout() {
                             </div>
 
                             {/* MEA badge */}
-                            <div className="absolute -top-4 -left-4 lg:-left-6 px-4 py-2 rounded-xl shadow-lg z-20" style={{ background: "#8A0029" }}>
+                            <div className="absolute top-2 left-2 sm:-top-4 sm:-left-4 lg:-left-6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl shadow-lg z-20" style={{ background: "#8A0029" }}>
                                 <div className="flex items-center gap-2">
                                     <FiShield className="w-4 h-4" color="#FFFFFF" />
                                     <span className="text-[10px] uppercase tracking-wider font-bold"

@@ -71,11 +71,11 @@ export default function Footer() {
             </svg>
 
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8 pt-16 pb-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-10"
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 pb-10"
                     style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
 
-                    {/* Brand col */}
-                    <div className="sm:col-span-2 lg:col-span-1">
+                    {/* Brand col — full width on mobile */}
+                    <div className="col-span-2 lg:col-span-1">
                         <Link href="/">
                             <Image src="/LOGO.png" alt="Taha Airwaves" width={160} height={50} className="h-10 w-auto mb-4" />
                         </Link>

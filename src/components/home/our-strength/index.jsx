@@ -45,13 +45,13 @@ export default function OurStrength() {
         <section ref={ref} className="relative overflow-hidden" style={{ background: "#FDFBEF" }}>
 
             {/* ═══ BackgroundPaths — absolute, covering FULL section ═══ */}
-            <div className="absolute inset-0 z-[1] pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
                 <FloatingPaths position={1} />
                 <FloatingPaths position={-1} />
             </div>
 
-            {/* ═══ SVG decorations — z-[2], behind content but above paths ═══ */}
-            <div className="absolute inset-0 z-[2] pointer-events-none">
+            {/* ═══ SVG decorations — behind content but above paths ═══ */}
+            <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
                 <DotMatrix rows={6} cols={3} spacing={16} radius={1.5} opacity={0.05} className="absolute top-16 left-6 hidden lg:block" />
                 <NestedFrames size={280} opacity={0.04} className="absolute -right-12 top-[10%] hidden lg:block" />
                 <GlobeOutline size={220} opacity={0.03} className="absolute right-[2%] bottom-[5%] hidden xl:block" />
@@ -64,10 +64,10 @@ export default function OurStrength() {
             </div>
 
             {/* Top accent */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] z-[3]" style={{ background: "linear-gradient(to right, transparent, #8A0029, transparent)" }} />
+            <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(to right, transparent, #8A0029, transparent)", zIndex: 3 }} />
 
-            {/* ═══ CONTENT — z-10, above everything ═══ */}
-            <Container className="py-24 lg:py-32 relative z-10">
+            {/* ═══ CONTENT — above everything ═══ */}
+            <Container className="py-24 lg:py-32 relative" style={{ zIndex: 10 }}>
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
