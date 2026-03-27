@@ -12,45 +12,50 @@ import { motion, useScroll, useTransform } from "framer-motion"
 const SERVICES = [
     {
         icon: FiUsers,
-        titleEn: "Overseas Recruitment", titleRu: "Международный подбор",
-        descEn: "End-to-end recruitment solutions for Russian employers seeking skilled Indian workforce across construction, hospitality, and manufacturing.",
-        descRu: "Комплексные решения по подбору персонала для российских работодателей в строительстве, гостиничном бизнесе и производстве.",
+        titleEn: "Cleaners & Indoor Labour", titleRu: "Уборщики и внутренний труд",
+        subtitleEn: "Hotels, Hospitals, Commercial Complexes", subtitleRu: "Отели, больницы, коммерческие комплексы",
+        descEn: "Professional cleaning and indoor maintenance staff for hotels, hospitals, commercial complexes, and residential buildings across Russia.",
+        descRu: "Профессиональный персонал для уборки и обслуживания отелей, больниц, коммерческих объектов и жилых зданий.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #5C001B 100%)",
         border: "rgba(211,47,47,0.3)",
     },
     {
         icon: FiTruck,
-        titleEn: "Bulk Manpower Hiring", titleRu: "Массовый набор персонала",
-        descEn: "High-volume workforce mobilization with rapid turnaround for large-scale construction, industrial, and infrastructure projects across Russia.",
-        descRu: "Мобилизация рабочей силы для крупных строительных и промышленных проектов по всей России.",
+        titleEn: "Textile & Garment Workforce", titleRu: "Текстильный и швейный персонал",
+        subtitleEn: "Textile Mills, Garment Factories", subtitleRu: "Текстильные фабрики, швейные производства",
+        descEn: "Skilled workers for textile mills, garment manufacturing, fabric processing, and quality inspection in Russian textile industry.",
+        descRu: "Квалифицированные рабочие для текстильных фабрик, швейного производства и контроля качества.",
         bg: "#262626",
         gradient: "linear-gradient(135deg, #262626 0%, #1A1A1A 100%)",
         border: "rgba(138,0,41,0.4)",
     },
     {
         icon: FiFileText,
-        titleEn: "Visa & Documentation", titleRu: "Визовое оформление",
-        descEn: "Complete visa processing, document attestation, emigration clearance, and compliance management — handled end-to-end with zero hassle.",
-        descRu: "Полное визовое оформление, аттестация документов и управление соответствием — без лишних задержек.",
+        titleEn: "Tailors, Sewing Machine Operators and Master Tailors", titleRu: "Портные, операторы швейных машин и мастера-портные",
+        subtitleEn: "Fashion & Garment Industry", subtitleRu: "Модная и швейная промышленность",
+        descEn: "Experienced tailors, sewing machine operators, and master tailors for garment factories, fashion houses, and textile production facilities.",
+        descRu: "Опытные портные, операторы швейных машин и мастера-портные для швейных фабрик и домов моды.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #6B0020 100%)",
         border: "rgba(253,251,239,0.15)",
     },
     {
         icon: FiSend,
-        titleEn: "Deployment Support", titleRu: "Поддержка развёртывания",
-        descEn: "Pre-departure orientation, travel coordination, airport transfers, accommodation setup, and continuous post-deployment monitoring.",
-        descRu: "Предотъездная ориентация, координация поездок, трансферы, размещение и постоянный мониторинг.",
+        titleEn: "Construction Workforce", titleRu: "Строительный персонал",
+        subtitleEn: "Construction Workers & General Labour", subtitleRu: "Строительные рабочие и разнорабочие",
+        descEn: "Skilled construction workers, masons, carpenters, and general labourers for building and infrastructure projects across Russia.",
+        descRu: "Квалифицированные строительные рабочие, каменщики, плотники и разнорабочие для строительных проектов.",
         bg: "#262626",
         gradient: "linear-gradient(135deg, #262626 0%, #0D0D0D 100%)",
         border: "rgba(211,47,47,0.35)",
     },
     {
         icon: FiBriefcase,
-        titleEn: "Employee Outsourcing", titleRu: "Аутсорсинг персонала",
-        descEn: "Complete workforce outsourcing — staffing, payroll management, HR compliance, and performance monitoring handled end-to-end.",
-        descRu: "Полный аутсорсинг — подбор, расчёт заработной платы, кадровое обеспечение и мониторинг.",
+        titleEn: "Skilled Workforce & Technical Experts", titleRu: "Квалифицированные специалисты и технические эксперты",
+        subtitleEn: "Technicians & Skilled Trade Workers", subtitleRu: "Техники и квалифицированные рабочие",
+        descEn: "Qualified technicians, electricians, welders, fitters, and technical specialists for industrial and construction projects.",
+        descRu: "Квалифицированные техники, электрики, сварщики и специалисты для промышленных проектов.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #5C001B 100%)",
         border: "rgba(253,251,239,0.15)",
@@ -88,10 +93,16 @@ function ServiceCard({ svc, i, lang, mobile }) {
                     </span>
                 </div>
                 <div className="mt-auto pt-6 lg:pt-8">
-                    <h3 className="text-lg lg:text-xl font-black mb-2 lg:mb-3"
+                    <h3 className="text-lg lg:text-xl font-black mb-1"
                         style={{ fontFamily: "var(--font-inter)", color: "#FDFBEF" }}>
                         {lang === 'ru' ? svc.titleRu : svc.titleEn}
                     </h3>
+                    {svc.subtitleEn && (
+                        <p className="text-xs font-semibold uppercase tracking-wider mb-2"
+                            style={{ color: "rgba(253,251,239,0.45)", fontFamily: "var(--font-inter)" }}>
+                            {lang === 'ru' ? svc.subtitleRu : svc.subtitleEn}
+                        </p>
+                    )}
                     <p className="text-xs lg:text-sm leading-relaxed"
                         style={{ fontFamily: "var(--font-poppins)", color: "rgba(253,251,239,0.55)" }}>
                         {lang === 'ru' ? svc.descRu : svc.descEn}
@@ -118,8 +129,8 @@ function Header({ lang }) {
                 <h2 className="font-black tracking-tight"
                     style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4.5vw, 3.5rem)", color: "#1A1A1A" }}>
                     {lang === 'ru'
-                        ? <>{`Что мы `}<span style={{ color: "#8E0935" }}>{`делаем`}</span></>
-                        : <>{`What We `}<span style={{ color: "#8E0935" }}>{`Do`}</span></>
+                        ? <>{`Наши услуги `}<span style={{ color: "#8E0935" }}>{`подбора`}</span></>
+                        : <>{`Our Recruitment `}<span style={{ color: "#8E0935" }}>{`Services`}</span></>
                     }
                 </h2>
                 <p className="mt-3 text-sm lg:text-base max-w-xl leading-relaxed"

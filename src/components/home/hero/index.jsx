@@ -110,10 +110,10 @@ function AnimatedWord({ word, delay, color }) {
 }
 
 const STATS = [
-    { value: 500, suffix: "+", label: "Skilled Workforce", labelRu: "Работников", svg: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
-    { value: 120, suffix: "+", label: "Hiring Partners", labelRu: "Партнёров", svg: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
-    { value: 95, suffix: "%", label: "Placement Rate", labelRu: "Трудоустройство", svg: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
-    { value: 21, suffix: "+", label: "Countries Served", labelRu: "Стран", svg: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+    { value: null, suffix: "", label: "Government Approved", labelRu: "Гос. лицензия", svg: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+    { value: null, suffix: "", label: "Local Office in Moscow", labelRu: "Офис в Москве", svg: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
+    { value: 5000, suffix: "+", label: "5000+ Workers Deployed in Russia", labelRu: "5000+ работников в России", svg: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+    { value: 10, suffix: "+", label: "10+ Global Experience", labelRu: "10+ лет мирового опыта", svg: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
 ]
 
 /* ── Particles config ── */
@@ -152,9 +152,8 @@ export default function Hero() {
         window.open(`https://wa.me/919810557787?text=${msg}`, "_blank")
     }
 
-    const headlineEn = ["WORKFORCE", "SOLUTIONS"]
-    const headlineRu = ["КАДРОВЫЕ", "РЕШЕНИЯ"]
-    const words = lang === 'ru' ? headlineRu : headlineEn
+    const headlineEn = "Hire Reliable Indian Workforce for Russia – Fast, Legal & Verified"
+    const headlineRu = "Наймите надёжную индийскую рабочую силу для России – быстро, легально и проверено"
 
     return (
         <>
@@ -248,21 +247,20 @@ export default function Hero() {
                                 </span>
                             </motion.div>
 
-                            {/* Main headline — animated word reveal */}
-                            <div
-                                className="font-black leading-[0.92] tracking-tight"
+                            {/* Main headline */}
+                            <motion.h1
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                className="font-black leading-[1.1] tracking-tight"
                                 style={{
                                     fontFamily: "var(--font-inter)",
-                                    fontSize: "clamp(3rem, 7vw, 5.5rem)",
+                                    fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)",
+                                    color: "#FFFFFF",
                                 }}
                             >
-                                <div className="overflow-hidden">
-                                    <AnimatedWord word={words[0]} delay={0.2} color="#FFFFFF" />
-                                </div>
-                                <div className="overflow-hidden">
-                                    <AnimatedWord word={words[1]} delay={0.4} color="#D32F2F" />
-                                </div>
-                            </div>
+                                {lang === 'ru' ? headlineRu : headlineEn}
+                            </motion.h1>
 
                             {/* Tagline */}
                             <motion.p
@@ -273,8 +271,8 @@ export default function Hero() {
                                 style={{ color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-poppins)" }}
                             >
                                 {lang === 'ru'
-                                    ? 'Профессиональный подбор и предоставление персонала для российского рынка'
-                                    : 'Professional manpower recruitment & staffing solutions for the Russian market'
+                                    ? 'Государственно одобренное агентство по подбору персонала с местной поддержкой в Москве. Мы помогаем российским компаниям нанимать квалифицированных работников из Индии, Непала и Индонезии.'
+                                    : 'Government Approved Recruitment Agency with Local Support in Moscow. We help Russian companies hire skilled manpower from India, Nepal & Indonesia.'
                                 }
                             </motion.p>
 
@@ -302,16 +300,16 @@ export default function Hero() {
                                         style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
                                         <span className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300" style={{ background: "#D32F2F" }} />
                                         <span className="relative z-10 flex items-center gap-2">
-                                            {lang === 'ru' ? 'Наши услуги' : 'Our Services'} <MdArrowOutward size={16} />
+                                            {lang === 'ru' ? 'Получить персонал' : 'Get Workforce Now'} <MdArrowOutward size={16} />
                                         </span>
                                     </button>
                                 </Link>
-                                <Link href="/contact">
+                                <a href="https://wa.me/79850748828" target="_blank" rel="noopener noreferrer">
                                     <button className="flex items-center gap-2 px-8 py-4 rounded-lg text-sm font-bold cursor-pointer transition-all duration-300 hover:bg-white/10"
                                         style={{ background: "transparent", color: "#FFFFFF", border: "2px solid rgba(255,255,255,0.25)", fontFamily: "var(--font-inter)" }}>
-                                        {lang === 'ru' ? 'Связаться с нами' : 'Contact Us'}
+                                        {lang === 'ru' ? 'Поговорить с экспертом (WhatsApp)' : 'Talk to Expert (WhatsApp)'}
                                     </button>
-                                </Link>
+                                </a>
                             </motion.div>
                         </div>
 
@@ -457,7 +455,7 @@ export default function Hero() {
                                 <div>
                                     <div className="text-2xl sm:text-3xl md:text-4xl font-black"
                                         style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
-                                        <CountUp end={stat.value} suffix={stat.suffix} />
+                                        {stat.value !== null ? <CountUp end={stat.value} suffix={stat.suffix} /> : '✓'}
                                     </div>
                                     <div className="text-[10px] sm:text-xs font-semibold tracking-wide uppercase"
                                         style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>

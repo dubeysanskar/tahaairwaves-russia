@@ -12,9 +12,11 @@ export default function WhyUs() {
     const { t } = useLanguage()
 
     const items = [
-        { title: t('whyItem1Title'), desc: t('whyItem1Desc'), tag: "RA B-3260" },
-        { title: t('whyItem2Title'), desc: t('whyItem2Desc'), tag: "500+ in Russia" },
-        { title: t('whyItem3Title'), desc: t('whyItem3Desc'), tag: "Since 2022" },
+        { title: t('whyItem1Title'), desc: t('whyItem1Desc'), tag: "Moscow" },
+        { title: t('whyItem2Title'), desc: t('whyItem2Desc'), tag: "7–15 Days" },
+        { title: t('whyItem3Title'), desc: t('whyItem3Desc'), tag: "Verified" },
+        { title: t('whyItem4Title'), desc: t('whyItem4Desc'), tag: "End-to-End" },
+        { title: t('whyItem5Title'), desc: t('whyItem5Desc'), tag: "No Hidden Fees" },
     ]
 
     return (

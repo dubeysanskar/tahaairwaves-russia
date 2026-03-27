@@ -74,21 +74,26 @@ export default function CTA() {
                         {t('ctaTitle')}
                     </h2>
 
+                    <p className="text-sm sm:text-base max-w-xl mx-auto mb-2"
+                        style={{ color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-poppins)" }}>
+                        {t('ctaDesc')}
+                    </p>
+
                     <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
                         <Link href="/contact" className="w-full sm:w-auto">
                             <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl relative overflow-hidden group"
                                 style={{ background: "#FFFFFF", color: "#8A0029", fontFamily: "var(--font-inter)" }}>
                                 <span className="relative z-10 flex items-center gap-2">
-                                    {t('heroCtaContact')} <MdArrowOutward size={15} />
+                                    {t('ctaBtn1')} <MdArrowOutward size={15} />
                                 </span>
                             </button>
                         </Link>
-                        <Link href="/services" className="w-full sm:w-auto">
+                        <a href="https://wa.me/79850748828" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                             <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:bg-white/15"
                                 style={{ background: "transparent", color: "#FFFFFF", border: "2px solid rgba(255,255,255,0.3)", fontFamily: "var(--font-inter)" }}>
-                                {t('heroCtaServices')}
+                                {t('ctaBtn2')}
                             </button>
-                        </Link>
+                        </a>
                     </div>
                 </ScrollReveal>
             </Container>

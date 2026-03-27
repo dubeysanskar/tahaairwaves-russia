@@ -11,30 +11,37 @@ import {
 const STEPS = [
     {
         num: "01",
-        titleEn: "Source & Screen", titleRu: "Поиск и отбор",
-        descEn: "We tap into India's largest talent pool to source, verify, and shortlist qualified candidates through structured interviews, skill assessments, and comprehensive background checks.",
-        descRu: "Мы подключаемся к крупнейшему кадровому пулу Индии для поиска, проверки и отбора кандидатов через структурированные интервью и оценку навыков.",
-        icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
+        titleEn: "Requirement Discussion", titleRu: "Обсуждение требований",
+        descEn: "Share your manpower needs — role, quantity, location — and our team creates a tailored recruitment plan.",
+        descRu: "Сообщите нам о ваших кадровых потребностях — роль, количество, локация.",
+        icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
     },
     {
         num: "02",
-        titleEn: "Trade Testing", titleRu: "Проверка навыков",
-        descEn: "Rigorous trade testing, competency assessments, and hands-on skill evaluations ensure only job-ready workers are selected — meeting Russian employer standards.",
-        descRu: "Строгие профессиональные тесты и практическая оценка навыков гарантируют, что отбираются только готовые к работе специалисты.",
-        icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+        titleEn: "Candidate Shortlisting", titleRu: "Подбор кандидатов",
+        descEn: "We source, verify, and shortlist candidates through structured interviews, skill assessments, and background checks.",
+        descRu: "Мы находим, проверяем и отбираем кандидатов через собеседования и оценку навыков.",
+        icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
     },
     {
         num: "03",
-        titleEn: "Visa & Docs", titleRu: "Виза и документы",
-        descEn: "All paperwork, medical examinations, emigration clearance, document attestation, and visa processing handled end-to-end with 100% compliance guaranteed.",
-        descRu: "Все документы, медосмотры, эмиграционное оформление и визы — полное сопровождение с гарантией 100% соответствия.",
-        icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+        titleEn: "Interviews & Selection", titleRu: "Собеседования и отбор",
+        descEn: "Client-facing interviews and final candidate selection to ensure the perfect match for your requirements.",
+        descRu: "Проведение интервью с заказчиком и финальный отбор кандидатов.",
+        icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
     },
     {
         num: "04",
-        titleEn: "Deploy", titleRu: "Развёртывание",
-        descEn: "Pre-departure orientation, flight arrangements, airport transfers, accommodation setup, and continuous post-deployment monitoring and follow-up support.",
-        descRu: "Предотъездная ориентация, организация перелёта, трансферы, размещение и постоянный мониторинг после развёртывания.",
+        titleEn: "Documentation & Visa", titleRu: "Документация и виза",
+        descEn: "All paperwork, medical examinations, emigration clearance, and visa processing handled end-to-end with 100% compliance.",
+        descRu: "Все документы, медосмотры, эмиграционное оформление и визы — под ключ.",
+        icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    },
+    {
+        num: "05",
+        titleEn: "Deployment to Russia", titleRu: "Размещение в России",
+        descEn: "Pre-departure orientation, flight arrangements, airport transfers, accommodation setup, and continuous post-deployment support.",
+        descRu: "Предвыездная ориентация, организация перелёта, размещение и постоянный мониторинг.",
         icon: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
     },
 ]
@@ -79,8 +86,8 @@ export default function HowItWorks() {
                         <h2 className="font-black tracking-tight mb-4"
                             style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", color: "#262626" }}>
                             {lang === 'ru'
-                                ? <>{`Как мы `}<span style={{ color: "#8A0029" }}>{`работаем`}</span></>
-                                : <>{`How We `}<span style={{ color: "#8A0029" }}>{`Work`}</span></>
+                                ? <>{`Наш процесс `}<span style={{ color: "#8A0029" }}>{`найма`}</span></>
+                                : <>{`Our Hiring `}<span style={{ color: "#8A0029" }}>{`Process`}</span></>
                             }
                         </h2>
                         <p className="max-w-xl mx-auto text-sm leading-relaxed"
@@ -94,7 +101,7 @@ export default function HowItWorks() {
                 </ScrollReveal>
 
                 {/* Steps — light themed cards */}
-                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.12}>
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" staggerDelay={0.12}>
                     {STEPS.map((step, i) => (
                         <StaggerItem key={i} variant="fadeUp">
                             <div className="group relative overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full"

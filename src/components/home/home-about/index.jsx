@@ -85,8 +85,8 @@ export default function HomeAbout() {
                             <h2 className="font-black leading-tight"
                                 style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#262626" }}>
                                 {lang === 'ru'
-                                    ? <>{`Структурированное `}<span style={{ color: "#8A0029" }}>{`развертывание`}</span>{` рабочей силы`}</>
-                                    : <>{`Structured `}<span style={{ color: "#8A0029" }}>{`Workforce`}</span>{` Deployment Solutions`}</>
+                                    ? <>{`Ваш надёжный кадровый `}<span style={{ color: "#8A0029" }}>{`партнёр в России`}</span></>
+                                    : <>{`Your Trusted `}<span style={{ color: "#8A0029" }}>{`Manpower Partner`}</span>{` in Russia`}</>
                                 }
                             </h2>
                         </ScrollReveal>

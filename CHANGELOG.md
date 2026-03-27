@@ -4,6 +4,65 @@
 
 ---
 
+## Session 10 — Homepage Content Overhaul (March 27, 2026)
+
+### Hero Section — Complete Text Rewrite
+- **File**: `src/components/home/hero/index.jsx`
+- Headline: "WORKFORCE SOLUTIONS" → "Hire Reliable Indian Workforce for Russia – Fast, Legal & Verified"
+- Subtitle: Updated to Government Approved Agency messaging with India, Nepal & Indonesia
+- Primary CTA: "Our Services" → "Get Workforce Now"
+- Secondary CTA: "Contact Us" → "Talk to Expert (WhatsApp)" — links to WhatsApp
+- Stat labels: Skilled Workforce → Government Approved, Hiring Partners → Local Office in Moscow, Placement Rate → 5000+ Workers Deployed, Countries Served → 10+ Global Experience
+
+### About Section — Heading & Content Update
+- **File**: `src/components/home/home-about/index.jsx`
+- Heading: "Structured Workforce Deployment Solutions" → "Your Trusted Manpower Partner in Russia"
+- Paragraph: Updated to emphasize local presence in Moscow and compliance with Russian labor laws
+- Button: "Learn More" → "Request Candidates"
+
+### Our Strength — Heading Update
+- **File**: `src/components/home/our-strength/index.jsx`
+- Heading: "Our Strength" → "Strategic Workforce Solutions"
+- Subtitle: Updated to "Streamlined recruitment with reliable deployment of skilled manpower within 7–15 days"
+
+### Services (What We Do) — Card Overhaul
+- **File**: `src/components/home/what-we-do/index.jsx`
+- Section heading: "What We Do" → "Our Recruitment Services"
+- 5 service cards with new titles and subtitles:
+  1. Cleaners & Indoor Labour (Hotels, Hospitals, Commercial Complexes)
+  2. Textile & Garment Workforce (Textile Mills, Garment Factories)
+  3. Tailors, Sewing Machine Operators and Master Tailors (Fashion & Garment Industry)
+  4. Construction Workforce (Construction Workers & General Labour)
+  5. Skilled Workforce & Technical Experts (Technicians & Skilled Trade Workers)
+
+### Hiring Process — 5-Step Update
+- **File**: `src/components/home/how-it-works/index.jsx`
+- Heading: "How We Work" → "Our Hiring Process"
+- Expanded from 4 steps to 5: Requirement Discussion, Candidate Shortlisting, Interviews & Selection, Documentation & Visa, Deployment to Russia
+- Grid updated to 5-column layout on desktop
+
+### Why Choose Us — 5 Points
+- **File**: `src/components/home/why-us/index.jsx`
+- Heading: "Why Choose Us" → "Why Russian Companies Choose Us"
+- Expanded from 3 items to 5: Local Support in Moscow, Fast Hiring (7–15 Days), Verified & Skilled Candidates, Complete Documentation Support, Transparent Pricing
+
+### CTA Section — Updated
+- **File**: `src/components/home/cta/index.jsx`
+- Subtitle: "Manpower Recruitment for Russia" → "STRONG CTA SECTION"
+- Heading: "Ready to Build Your Workforce in Russia?" → "Start Hiring Workforce Today"
+- Added description text about pre-screened candidates
+- Buttons: "Get in Touch" → "Get Proposal", "Our Services" → "WhatsApp Now" (links to WhatsApp)
+
+### Industries — Heading Case Change
+- Heading changed to uppercase: "INDUSTRIES WE SERVE"
+
+### Translation Updates
+- **File**: `src/context/language.jsx`
+- ~50 translation keys updated in both RU and EN
+- New keys added: step5Title/Desc, whyItem4Title/Desc, whyItem5Title/Desc, ctaDesc, ctaBtn1, ctaBtn2
+
+---
+
 ## Session 9 — Services Tabs, Testimonials Carousel, Horizontal Scroll, SVG Visibility (March 27, 2026)
 
 ### Home — AnimatedTabs Services Section
