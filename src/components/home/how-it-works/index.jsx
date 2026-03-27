@@ -32,10 +32,10 @@ const STEPS = [
     },
     {
         num: "04",
-        titleEn: "Documentation & Visa", titleRu: "Документация и виза",
-        descEn: "All paperwork, medical examinations, emigration clearance, and visa processing handled end-to-end with 100% compliance.",
-        descRu: "Все документы, медосмотры, эмиграционное оформление и визы — под ключ.",
-        icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+        titleEn: "Local Support in Moscow", titleRu: "\u041c\u0435\u0441\u0442\u043d\u0430\u044f \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430 \u0432 \u041c\u043e\u0441\u043a\u0432\u0435",
+        descEn: "Our Moscow office provides on-ground coordination, worker support, issue resolution, and direct employer communication.",
+        descRu: "\u041d\u0430\u0448 \u043e\u0444\u0438\u0441 \u0432 \u041c\u043e\u0441\u043a\u0432\u0435 \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0432\u0430\u0435\u0442 \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0446\u0438\u044e, \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u043e\u0432 \u0438 \u0441\u0432\u044f\u0437\u044c \u0441 \u0440\u0430\u0431\u043e\u0442\u043e\u0434\u0430\u0442\u0435\u043b\u044f\u043c\u0438.",
+        icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
     },
     {
         num: "05",

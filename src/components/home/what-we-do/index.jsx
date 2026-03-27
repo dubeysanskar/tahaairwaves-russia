@@ -12,50 +12,45 @@ import { motion, useScroll, useTransform } from "framer-motion"
 const SERVICES = [
     {
         icon: FiUsers,
-        titleEn: "Cleaners & Indoor Labour", titleRu: "Уборщики и внутренний труд",
-        subtitleEn: "Hotels, Hospitals, Commercial Complexes", subtitleRu: "Отели, больницы, коммерческие комплексы",
-        descEn: "Professional cleaning and indoor maintenance staff for hotels, hospitals, commercial complexes, and residential buildings across Russia.",
-        descRu: "Профессиональный персонал для уборки и обслуживания отелей, больниц, коммерческих объектов и жилых зданий.",
+        titleEn: "Overseas Recruitment", titleRu: "Международный рекрутинг",
+        descEn: "End-to-end recruitment solutions for international employers seeking skilled and unskilled Indian workforce.",
+        descRu: "Комплексные решения по подбору персонала для международных работодателей, ищущих квалифицированных индийских специалистов.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #5C001B 100%)",
         border: "rgba(211,47,47,0.3)",
     },
     {
         icon: FiTruck,
-        titleEn: "Textile & Garment Workforce", titleRu: "Текстильный и швейный персонал",
-        subtitleEn: "Textile Mills, Garment Factories", subtitleRu: "Текстильные фабрики, швейные производства",
-        descEn: "Skilled workers for textile mills, garment manufacturing, fabric processing, and quality inspection in Russian textile industry.",
-        descRu: "Квалифицированные рабочие для текстильных фабрик, швейного производства и контроля качества.",
+        titleEn: "Bulk Manpower Hiring", titleRu: "Массовый наём",
+        descEn: "High-volume workforce mobilization with rapid turnaround for large-scale projects and operations.",
+        descRu: "Мобилизация рабочей силы для крупномасштабных проектов и операций с быстрым выполнением.",
         bg: "#262626",
         gradient: "linear-gradient(135deg, #262626 0%, #1A1A1A 100%)",
         border: "rgba(138,0,41,0.4)",
     },
     {
         icon: FiFileText,
-        titleEn: "Tailors, Sewing Machine Operators and Master Tailors", titleRu: "Портные, операторы швейных машин и мастера-портные",
-        subtitleEn: "Fashion & Garment Industry", subtitleRu: "Модная и швейная промышленность",
-        descEn: "Experienced tailors, sewing machine operators, and master tailors for garment factories, fashion houses, and textile production facilities.",
-        descRu: "Опытные портные, операторы швейных машин и мастера-портные для швейных фабрик и домов моды.",
+        titleEn: "Visa & Documentation", titleRu: "Виза и документация",
+        descEn: "Complete visa processing, document attestation, emigration clearance, and compliance management.",
+        descRu: "Полная визовая обработка, заверение документов, эмиграционное оформление и управление соответствием.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #6B0020 100%)",
         border: "rgba(253,251,239,0.15)",
     },
     {
         icon: FiSend,
-        titleEn: "Construction Workforce", titleRu: "Строительный персонал",
-        subtitleEn: "Construction Workers & General Labour", subtitleRu: "Строительные рабочие и разнорабочие",
-        descEn: "Skilled construction workers, masons, carpenters, and general labourers for building and infrastructure projects across Russia.",
-        descRu: "Квалифицированные строительные рабочие, каменщики, плотники и разнорабочие для строительных проектов.",
+        titleEn: "Deployment Support", titleRu: "Поддержка развёртывания",
+        descEn: "Seamless pre-departure orientation, travel coordination, and post-deployment follow-up services.",
+        descRu: "Предотъездная ориентация, координация поездок и послеразмещённая поддержка.",
         bg: "#262626",
         gradient: "linear-gradient(135deg, #262626 0%, #0D0D0D 100%)",
         border: "rgba(211,47,47,0.35)",
     },
     {
         icon: FiBriefcase,
-        titleEn: "Skilled Workforce & Technical Experts", titleRu: "Квалифицированные специалисты и технические эксперты",
-        subtitleEn: "Technicians & Skilled Trade Workers", subtitleRu: "Техники и квалифицированные рабочие",
-        descEn: "Qualified technicians, electricians, welders, fitters, and technical specialists for industrial and construction projects.",
-        descRu: "Квалифицированные техники, электрики, сварщики и специалисты для промышленных проектов.",
+        titleEn: "Employee Outsourcing", titleRu: "Аутсорсинг персонала",
+        descEn: "Complete workforce outsourcing — staffing, payroll management, HR compliance, and performance monitoring handled end-to-end.",
+        descRu: "Полный аутсорсинг — подбор, расчёт зарплат, кадровое обеспечение и мониторинг под ключ.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #5C001B 100%)",
         border: "rgba(253,251,239,0.15)",
@@ -93,16 +88,10 @@ function ServiceCard({ svc, i, lang, mobile }) {
                     </span>
                 </div>
                 <div className="mt-auto pt-6 lg:pt-8">
-                    <h3 className="text-lg lg:text-xl font-black mb-1"
+                    <h3 className="text-lg lg:text-xl font-black mb-2 lg:mb-3"
                         style={{ fontFamily: "var(--font-inter)", color: "#FDFBEF" }}>
                         {lang === 'ru' ? svc.titleRu : svc.titleEn}
                     </h3>
-                    {svc.subtitleEn && (
-                        <p className="text-xs font-semibold uppercase tracking-wider mb-2"
-                            style={{ color: "rgba(253,251,239,0.45)", fontFamily: "var(--font-inter)" }}>
-                            {lang === 'ru' ? svc.subtitleRu : svc.subtitleEn}
-                        </p>
-                    )}
                     <p className="text-xs lg:text-sm leading-relaxed"
                         style={{ fontFamily: "var(--font-poppins)", color: "rgba(253,251,239,0.55)" }}>
                         {lang === 'ru' ? svc.descRu : svc.descEn}
@@ -144,7 +133,7 @@ function Header({ lang }) {
             <Link href="/services">
                 <button className="flex items-center gap-2.5 px-6 lg:px-7 py-3 lg:py-3.5 rounded-lg text-sm font-bold cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_30px_rgba(142,9,53,0.25)]"
                     style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-inter)" }}>
-                    {lang === 'ru' ? 'Все услуги' : 'All Services'} <MdArrowOutward size={14} />
+                    {lang === 'ru' ? 'Запросить услугу' : 'Request Service'} <MdArrowOutward size={14} />
                 </button>
             </Link>
         </div>

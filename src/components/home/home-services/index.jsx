@@ -4,29 +4,29 @@ import { useRef } from "react"
 import Container from "@/components/container"
 import Link from "next/link"
 import { MdArrowOutward } from "react-icons/md"
-import { FiUsers, FiFileText, FiTruck, FiGlobe, FiLayers } from "react-icons/fi"
+import { FiMessageCircle, FiSearch, FiClipboard, FiFileText, FiSend } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
 import ScrollReveal from "@/components/animations/ScrollReveal"
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline"
 import { CornerOrnament } from "@/components/decorators/SVGDecorations"
 
-const SERVICES_DATA = [
-    { id: 1, icon: FiGlobe,    num: "01", titleKey: "csvc1Title", descKey: "csvc1Desc", relatedIds: [2, 3], status: "completed", energy: 100 },
-    { id: 2, icon: FiUsers,    num: "02", titleKey: "csvc2Title", descKey: "csvc2Desc", relatedIds: [1, 3], status: "completed", energy: 90 },
-    { id: 3, icon: FiFileText, num: "03", titleKey: "csvc3Title", descKey: "csvc3Desc", relatedIds: [2, 4], status: "in-progress", energy: 75 },
-    { id: 4, icon: FiTruck,    num: "04", titleKey: "csvc4Title", descKey: "csvc4Desc", relatedIds: [3, 5], status: "in-progress", energy: 55 },
-    { id: 5, icon: FiLayers,   num: "05", titleKey: "csvc5Title", descKey: "csvc5Desc", relatedIds: [4, 1], status: "pending", energy: 30 },
+const PROCESS_DATA = [
+    { id: 1, icon: FiMessageCircle, num: "01", titleKey: "step1Title", descKey: "step1Desc", relatedIds: [2, 5], status: "completed", energy: 100 },
+    { id: 2, icon: FiSearch,         num: "02", titleKey: "step2Title", descKey: "step2Desc", relatedIds: [1, 3], status: "completed", energy: 90 },
+    { id: 3, icon: FiClipboard,      num: "03", titleKey: "step3Title", descKey: "step3Desc", relatedIds: [2, 4], status: "in-progress", energy: 75 },
+    { id: 4, icon: FiFileText,       num: "04", titleKey: "step4Title", descKey: "step4Desc", relatedIds: [3, 5], status: "in-progress", energy: 55 },
+    { id: 5, icon: FiSend,           num: "05", titleKey: "step5Title", descKey: "step5Desc", relatedIds: [4, 1], status: "pending", energy: 30 },
 ]
 
 export default function CardCarousel() {
     const { t, lang } = useLanguage()
 
-    const timelineData = SERVICES_DATA.map(s => ({
+    const timelineData = PROCESS_DATA.map(s => ({
         id: s.id,
         title: t(s.titleKey),
         date: s.num,
         content: t(s.descKey),
-        category: "Service",
+        category: lang === 'ru' ? 'Этап' : 'Step',
         icon: s.icon,
         relatedIds: s.relatedIds,
         status: s.status,
@@ -93,22 +93,25 @@ export default function CardCarousel() {
                         </div>
                         <span className="text-[10px] tracking-[0.2em] uppercase font-bold block mb-2"
                             style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
-                            {lang === 'ru' ? 'Услуги' : 'Services'}
+                            {lang === 'ru' ? 'Процесс' : 'Process'}
                         </span>
                         <h2 className="font-black tracking-tight"
                             style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#262626" }}>
-                            {lang === 'ru' ? 'Что мы предлагаем для российского рынка' : 'What We Offer for the Russian Market'}
+                            {lang === 'ru'
+                                ? <>{`Наш процесс `}<span style={{ color: "#8A0029" }}>{`найма`}</span></>
+                                : <>{`Our Hiring `}<span style={{ color: "#8A0029" }}>{`Process`}</span></>
+                            }
                         </h2>
                         <p className="text-sm max-w-lg mx-auto mt-2" style={{ color: "rgba(38,38,38,0.5)", fontFamily: "var(--font-poppins)" }}>
                             {lang === 'ru'
-                                ? 'Комплексные кадровые решения, охватывающие каждый этап жизненного цикла подбора персонала'
-                                : 'Comprehensive manpower services covering every phase of the recruitment lifecycle'
+                                ? 'Комплексные кадровые решения, связывающие таланты Индии с российским спросом'
+                                : 'Comprehensive manpower solutions bridging India\'s talent with Russia\'s demand'
                             }
                         </p>
                     </div>
                 </ScrollReveal>
 
-                {/* Orbital on left, Service cards on right */}
+                {/* Orbital on left, Process cards on right */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     {/* Left — Orbital Timeline */}
                     <ScrollReveal variant="fadeLeft" delay={0.1}>
@@ -117,10 +120,10 @@ export default function CardCarousel() {
                         </div>
                     </ScrollReveal>
 
-                    {/* Right — Service list cards */}
+                    {/* Right — Process step cards */}
                     <ScrollReveal variant="fadeRight" delay={0.2}>
                         <div className="space-y-3">
-                            {SERVICES_DATA.map((s, i) => {
+                            {PROCESS_DATA.map((s, i) => {
                                 const Icon = s.icon
                                 return (
                                     <div key={s.id}
@@ -146,15 +149,44 @@ export default function CardCarousel() {
                                 )
                             })}
 
-                            <Link href="/services">
+                            <Link href="/contact">
                                 <button className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl mt-4"
                                     style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
-                                    {t('viewAllServices')} <MdArrowOutward size={14} />
+                                    {lang === 'ru' ? 'Начать процесс' : 'Get Started'} <MdArrowOutward size={14} />
                                 </button>
                             </Link>
                         </div>
                     </ScrollReveal>
                 </div>
+
+                {/* Bottom tagline + stats */}
+                <ScrollReveal variant="fadeUp" delay={0.3}>
+                    <div className="mt-12 text-center">
+                        <p className="text-sm lg:text-base italic max-w-2xl mx-auto mb-8"
+                            style={{ color: "rgba(38,38,38,0.5)", fontFamily: "var(--font-poppins)" }}>
+                            {lang === 'ru'
+                                ? 'От подбора до размещения — мы управляем полным циклом найма'
+                                : 'From sourcing to deployment — we handle the complete recruitment lifecycle'
+                            }
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-6">
+                            <div className="flex items-center gap-3 px-6 py-4 rounded-xl"
+                                style={{ background: "rgba(138,0,41,0.04)", border: "1px solid rgba(138,0,41,0.08)" }}>
+                                <span className="text-3xl lg:text-4xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>500+</span>
+                                <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
+                                    {lang === 'ru' ? 'Работников\nв России' : 'Workers\nin Russia'}
+                                </span>
+                            </div>
+                            <div className="flex items-center gap-3 px-6 py-4 rounded-xl"
+                                style={{ background: "rgba(138,0,41,0.04)", border: "1px solid rgba(138,0,41,0.08)" }}>
+                                <span className="text-3xl lg:text-4xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>20+</span>
+                                <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
+                                    {lang === 'ru' ? 'Лет\nопыта' : 'Years\nExperience'}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </ScrollReveal>
             </Container>
         </section>
     )

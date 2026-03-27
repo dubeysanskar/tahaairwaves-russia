@@ -48,9 +48,6 @@ export default function HomeAbout() {
                                         <p className="text-sm font-bold" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
                                             {lang === 'ru' ? 'Лет опыта' : 'Years Experience'}
                                         </p>
-                                        <p className="text-[11px]" style={{ color: "rgba(38,38,38,0.45)", fontFamily: "var(--font-poppins)" }}>
-                                            {lang === 'ru' ? 'С 2005 года' : 'Since 2005'}
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -126,12 +123,6 @@ export default function HomeAbout() {
                                     <button className="flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl"
                                         style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
                                         {t('learnMore')} <MdArrowOutward size={14} />
-                                    </button>
-                                </Link>
-                                <Link href="/contact">
-                                    <button className="flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:bg-[#8A0029] hover:text-white hover:border-[#8A0029]"
-                                        style={{ background: "transparent", color: "#262626", border: "1.5px solid rgba(138,0,41,0.15)", fontFamily: "var(--font-inter)" }}>
-                                        {t('getInTouch')}
                                     </button>
                                 </Link>
                             </div>

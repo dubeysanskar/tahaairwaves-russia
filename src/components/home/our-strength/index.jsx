@@ -11,35 +11,63 @@ import {
     GlobeOutline, NestedFrames, WavyLines
 } from "@/components/decorators/SVGIllustrations"
 
-function AnimatedCounter({ value, inView }) {
-    const [display, setDisplay] = useState("0")
-    useEffect(() => {
-        if (!inView) return
-        const num = parseInt(value)
-        if (isNaN(num)) { setDisplay(value); return }
-        let current = 0
-        const step = Math.max(1, Math.floor(num / 120))
-        const timer = setInterval(() => {
-            current += step
-            if (current >= num) { setDisplay(String(num)); clearInterval(timer) }
-            else setDisplay(String(current))
-        }, 16)
-        return () => clearInterval(timer)
-    }, [inView, value])
-    return <>{display}</>
-}
+const SERVICE_CARDS = [
+    {
+        num: "01",
+        titleEn: "Cleaners & Indoor Labour",
+        titleRu: "Уборщики и внутренний труд",
+        subtitleEn: "Hotels, Hospitals, Commercial Complexes",
+        subtitleRu: "Отели, больницы, коммерческие комплексы",
+        descEn: "Staff for cleaning and indoor maintenance work in hotels, hospitals, commercial complexes, office spaces, and residential buildings across Russia.",
+        descRu: "Персонал для уборки и внутреннего обслуживания отелей, больниц, коммерческих комплексов, офисов и жилых зданий по всей России.",
+        icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+    },
+    {
+        num: "02",
+        titleEn: "Textile & Garment Workforce",
+        titleRu: "Текстильный и швейный персонал",
+        subtitleEn: "Tailors, Sewing Machine Operators and Master Tailors",
+        subtitleRu: "Портные, операторы швейных машин и мастера-портные",
+        descEn: "Workforce for textile mills, garment factories, stitching units, fabric processing, and quality inspection in the Russian textile and apparel sector.",
+        descRu: "Рабочая сила для текстильных фабрик, швейных производств, цехов пошива, переработки тканей и контроля качества в российском текстильном секторе.",
+        icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
+    },
+    {
+        num: "03",
+        titleEn: "Tailors, Sewing Machine Operators and Master Tailors",
+        titleRu: "Портные, операторы швейных машин и мастера-портные",
+        subtitleEn: "Fashion & Garment Industry",
+        subtitleRu: "Модная и швейная промышленность",
+        descEn: "Staff for garment factories, fashion houses, tailoring units, and textile production facilities handling stitching and finishing work.",
+        descRu: "Персонал для швейных фабрик, домов моды, ателье и текстильных производств, выполняющий пошив и финишную обработку.",
+        icon: "M14.121 14.121L19 19m-7-7l7-7m-2.5 2.5L12 3m0 0L8.5 6.5M12 3v0M3 12l4.5-4.5M3 12l4.5 4.5M3 12h0m18 0l-4.5-4.5M21 12l-4.5 4.5M21 12h0",
+    },
+    {
+        num: "04",
+        titleEn: "Construction Workforce",
+        titleRu: "Строительный персонал",
+        subtitleEn: "Construction Workers & General Labour",
+        subtitleRu: "Строительные рабочие и разнорабочие",
+        descEn: "Labour for construction sites, masonry, carpentry, material handling, and infrastructure projects across Russia.",
+        descRu: "Рабочая сила для строительных площадок, кладки, столярных работ, перемещения материалов и инфраструктурных проектов по всей России.",
+        icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+    },
+    {
+        num: "05",
+        titleEn: "Technicians & Trade Workers",
+        titleRu: "Техники и квалифицированные рабочие",
+        subtitleEn: "Technicians & Skilled Trade Workers",
+        subtitleRu: "Техники и квалифицированные мастера",
+        descEn: "Workers for industrial operations, maintenance tasks, electrical work, welding, fitting, and construction support roles.",
+        descRu: "Рабочие для промышленных операций, обслуживания, электромонтажных работ, сварки, монтажа и вспомогательных строительных задач.",
+        icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+    },
+]
 
 export default function OurStrength() {
-    const { t } = useLanguage()
+    const { t, lang } = useLanguage()
     const ref = useRef(null)
     const inView = useInView(ref, { once: true, margin: "-80px" })
-
-    const metrics = [
-        { valueKey: "metric1Value", labelKey: "metric1Label", descKey: "metric1Desc", suffix: "+", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
-        { valueKey: "metric2Value", labelKey: "metric2Label", descKey: "metric2Desc", suffix: "", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
-        { valueKey: "metric3Value", labelKey: "metric3Label", descKey: "metric3Desc", suffix: "+", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
-        { valueKey: "metric4Value", labelKey: "metric4Label", descKey: "metric4Desc", suffix: "+", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
-    ]
 
     return (
         <section ref={ref} className="relative overflow-hidden" style={{ background: "#FDFBEF" }}>
@@ -50,7 +78,7 @@ export default function OurStrength() {
                 <FloatingPaths position={-1} />
             </div>
 
-            {/* ═══ SVG decorations — behind content but above paths ═══ */}
+            {/* ═══ SVG decorations ═══ */}
             <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
                 <DotMatrix rows={6} cols={3} spacing={16} radius={1.5} opacity={0.05} className="absolute top-16 left-6 hidden lg:block" />
                 <NestedFrames size={280} opacity={0.04} className="absolute -right-12 top-[10%] hidden lg:block" />
@@ -66,7 +94,7 @@ export default function OurStrength() {
             {/* Top accent */}
             <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(to right, transparent, #8A0029, transparent)", zIndex: 3 }} />
 
-            {/* ═══ CONTENT — above everything ═══ */}
+            {/* ═══ CONTENT ═══ */}
             <Container className="py-24 lg:py-32 relative" style={{ zIndex: 10 }}>
                 {/* Header */}
                 <motion.div
@@ -89,32 +117,46 @@ export default function OurStrength() {
                     </p>
                 </motion.div>
 
-                {/* Cards */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-                    {metrics.map((m, i) => (
+                {/* Service Cards — 5 columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                    {SERVICE_CARDS.map((card, i) => (
                         <motion.div key={i}
                             initial={{ opacity: 0, y: 30 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ delay: 0.2 + i * 0.12, duration: 0.55 }}
-                            className="group relative p-7 rounded-2xl text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                            transition={{ delay: 0.2 + i * 0.1, duration: 0.55 }}
+                            className="group relative p-6 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
                             style={{ background: "#FFFFFF", border: "1px solid rgba(138,0,41,0.06)", boxShadow: "0 4px 20px rgba(0,0,0,0.04)" }}>
                             <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
                                 style={{ background: i % 2 === 0 ? "#8A0029" : "#D32F2F" }} />
-                            <div className="w-14 h-14 rounded-xl mx-auto mb-4 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-md"
-                                style={{ background: "rgba(138,0,41,0.06)" }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#8A0029" strokeWidth={1.5}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d={m.icon} />
-                                </svg>
+
+                            {/* Number + Icon */}
+                            <div className="flex items-center justify-between mb-4">
+                                <span className="text-3xl font-black" style={{ color: "rgba(138,0,41,0.08)", fontFamily: "var(--font-inter)" }}>
+                                    {card.num}
+                                </span>
+                                <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-md"
+                                    style={{ background: "rgba(138,0,41,0.06)" }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#8A0029" strokeWidth={1.5}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d={card.icon} />
+                                    </svg>
+                                </div>
                             </div>
-                            <p className="text-4xl lg:text-5xl font-black mb-2 transition-colors duration-300 group-hover:text-[#8A0029]"
+
+                            {/* Title */}
+                            <h3 className="text-sm font-black mb-1 transition-colors duration-300 group-hover:text-[#8A0029]"
                                 style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
-                                <AnimatedCounter value={t(m.valueKey).replace('+', '')} inView={inView} />{m.suffix}
+                                {lang === 'ru' ? card.titleRu : card.titleEn}
+                            </h3>
+
+                            {/* Subtitle */}
+                            <p className="text-[10px] font-semibold uppercase tracking-wider mb-3"
+                                style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
+                                {lang === 'ru' ? card.subtitleRu : card.subtitleEn}
                             </p>
-                            <p className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
-                                {t(m.labelKey)}
-                            </p>
-                            <p className="text-sm leading-relaxed" style={{ color: "rgba(38,38,38,0.45)", fontFamily: "var(--font-poppins)" }}>
-                                {t(m.descKey)}
+
+                            {/* Description */}
+                            <p className="text-xs leading-relaxed" style={{ color: "rgba(38,38,38,0.45)", fontFamily: "var(--font-poppins)" }}>
+                                {lang === 'ru' ? card.descRu : card.descEn}
                             </p>
                         </motion.div>
                     ))}

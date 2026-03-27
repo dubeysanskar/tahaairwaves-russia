@@ -3,7 +3,7 @@ import Hero from "@/components/home/hero";
 import HomeAbout from "@/components/home/home-about";
 import OurStrength from "@/components/home/our-strength";
 import WhatWeDo from "@/components/home/what-we-do";
-import HowItWorks from "@/components/home/how-it-works";
+
 import CardCarousel from "@/components/home/home-services";
 import HomeServiceBento from "@/components/home/home-service-bento";
 import ServicesShowcase from "@/components/home/home-projects";
@@ -21,7 +21,7 @@ export default function Home() {
             <HomeAbout />
             <OurStrength />
             <WhatWeDo />
-            <HowItWorks />
+
             <CardCarousel />
             <HomeServiceBento />
             <ServicesShowcase />
