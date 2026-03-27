@@ -12,7 +12,7 @@ const HIGHLIGHTS = [
     { icon: FiGlobe, en: "MEA Licensed & Authorized Agency", ru: "Лицензированное агентство MEA" },
     { icon: FiUsers, en: "500+ Workers Deployed to Russia", ru: "500+ работников размещено в России" },
     { icon: FiShield, en: "100% Legal Compliance Guaranteed", ru: "100% гарантия юридического соответствия" },
-    { icon: FiBookOpen, en: "20+ Years of Recruitment Experience", ru: "20+ лет опыта в подборе персонала" },
+    { icon: FiBookOpen, en: "10+ Years of Recruitment Experience (Since 2015)", ru: "10+ лет опыта в подборе персонала (с 2015)" },
 ]
 
 export default function HomeAbout() {
@@ -42,11 +42,14 @@ export default function HomeAbout() {
                                 style={{ background: "#FFFFFF", border: "1px solid rgba(138,0,41,0.08)" }}>
                                 <div className="flex items-center gap-4">
                                     <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ background: "#8A0029" }}>
-                                        <span className="text-2xl font-black" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>20+</span>
+                                        <span className="text-2xl font-black" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>10+</span>
                                     </div>
                                     <div>
                                         <p className="text-sm font-bold" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
                                             {lang === 'ru' ? 'Лет опыта' : 'Years Experience'}
+                                        </p>
+                                        <p className="text-[11px]" style={{ color: "rgba(38,38,38,0.45)", fontFamily: "var(--font-poppins)" }}>
+                                            {lang === 'ru' ? 'С 2015 года' : 'Since 2015'}
                                         </p>
                                     </div>
                                 </div>

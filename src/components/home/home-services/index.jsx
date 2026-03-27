@@ -179,7 +179,7 @@ export default function CardCarousel() {
                             </div>
                             <div className="flex items-center gap-3 px-6 py-4 rounded-xl"
                                 style={{ background: "rgba(138,0,41,0.04)", border: "1px solid rgba(138,0,41,0.08)" }}>
-                                <span className="text-3xl lg:text-4xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>20+</span>
+                                <span className="text-3xl lg:text-4xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>10+</span>
                                 <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
                                     {lang === 'ru' ? 'Лет\nопыта' : 'Years\nExperience'}
                                 </span>

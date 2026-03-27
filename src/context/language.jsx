@@ -33,7 +33,7 @@ const translations = {
         // About
         aboutTitle: '• О нас',
         aboutPara1: 'Ваш надёжный кадровый партнёр в России',
-        aboutPara2: 'Taha Airwaves — это глобально признанная компания по подбору персонала, специализирующаяся на поставке квалифицированной и полуквалифицированной рабочей силы в Россию. С сильным локальным присутствием в Москве и глубоким пониманием российского трудового законодательства, мы обеспечиваем плавные, соответствующие и быстрые решения по найму.',
+        aboutPara2: 'Taha Airwaves — это признанная компания по подбору персонала, работающая с 2015 года. Мы специализируемся на поставке квалифицированной рабочей силы в Россию с 2022 года. С локальным офисом в Москве и глубоким пониманием российского трудового законодательства, мы обеспечиваем плавные и быстрые решения по найму.',
         learnMore: 'Запросить кандидатов',
         getInTouch: 'Связаться',
         // Our Strength
@@ -281,7 +281,7 @@ const translations = {
         formTitle: 'Quick Inquiry',
         aboutTitle: '• About Us',
         aboutPara1: 'Your Trusted Manpower Partner in Russia',
-        aboutPara2: 'Taha Airwaves is a globally trusted manpower recruitment company specializing in supplying skilled and semi-skilled workforce to Russia. With strong local presence in Moscow and deep understanding of Russian labor laws, we ensure smooth, compliant and fast hiring solutions.',
+        aboutPara2: 'Taha Airwaves is a trusted manpower recruitment company operating since 2015. We specialize in supplying skilled and semi-skilled workforce to Russia since 2022. With a local office in Moscow and deep understanding of Russian labor laws, we ensure smooth, compliant and fast hiring solutions.',
         learnMore: 'Request Candidates',
         getInTouch: 'Get in touch',
         strengthTitle: 'Strategic',
