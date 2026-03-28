@@ -2,7 +2,49 @@
 
 > Full record of every change made during the UI/UX overhaul.
 > This file serves as a complete audit trail for future reference.
-> Date: March 21–27, 2026
+> Date: March 21–28, 2026
+
+---
+
+## SESSION 11 — March 28, 2026 (Russian SEO Overhaul, Social Hub, Hero/Footer Fixes)
+
+### Hero Section
+- **Tick SVG**: Replaced shield-check icon with simple **black checkmark** polyline (`stroke: #262626, strokeWidth: 3`) for "Government Approved" stat
+- **Mobile Form**: Added `hero-form-card` CSS class — solid white `#FFFFFF` background on mobile (no `backdrop-filter blur`), glass effect retained on desktop (≥1024px) via `@media` query in `globals.css`
+
+### Floating Social Hub (`src/components/social-hub/index.jsx`) — NEW
+- Fixed left-side "Let's Connect" button with chat icon + pulse animation
+- Opens glassmorphism dark panel with staggered icon animations (Framer Motion)
+- Platforms: WhatsApp, Telegram, Max, VK, RuTube
+- Hover glow effects matching each platform's brand color
+- Click-outside-to-close, smooth open/close transitions
+- Added to `layout.js` alongside Chatbot
+
+### Footer
+- **Wave restored**: `SVGWave` component re-added above footer
+- **Wave color fix**: Wrapped in `div style={{ background: "#8A0029" }}` to eliminate white gap between CTA and footer
+- **No more white line**: `marginBottom: -1` on wrapper removes subpixel gap
+- Footer heading sizes remain `text-sm` (increased from `text-[10px]`)
+
+### About Highlights
+- Updated: "Head Office in India, New Delhi" and "10+ Years Working with Gulf & GCC"
+
+### Russian-First SEO Overhaul (ALL PAGES)
+- **Layout.js metadata**: Title, description, OG, Twitter — all Russian. 34 keywords (Russian + English long-tail)
+- **About page**: Added `export const metadata` — Russian title, description, OpenGraph
+- **Services page**: Added `export const metadata` — Russian title, description, OpenGraph
+- **Blog page**: Added `export const metadata` — Russian title, description, OpenGraph
+- **Contact page**: Added `export const metadata` — Russian title, description, OpenGraph
+- **Services/[slug]**: `generateMetadata` now uses `title_ru` and `metaDesc_ru` with Russian OpenGraph
+- **Blog/[slug]**: `generateMetadata` now uses `title_ru` and `excerpt_ru` with Russian OpenGraph
+- **Canonical URLs**: Added `alternates` with `hreflang` (ru-RU, en-US)
+- **Yandex verification**: Placeholder added in `verification.yandex`
+
+### New SEO Infrastructure Files
+- `src/app/sitemap.js` — Auto-generated sitemap.xml (22 URLs: 5 static + 11 services + 6 blogs)
+- `src/app/robots.js` — Yandex-optimized robots.txt with `crawlDelay: 1`, sitemap reference
+- `public/llms.txt` — Russian-language AI model info file (company, services, contacts)
+- `SEO.md` — Client-facing SEO report documenting all optimizations and next steps
 
 ---
 

@@ -2,7 +2,7 @@
 
 > **Standard Operating Procedure & Complete Context Document**
 > This document provides full context for any developer or AI tool working on this project.
-> Last updated: March 27, 2026 (Session 10 — Hero Stats Fix, Social Links Update, Services Page Revamp, About Page Corrections)
+> Last updated: March 28, 2026 (Session 11 — Russian SEO Overhaul, Social Hub, Hero/Footer Fixes)
 
 ---
 
@@ -178,6 +178,11 @@ page.js
 | `src/components/header/index.jsx` | Black navbar, red logo, language toggle, VK/Telegram/WhatsApp |
 | `src/components/footer/index.jsx` | Red logo, clickable addresses, white social icons |
 | `src/components/chatbot/index.jsx` | Floating AI chatbot |
+| `src/components/social-hub/index.jsx` | Floating left-side social links panel (WhatsApp, Telegram, Max, VK, RuTube) |
+| `src/app/sitemap.js` | Auto-generated sitemap.xml (22 URLs) |
+| `src/app/robots.js` | Yandex-optimized robots.txt |
+| `public/llms.txt` | Russian AI model info file |
+| `SEO.md` | Client-facing SEO optimization report |
 
 ---
 
