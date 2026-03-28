@@ -332,11 +332,8 @@ export default function Hero() {
                             transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                             className="lg:col-span-2"
                         >
-                            <div className="rounded-2xl p-7 relative overflow-hidden"
+                            <div className="rounded-2xl p-7 relative overflow-hidden hero-form-card"
                                 style={{
-                                    background: "rgba(255,255,255,0.75)",
-                                    backdropFilter: "blur(16px)",
-                                    WebkitBackdropFilter: "blur(16px)",
                                     border: "1px solid rgba(255,255,255,0.6)",
                                     boxShadow: "0 25px 60px -12px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.15)",
                                 }}>
@@ -470,8 +467,7 @@ export default function Hero() {
                                             style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
                                             {typeof stat.value === 'number'
                                                 ? <CountUp end={stat.value} suffix={stat.suffix} />
-                                                : stat.value === 'gov'
-                                                    ? <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="#8A0029" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                                                    ? <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#262626" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                                                     : <span>{stat.value}{stat.suffix}</span>}
                                         </div>
                                         <div className="text-[10px] sm:text-xs font-semibold tracking-wide uppercase"

@@ -23,6 +23,8 @@ export const poppins = Poppins({
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+import SocialHub from "@/components/social-hub";
+
 export const metadata = {
     metadataBase: new URL("https://tahaairwaves.ru"),
 
@@ -117,6 +119,7 @@ export default function RootLayout({ children }) {
 					</LenisProvider>
 					<Footer />
 					<Chatbot />
+					<SocialHub />
 				</Providers>
 			</body>
 		</html>
