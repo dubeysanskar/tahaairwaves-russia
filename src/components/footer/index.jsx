@@ -161,20 +161,20 @@ export default function Footer() {
                             {t('contact')}
                         </h4>
                         <div className="space-y-2.5">
-                            <a href="tel:+74951234567"
+                            <a href="tel:+79850748828"
                                 className="flex items-center gap-2 text-sm hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
-                                <FiPhone style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> +7 (495) 123-45-67
+                                <FiPhone style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> +7 985 074-88-28
                             </a>
                             <a href="tel:+919315226961"
                                 className="flex items-center gap-2 text-sm hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
                                 <FiPhone style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> +91 93152 26961
                             </a>
-                            <a href="mailto:russia@tahaairwaves.ru"
+                            <a href="mailto:info@tahaairwaves.ru"
                                 className="flex items-center gap-2 text-sm hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
-                                <FiMail style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> russia@tahaairwaves.ru
+                                <FiMail style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> info@tahaairwaves.ru
                             </a>
                             <a href="https://maps.google.com/?q=55.7558,37.6173" target="_blank" rel="noopener noreferrer"
                                 className="flex items-start gap-2 text-sm hover:text-white transition-colors"

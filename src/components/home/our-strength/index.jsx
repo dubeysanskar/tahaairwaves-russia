@@ -34,13 +34,13 @@ const SERVICE_CARDS = [
     },
     {
         num: "03",
-        titleEn: "Tailors, Sewing Machine Operators and Master Tailors",
-        titleRu: "Портные, операторы швейных машин и мастера-портные",
-        subtitleEn: "Fashion & Garment Industry",
-        subtitleRu: "Модная и швейная промышленность",
-        descEn: "Staff for garment factories, fashion houses, tailoring units, and textile production facilities handling stitching and finishing work.",
-        descRu: "Персонал для швейных фабрик, домов моды, ателье и текстильных производств, выполняющий пошив и финишную обработку.",
-        icon: "M14.121 14.121L19 19m-7-7l7-7m-2.5 2.5L12 3m0 0L8.5 6.5M12 3v0M3 12l4.5-4.5M3 12l4.5 4.5M3 12h0m18 0l-4.5-4.5M21 12l-4.5 4.5M21 12h0",
+        titleEn: "Warehouse & Logistics Workers",
+        titleRu: "Складские и логистические рабочие",
+        subtitleEn: "Loading, Packing & Supply Chain",
+        subtitleRu: "Погрузка, упаковка и цепочка поставок",
+        descEn: "Trained workers for warehouses, distribution centers, cold storage facilities, and ports — handling loading, unloading, sorting, packing, and inventory management across Russia.",
+        descRu: "Обученные работники для складов, распределительных центров, холодильных хранилищ и портов — погрузка, разгрузка, сортировка, упаковка и управление запасами по всей России.",
+        icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
     },
     {
         num: "04",
@@ -124,38 +124,42 @@ export default function OurStrength() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ delay: 0.2 + i * 0.1, duration: 0.55 }}
-                            className="group relative p-6 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                            style={{ background: "#FFFFFF", border: "1px solid rgba(138,0,41,0.06)", boxShadow: "0 4px 20px rgba(0,0,0,0.04)" }}>
-                            <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="group relative p-6 rounded-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                            style={{ background: "#FFFFFF", border: "1px solid rgba(138,0,41,0.08)", boxShadow: "0 4px 24px rgba(138,0,41,0.06)" }}>
+                            {/* Left accent bar */}
+                            <div className="absolute top-4 bottom-4 left-0 w-[3px] rounded-r-full transition-all duration-300 group-hover:top-0 group-hover:bottom-0"
                                 style={{ background: i % 2 === 0 ? "#8A0029" : "#D32F2F" }} />
+                            {/* Top glow on hover */}
+                            <div className="absolute top-0 left-0 right-0 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                style={{ background: `linear-gradient(180deg, ${i % 2 === 0 ? 'rgba(138,0,41,0.06)' : 'rgba(211,47,47,0.06)'}, transparent)` }} />
 
                             {/* Number + Icon */}
-                            <div className="flex items-center justify-between mb-4">
+                            <div className="relative flex items-center justify-between mb-4">
                                 <span className="text-3xl font-black" style={{ color: "rgba(138,0,41,0.08)", fontFamily: "var(--font-inter)" }}>
                                     {card.num}
                                 </span>
-                                <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-md"
-                                    style={{ background: "rgba(138,0,41,0.06)" }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#8A0029" strokeWidth={1.5}>
+                                <div className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
+                                    style={{ background: i % 2 === 0 ? "rgba(138,0,41,0.08)" : "rgba(211,47,47,0.08)" }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke={i % 2 === 0 ? "#8A0029" : "#D32F2F"} strokeWidth={1.5}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d={card.icon} />
                                     </svg>
                                 </div>
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-sm font-black mb-1 transition-colors duration-300 group-hover:text-[#8A0029]"
+                            <h3 className="relative text-sm font-black mb-1 transition-colors duration-300 group-hover:text-[#8A0029]"
                                 style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
                                 {lang === 'ru' ? card.titleRu : card.titleEn}
                             </h3>
 
                             {/* Subtitle */}
-                            <p className="text-[10px] font-semibold uppercase tracking-wider mb-3"
+                            <p className="relative text-[10px] font-semibold uppercase tracking-wider mb-3"
                                 style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
                                 {lang === 'ru' ? card.subtitleRu : card.subtitleEn}
                             </p>
 
                             {/* Description */}
-                            <p className="text-xs leading-relaxed" style={{ color: "rgba(38,38,38,0.45)", fontFamily: "var(--font-poppins)" }}>
+                            <p className="relative text-xs leading-relaxed" style={{ color: "rgba(38,38,38,0.5)", fontFamily: "var(--font-poppins)" }}>
                                 {lang === 'ru' ? card.descRu : card.descEn}
                             </p>
                         </motion.div>

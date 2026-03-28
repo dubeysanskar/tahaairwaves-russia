@@ -163,7 +163,7 @@ export default function HowItWorks() {
                             <div className="text-center">
                                 <p className="text-3xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>500+</p>
                                 <p className="text-[10px] uppercase tracking-wide font-bold" style={{ color: "rgba(38,38,38,0.35)", fontFamily: "var(--font-inter)" }}>
-                                    {lang === 'ru' ? 'Работников в России' : 'Workers in Russia'}
+                                    {lang === 'ru' ? 'Работников размещено' : 'Workers Deployed'}
                                 </p>
                             </div>
                             <div className="w-px h-10" style={{ background: "rgba(138,0,41,0.15)" }} />
