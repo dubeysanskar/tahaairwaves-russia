@@ -9,10 +9,10 @@ import { useLanguage } from "@/context/language"
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal"
 
 const HIGHLIGHTS = [
-    { icon: FiGlobe, en: "MEA Licensed & Authorized Agency", ru: "Лицензированное агентство MEA" },
-    { icon: FiUsers, en: "Head Office in India, New Delhi", ru: "Головной офис в Индии, Нью-Дели" },
-    { icon: FiShield, en: "Fully Compliant Documentation Process", ru: "Полностью соответствующий процесс документации" },
-    { icon: FiBookOpen, en: "10+ Years Working with Gulf & GCC", ru: "10+ лет работы со странами Персидского залива и GCC" },
+    { icon: FiGlobe, en: "Trusted by Global Employers", ru: "Доверие мировых работодателей" },
+    { icon: FiUsers, en: "Rapid Workforce Deployment", ru: "Быстрое размещение персонала" },
+    { icon: FiShield, en: "Industry-Specific Hiring Expertise", ru: "Отраслевая экспертиза найма" },
+    { icon: FiBookOpen, en: "Reliable Talent Pipeline", ru: "Надёжный кадровый конвейер" },
 ]
 
 export default function HomeAbout() {

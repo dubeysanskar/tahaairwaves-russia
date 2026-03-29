@@ -26,9 +26,11 @@ const serviceLinksData = [
 ]
 
 const offices = [
-    { label: "New Delhi, India", href: "/contact#office-delhi" },
-    { label: "Noida, India", href: "/contact#office-noida" },
-    { label: "Moscow, Russia", href: "/contact#office-moscow" },
+    { labelKey: "officeMoscow", label: "Moscow, Russia", labelRu: "Москва, Россия", href: "/contact#office-moscow" },
+    { labelKey: "officeDelhi", label: "New Delhi, India", labelRu: "Нью-Дели, Индия", href: "/contact#office-delhi" },
+    { labelKey: "officeNoida", label: "Noida, India", labelRu: "Нойда, Индия", href: "/contact#office-noida" },
+    { labelKey: "officeSaudi", label: "Jeddah, Saudi Arabia", labelRu: "Джидда, Саудовская Аравия", href: "/contact#office-saudi" },
+    { labelKey: "officeDubai", label: "Dubai, UAE", labelRu: "Дубай, ОАЭ", href: "/contact#office-dubai" },
 ]
 
 const socials = [
@@ -40,7 +42,7 @@ const socials = [
 ]
 
 export default function Footer() {
-    const { t } = useLanguage()
+    const { t, lang } = useLanguage()
 
     return (
         <>
@@ -149,7 +151,7 @@ export default function Footer() {
                                             className="text-sm flex items-center gap-1.5 transition-colors duration-200 hover:text-white"
                                             style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
                                             <FiMapPin style={{ color: "#BC264B", flexShrink: 0 }} size={10} />
-                                            {o.label}
+                                            {lang === 'ru' ? o.labelRu : o.label}
                                         </Link>
                                     </li>
                                 ))}

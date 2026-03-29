@@ -11,38 +11,45 @@ import {
 const STEPS = [
     {
         num: "01",
-        titleEn: "Requirement Discussion", titleRu: "Обсуждение требований",
-        descEn: "Share your manpower needs — role, quantity, location — and our team creates a tailored recruitment plan.",
-        descRu: "Сообщите нам о ваших кадровых потребностях — роль, количество, локация.",
+        titleEn: "Requirement Analysis", titleRu: "Анализ требований",
+        descEn: "Understanding your workforce needs, job roles, and project requirements to ensure the right hiring strategy.",
+        descRu: "Изучение ваших кадровых потребностей, должностей и требований проекта для формирования правильной стратегии найма.",
         icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
     },
     {
         num: "02",
-        titleEn: "Candidate Shortlisting", titleRu: "Подбор кандидатов",
-        descEn: "We source, verify, and shortlist candidates through structured interviews, skill assessments, and background checks.",
-        descRu: "Мы находим, проверяем и отбираем кандидатов через собеседования и оценку навыков.",
+        titleEn: "Sourcing & Screening", titleRu: "Поиск и отбор",
+        descEn: "We source candidates from India's top talent pools and conduct strict screening and background verification.",
+        descRu: "Мы подбираем кандидатов из лучших кадровых резервов Индии и проводим строгий отбор и проверку биографий.",
         icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
     },
     {
         num: "03",
-        titleEn: "Interviews & Selection", titleRu: "Собеседования и отбор",
-        descEn: "Client-facing interviews and final candidate selection to ensure the perfect match for your requirements.",
-        descRu: "Проведение интервью с заказчиком и финальный отбор кандидатов.",
+        titleEn: "Skill Assessment", titleRu: "Оценка навыков",
+        descEn: "Trade testing and practical evaluations to ensure candidates meet industry standards and job expectations.",
+        descRu: "Профессиональное тестирование и практическая оценка для соответствия отраслевым стандартам и требованиям.",
         icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
     },
     {
         num: "04",
-        titleEn: "Local Support in Moscow", titleRu: "\u041c\u0435\u0441\u0442\u043d\u0430\u044f \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430 \u0432 \u041c\u043e\u0441\u043a\u0432\u0435",
-        descEn: "Our Moscow office provides on-ground coordination, worker support, issue resolution, and direct employer communication.",
-        descRu: "\u041d\u0430\u0448 \u043e\u0444\u0438\u0441 \u0432 \u041c\u043e\u0441\u043a\u0432\u0435 \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0432\u0430\u0435\u0442 \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0446\u0438\u044e, \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443 \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u043e\u0432 \u0438 \u0441\u0432\u044f\u0437\u044c \u0441 \u0440\u0430\u0431\u043e\u0442\u043e\u0434\u0430\u0442\u0435\u043b\u044f\u043c\u0438.",
-        icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+        titleEn: "Documentation & Visa Processing", titleRu: "Документация и визовое оформление",
+        descEn: "Complete handling of visa processing, legal compliance, and documentation for smooth international hiring.",
+        descRu: "Полное визовое оформление, юридическое соответствие и документация для бесперебойного международного найма.",
+        icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
     },
     {
         num: "05",
-        titleEn: "Deployment to Russia", titleRu: "Размещение в России",
-        descEn: "Pre-departure orientation, flight arrangements, airport transfers, accommodation setup, and continuous post-deployment support.",
-        descRu: "Предвыездная ориентация, организация перелёта, размещение и постоянный мониторинг.",
+        titleEn: "Deployment & Travel Coordination", titleRu: "Размещение и координация",
+        descEn: "Pre-departure briefing, travel arrangements, and seamless deployment to your project location.",
+        descRu: "Предвыездной инструктаж, организация поездки и бесперебойное размещение на объекте проекта.",
         icon: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
+    },
+    {
+        num: "06",
+        titleEn: "Ongoing Support & Transparency", titleRu: "Постоянная поддержка и прозрачность",
+        descEn: "Continuous support with clear communication, reporting, and zero hidden charges throughout the process.",
+        descRu: "Постоянная поддержка с чёткой коммуникацией, отчётностью и без скрытых платежей на протяжении всего процесса.",
+        icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z",
     },
 ]
 
@@ -86,8 +93,8 @@ export default function HowItWorks() {
                         <h2 className="font-black tracking-tight mb-4"
                             style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", color: "#262626" }}>
                             {lang === 'ru'
-                                ? <>{`Наш процесс `}<span style={{ color: "#8A0029" }}>{`найма`}</span></>
-                                : <>{`Our Hiring `}<span style={{ color: "#8A0029" }}>{`Process`}</span></>
+                                ? <>{`Наш процесс `}<span style={{ color: "#8A0029" }}>{`рекрутинга`}</span></>
+                                : <>{`Our Recruitment `}<span style={{ color: "#8A0029" }}>{`Process`}</span></>
                             }
                         </h2>
                         <p className="max-w-xl mx-auto text-sm leading-relaxed"
@@ -101,7 +108,7 @@ export default function HowItWorks() {
                 </ScrollReveal>
 
                 {/* Steps — light themed cards */}
-                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" staggerDelay={0.12}>
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.12}>
                     {STEPS.map((step, i) => (
                         <StaggerItem key={i} variant="fadeUp">
                             <div className="group relative overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full"
@@ -148,29 +155,40 @@ export default function HowItWorks() {
                     ))}
                 </StaggerContainer>
 
-                {/* Bottom stats strip */}
+                {/* Bottom feature strip */}
                 <ScrollReveal variant="fadeUp" delay={0.4}>
-                    <div className="mt-12 flex flex-col lg:flex-row items-center justify-between gap-8 px-8 py-6 rounded-2xl"
-                        style={{ background: "rgba(138,0,41,0.06)", border: "1px solid rgba(138,0,41,0.1)" }}>
-                        <p className="text-sm font-semibold text-center lg:text-left"
-                            style={{ color: "rgba(38,38,38,0.5)", fontFamily: "var(--font-poppins)" }}>
-                            {lang === 'ru'
-                                ? 'От поиска до развёртывания — мы берём на себя полный цикл подбора персонала'
-                                : 'From sourcing to deployment — we handle the complete recruitment lifecycle'
-                            }
-                        </p>
-                        <div className="flex items-center gap-8">
-                            <div className="text-center">
-                                <p className="text-3xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>500+</p>
-                                <p className="text-[10px] uppercase tracking-wide font-bold" style={{ color: "rgba(38,38,38,0.35)", fontFamily: "var(--font-inter)" }}>
-                                    {lang === 'ru' ? 'Работников размещено' : 'Workers Deployed'}
+                    <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="flex items-start gap-4 px-8 py-6 rounded-2xl"
+                            style={{ background: "rgba(138,0,41,0.06)", border: "1px solid rgba(138,0,41,0.1)" }}>
+                            <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                                style={{ background: "#8A0029" }}>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 className="text-base font-bold mb-1" style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
+                                    {lang === 'ru' ? 'Taha Airwaves: Нацелены на скорость' : 'Taha Airwaves: Driven by Speed'}
+                                </h4>
+                                <p className="text-sm" style={{ color: "rgba(38,38,38,0.5)", fontFamily: "var(--font-poppins)" }}>
+                                    {lang === 'ru' ? 'Быстрый наём и размещение без ущерба для качества.' : 'Fast hiring and deployment without compromising quality.'}
                                 </p>
                             </div>
-                            <div className="w-px h-10" style={{ background: "rgba(138,0,41,0.15)" }} />
-                            <div className="text-center">
-                                <p className="text-3xl font-black" style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>20+</p>
-                                <p className="text-[10px] uppercase tracking-wide font-bold" style={{ color: "rgba(38,38,38,0.35)", fontFamily: "var(--font-inter)" }}>
-                                    {lang === 'ru' ? 'Лет опыта' : 'Years Experience'}
+                        </div>
+                        <div className="flex items-start gap-4 px-8 py-6 rounded-2xl"
+                            style={{ background: "rgba(138,0,41,0.06)", border: "1px solid rgba(138,0,41,0.1)" }}>
+                            <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                                style={{ background: "#D32F2F" }}>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 className="text-base font-bold mb-1" style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
+                                    {lang === 'ru' ? 'Taha Airwaves: Ориентация на качество' : 'Taha Airwaves: Focused on Quality'}
+                                </h4>
+                                <p className="text-sm" style={{ color: "rgba(38,38,38,0.5)", fontFamily: "var(--font-poppins)" }}>
+                                    {lang === 'ru' ? 'Квалифицированные, проверенные и готовые к работе кандидаты — каждый раз.' : 'Skilled, verified, and job-ready candidates every time.'}
                                 </p>
                             </div>
                         </div>

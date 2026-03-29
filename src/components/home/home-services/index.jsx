@@ -4,7 +4,7 @@ import { useRef } from "react"
 import Container from "@/components/container"
 import Link from "next/link"
 import { MdArrowOutward } from "react-icons/md"
-import { FiMessageCircle, FiSearch, FiClipboard, FiFileText, FiSend } from "react-icons/fi"
+import { FiMessageCircle, FiSearch, FiClipboard, FiFileText, FiSend, FiLayers } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
 import ScrollReveal from "@/components/animations/ScrollReveal"
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline"
@@ -15,7 +15,8 @@ const PROCESS_DATA = [
     { id: 2, icon: FiSearch,         num: "02", titleKey: "step2Title", descKey: "step2Desc", relatedIds: [1, 3], status: "completed", energy: 90 },
     { id: 3, icon: FiClipboard,      num: "03", titleKey: "step3Title", descKey: "step3Desc", relatedIds: [2, 4], status: "in-progress", energy: 75 },
     { id: 4, icon: FiFileText,       num: "04", titleKey: "step4Title", descKey: "step4Desc", relatedIds: [3, 5], status: "in-progress", energy: 55 },
-    { id: 5, icon: FiSend,           num: "05", titleKey: "step5Title", descKey: "step5Desc", relatedIds: [4, 1], status: "pending", energy: 30 },
+    { id: 5, icon: FiSend,           num: "05", titleKey: "step5Title", descKey: "step5Desc", relatedIds: [4, 6], status: "pending", energy: 30 },
+    { id: 6, icon: FiLayers,          num: "06", titleKey: "step6Title", descKey: "step6Desc", relatedIds: [5, 1], status: "pending", energy: 20 },
 ]
 
 export default function CardCarousel() {
@@ -93,19 +94,19 @@ export default function CardCarousel() {
                         </div>
                         <span className="text-[10px] tracking-[0.2em] uppercase font-bold block mb-2"
                             style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
-                            {lang === 'ru' ? 'Процесс' : 'Process'}
+                            {lang === 'ru' ? 'Преимущества' : 'Advantages'}
                         </span>
                         <h2 className="font-black tracking-tight"
                             style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#262626" }}>
                             {lang === 'ru'
-                                ? <>{`Наш процесс `}<span style={{ color: "#8A0029" }}>{`найма`}</span></>
-                                : <>{`Our Hiring `}<span style={{ color: "#8A0029" }}>{`Process`}</span></>
+                                ? <>{`Что нас `}<span style={{ color: "#8A0029" }}>{`отличает`}</span></>
+                                : <>{`What Makes Us `}<span style={{ color: "#8A0029" }}>{`Different`}</span></>
                             }
                         </h2>
                         <p className="text-sm max-w-lg mx-auto mt-2" style={{ color: "rgba(38,38,38,0.5)", fontFamily: "var(--font-poppins)" }}>
                             {lang === 'ru'
-                                ? 'Комплексные кадровые решения, связывающие таланты Индии с российским спросом'
-                                : 'Comprehensive manpower solutions bridging India\'s talent with Russia\'s demand'
+                                ? 'Мы поставляем квалифицированный персонал из Индии в Россию — без задержек'
+                                : 'We deliver skilled manpower from India to Russia — without delays'
                             }
                         </p>
                     </div>
@@ -174,7 +175,7 @@ export default function CardCarousel() {
                                 style={{ background: "rgba(138,0,41,0.04)", border: "1px solid rgba(138,0,41,0.08)" }}>
                                 <span className="text-3xl lg:text-4xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>500+</span>
                                 <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
-                                    {lang === 'ru' ? 'Работников\nв России' : 'Workers\nin Russia'}
+                                    {lang === 'ru' ? 'Работников\nразмещено в России' : 'Workers\ndeployed in Russia'}
                                 </span>
                             </div>
                             <div className="flex items-center gap-3 px-6 py-4 rounded-xl"

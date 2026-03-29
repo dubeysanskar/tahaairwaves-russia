@@ -4,56 +4,74 @@ import { useRef, useState, useEffect } from "react"
 import Container from "@/components/container"
 import Link from "next/link"
 import { MdArrowOutward } from "react-icons/md"
-import { FiUsers, FiTruck, FiFileText, FiSend, FiBriefcase } from "react-icons/fi"
+import { FiUsers, FiTruck, FiFileText, FiSend, FiBriefcase, FiMapPin, FiCheckCircle } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
 import { DotGrid, CornerOrnament, FlowLine } from "@/components/decorators/SVGDecorations"
 import { motion, useScroll, useTransform } from "framer-motion"
 
 const SERVICES = [
     {
-        icon: FiUsers,
-        titleEn: "Overseas Recruitment", titleRu: "Международный рекрутинг",
-        descEn: "End-to-end recruitment solutions for international employers seeking skilled and unskilled Indian workforce.",
-        descRu: "Комплексные решения по подбору персонала для международных работодателей, ищущих квалифицированных индийских специалистов.",
+        icon: FiCheckCircle,
+        titleEn: "Government Approved Agency", titleRu: "Государственно одобренное агентство",
+        descEn: "Fully licensed and compliant recruitment agency ensuring safe and legal hiring from India.",
+        descRu: "Полностью лицензированное и соответствующее требованиям рекрутинговое агентство, обеспечивающее безопасный и законный наём из Индии.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #5C001B 100%)",
         border: "rgba(211,47,47,0.3)",
     },
     {
-        icon: FiTruck,
-        titleEn: "Bulk Manpower Hiring", titleRu: "Массовый наём",
-        descEn: "High-volume workforce mobilization with rapid turnaround for large-scale projects and operations.",
-        descRu: "Мобилизация рабочей силы для крупномасштабных проектов и операций с быстрым выполнением.",
+        icon: FiSend,
+        titleEn: "Fast Workforce Deployment", titleRu: "Быстрое размещение персонала",
+        descEn: "Get your workforce deployed within 7–15 days with our streamlined recruitment system.",
+        descRu: "Размещение персонала в течение 7–15 дней благодаря нашей оптимизированной системе подбора.",
         bg: "#262626",
         gradient: "linear-gradient(135deg, #262626 0%, #1A1A1A 100%)",
         border: "rgba(138,0,41,0.4)",
     },
     {
-        icon: FiFileText,
-        titleEn: "Local Support in Moscow", titleRu: "Местная поддержка в Москве",
-        descEn: "Dedicated Moscow office with on-ground coordination, worker support, and direct employer communication.",
-        descRu: "Офис в Москве с координацией, поддержкой работников и связью с работодателями.",
+        icon: FiUsers,
+        titleEn: "Verified & Skilled Candidates", titleRu: "Проверенные и квалифицированные кандидаты",
+        descEn: "All workers are pre-screened, trained, and verified to match your exact job requirements.",
+        descRu: "Все работники предварительно отобраны, обучены и проверены для соответствия вашим требованиям.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #6B0020 100%)",
         border: "rgba(253,251,239,0.15)",
     },
     {
-        icon: FiSend,
-        titleEn: "Deployment Support", titleRu: "Поддержка развёртывания",
-        descEn: "Seamless pre-departure orientation, travel coordination, and post-deployment follow-up services.",
-        descRu: "Предотъездная ориентация, координация поездок и послеразмещённая поддержка.",
+        icon: FiTruck,
+        titleEn: "Strong Talent Network", titleRu: "Мощная кадровая сеть",
+        descEn: "Access a large database of skilled and unskilled workers across multiple industries.",
+        descRu: "Доступ к обширной базе квалифицированных и неквалифицированных работников в различных отраслях.",
         bg: "#262626",
         gradient: "linear-gradient(135deg, #262626 0%, #0D0D0D 100%)",
         border: "rgba(211,47,47,0.35)",
     },
     {
         icon: FiBriefcase,
-        titleEn: "Employee Outsourcing", titleRu: "Аутсорсинг персонала",
-        descEn: "Complete workforce outsourcing — staffing, payroll management, HR compliance, and performance monitoring handled end-to-end.",
-        descRu: "Полный аутсорсинг — подбор, расчёт зарплат, кадровое обеспечение и мониторинг под ключ.",
+        titleEn: "Cost-Effective Hiring", titleRu: "Экономичный найм",
+        descEn: "Reduce hiring costs with competitive pricing and efficient manpower solutions.",
+        descRu: "Снижение затрат на найм благодаря конкурентоспособным ценам и эффективным кадровым решениям.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #5C001B 100%)",
         border: "rgba(253,251,239,0.15)",
+    },
+    {
+        icon: FiMapPin,
+        titleEn: "Local Support in Moscow", titleRu: "Местная поддержка в Москве",
+        descEn: "On-ground support in Moscow for coordination, communication, and smooth workforce management.",
+        descRu: "Поддержка на месте в Москве для координации, коммуникации и бесперебойного управления персоналом.",
+        bg: "#262626",
+        gradient: "linear-gradient(135deg, #262626 0%, #1A1A1A 100%)",
+        border: "rgba(138,0,41,0.4)",
+    },
+    {
+        icon: FiFileText,
+        titleEn: "End-to-End Support", titleRu: "Полное сопровождение",
+        descEn: "From sourcing to deployment, we manage the complete recruitment process for you.",
+        descRu: "От подбора до размещения — мы управляем полным процессом рекрутинга для вас.",
+        bg: "#8A0029",
+        gradient: "linear-gradient(135deg, #8A0029 0%, #6B0020 100%)",
+        border: "rgba(211,47,47,0.3)",
     },
 ]
 
@@ -118,8 +136,8 @@ function Header({ lang }) {
                 <h2 className="font-black tracking-tight"
                     style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4.5vw, 3.5rem)", color: "#1A1A1A" }}>
                     {lang === 'ru'
-                        ? <>{`Почему российские компании `}<span style={{ color: "#8E0935" }}>{`выбирают нас?`}</span></>
-                        : <>{`Why Russian Companies `}<span style={{ color: "#8E0935" }}>{`Choose Us?`}</span></>
+                        ? <>{`Почему российские компании выбирают `}<span style={{ color: "#8E0935" }}>{`Taha Airwaves?`}</span></>
+                        : <>{`Why Russian Companies Choose `}<span style={{ color: "#8E0935" }}>{`Taha Airwaves?`}</span></>
                     }
                 </h2>
                 <p className="mt-3 text-sm lg:text-base max-w-xl leading-relaxed"

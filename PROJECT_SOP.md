@@ -2,7 +2,7 @@
 
 > **Standard Operating Procedure & Complete Context Document**
 > This document provides full context for any developer or AI tool working on this project.
-> Last updated: March 28, 2026 (Session 11 — Russian SEO Overhaul, Social Hub, Hero/Footer Fixes)
+> Last updated: March 29, 2026 (Session 12 — SEO Expansion, 3 New Blogs, 5 SEO Landing Pages, Sitemap Update)
 
 ---
 
@@ -130,9 +130,22 @@ All services must reference Russia specifically. No other country names in servi
 
 ### 3.5 Blog Content
 
-- 6 blog posts in `src/data/blog-posts.js`
+- 9 blog posts in `src/data/blog-posts.js`
 - All posts have: `title_ru`, `excerpt_ru`, `content_ru`, `category_ru`, `readTime_ru`
 - Blog detail page uses client component `src/components/blog/blog-detail/index.jsx` for language switching
+- New blog posts (Session 12): cost-of-hiring-indian-workers-russia, why-indian-labour-best-for-russia, how-to-hire-foreign-workers-legally-russia
+
+### 3.6 SEO Landing Pages (Not In Navigation)
+
+5 keyword-targeted landing pages at `/seo/*` for organic search ranking. Not linked in navigation.
+
+| Page | URL | Target Keywords |
+|------|-----|----------------|
+| Indian Manpower Russia | /seo/indian-manpower-russia | найм работников из Индии в Россию |
+| Recruitment Agency Russia | /seo/recruitment-agency-russia | кадровое агентство Россия Индия |
+| Construction Workers Russia | /seo/construction-workers-russia | строительные рабочие Россия |
+| Fast Workforce Deployment | /seo/fast-workforce-deployment-russia | быстрое размещение персонала |
+| Visa & Work Permit | /seo/visa-work-permit-russia | визовое оформление рабочей визы |
 
 ---
 
@@ -179,7 +192,7 @@ page.js
 | `src/components/footer/index.jsx` | Red logo, clickable addresses, white social icons |
 | `src/components/chatbot/index.jsx` | Floating AI chatbot |
 | `src/components/social-hub/index.jsx` | Floating left-side social links panel (WhatsApp, Telegram, Max, VK, RuTube) |
-| `src/app/sitemap.js` | Auto-generated sitemap.xml (22 URLs) |
+| `src/app/sitemap.js` | Auto-generated sitemap.xml (30 URLs) |
 | `src/app/robots.js` | Yandex-optimized robots.txt |
 | `public/llms.txt` | Russian AI model info file |
 | `SEO.md` | Client-facing SEO optimization report |

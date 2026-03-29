@@ -21,6 +21,33 @@ const BLOGS = [
     'indian-workers-demand-cis-countries',
     'india-overseas-recruitment-regulatory-framework',
     'best-practices-employers-hiring-indian-manpower',
+    'cost-of-hiring-indian-workers-russia',
+    'why-indian-labour-best-for-russia',
+    'how-to-hire-foreign-workers-legally-russia',
+]
+
+const SEO_PAGES = [
+    'indian-manpower-russia',
+    'recruitment-agency-russia',
+    'construction-workers-russia',
+    'fast-workforce-deployment-russia',
+    'visa-work-permit-russia',
+    'hire-indian-workers-moscow',
+    'hire-indian-workers-saint-petersburg',
+    'indian-workers-for-russia',
+    'indian-manpower-agency-contact',
+    'recruitment-offices-india',
+    'best-recruitment-agencies-india',
+    'best-staffing-agencies-india',
+    'hire-indian-workers-mytishchi',
+    'hire-indian-workers-lyubertsy',
+    'hire-indian-workers-korolyov',
+    'hire-indian-workers-krasnogorsk',
+    'hire-indian-workers-zheleznodorozhny',
+    'hire-indian-workers-odintsovo',
+    'hire-indian-workers-zhukovsky',
+    'hire-indian-workers-kolomna',
+    'hire-indian-workers-mozhaysk',
 ]
 
 export default function sitemap() {
@@ -48,5 +75,12 @@ export default function sitemap() {
         priority: 0.7,
     }))
 
-    return [...staticPages, ...servicePages, ...blogPages]
+    const seoPages = SEO_PAGES.map(slug => ({
+        url: `${BASE}/seo/${slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+    }))
+
+    return [...staticPages, ...servicePages, ...blogPages, ...seoPages]
 }

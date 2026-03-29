@@ -2,7 +2,115 @@
 
 > Full record of every change made during the UI/UX overhaul.
 > This file serves as a complete audit trail for future reference.
-> Date: March 21–28, 2026
+> Date: March 21–29, 2026
+
+---
+
+## SESSION 13 — March 29, 2026 (21 SEO Pages, Russian-Only Policy, UI Fixes)
+
+### Language Policy Update
+- **All SEO content is now exclusively in Russian** — no English fallback
+- Only "Taha Airwaves" brand name remains in English across all pages
+- Existing 5 SEO pages rewritten to remove bilingual `isRu` toggle, now pure Russian
+
+### New SEO Infrastructure (`src/components/seo/SEOPageTemplate.jsx`)
+- Created reusable `SEOPageTemplate` component for consistent SEO page design
+- Supports 5 section types: `cards`, `list`, `text`, `steps`, `contact`
+- Includes internal cross-linking section for SEO interlinking
+- All 21 SEO pages now use this template for consistency
+
+### Internal Links System (`src/data/seo-links.js`)
+- Created centralized SEO internal links config for cross-linking
+- Each page links to all other SEO pages (excluding itself)
+- Enables SEO-beneficial interlinking between all 21 pages
+
+### SEO Landing Pages — EXPANDED to 21 (Previously 5)
+All pages are Russian-only, not linked in navigation. Each has `layout.js` (metadata) + `page.js`:
+
+**Existing Pages (Rewritten to Russian-Only):**
+1. `/seo/indian-manpower-russia` — Найм работников из Индии в Россию
+2. `/seo/recruitment-agency-russia` — Кадровое агентство Россия–Индия
+3. `/seo/construction-workers-russia` — Строительные рабочие из Индии
+4. `/seo/fast-workforce-deployment-russia` — Быстрое размещение персонала
+5. `/seo/visa-work-permit-russia` — Визовое оформление рабочей визы
+
+**New City Pages:**
+6. `/seo/hire-indian-workers-moscow` — Найм работников в Москве
+7. `/seo/hire-indian-workers-saint-petersburg` — Найм работников в Санкт-Петербурге
+8. `/seo/hire-indian-workers-mytishchi` — Найм работников в Мытищах
+9. `/seo/hire-indian-workers-lyubertsy` — Найм работников в Люберцах
+10. `/seo/hire-indian-workers-korolyov` — Найм работников в Королёве
+11. `/seo/hire-indian-workers-krasnogorsk` — Найм работников в Красногорске
+12. `/seo/hire-indian-workers-zheleznodorozhny` — Найм работников в Железнодорожном
+13. `/seo/hire-indian-workers-odintsovo` — Найм работников в Одинцово
+14. `/seo/hire-indian-workers-zhukovsky` — Найм работников в Жуковском
+15. `/seo/hire-indian-workers-kolomna` — Найм работников в Коломне
+16. `/seo/hire-indian-workers-mozhaysk` — Найм работников в Можайске
+
+**New General Pages:**
+17. `/seo/indian-workers-for-russia` — Индийские работники для России
+18. `/seo/indian-manpower-agency-contact` — Контакты кадровых агентств
+19. `/seo/recruitment-offices-india` — Рекрутинговые офисы в Индии
+20. `/seo/best-recruitment-agencies-india` — Лучшие рекрутинговые агентства
+21. `/seo/best-staffing-agencies-india` — Лучшие кадровые агентства
+
+### Sitemap Updated (`src/app/sitemap.js`)
+- Total URLs: **46** (up from 30)
+- Breakdown: 5 static + 11 services + 9 blogs + 21 SEO pages
+
+### UI Fixes
+1. **"Workers deployed in Russia"** — Changed from "Workers in Russia" to "Workers deployed in Russia" / "Работников размещено в России"
+2. **Hero Section Mobile Fix** — Disabled scroll fade animation on mobile (form stays fully visible)
+3. **Hero Section Bottom Spacing** — Added `pb-28` padding on mobile to prevent buttons from touching hero border
+4. **Social Hub Redesign** — Completely redesigned for better visibility:
+   - Larger trigger button with gradient background (#8A0029 → #D32F2F)
+   - Green notification dot with pulse animation
+   - Double-ring pulse animation for attention
+   - Platform-colored icons (48px) with glow effects on hover
+   - Dark panel with rounded right corners
+   - "Social" vertical text label
+
+---
+
+## SESSION 12 — March 29, 2026 (SEO Expansion, 3 New Blogs, 5 SEO Landing Pages)
+
+### New Blog Posts (`src/data/blog-posts.js`)
+3 new SEO-focused blog posts added (total: 9 posts). All with full bilingual (RU/EN) content:
+
+1. **cost-of-hiring-indian-workers-russia**
+   - Title (RU): Стоимость найма работников из Индии в России | Полное руководство
+   - Category: Employer Guide / Для работодателей
+   - Content covers: recruitment fees, visa costs, travel expenses, ongoing costs, cost-effectiveness
+
+2. **why-indian-labour-best-for-russia**
+   - Title (RU): Почему индийская рабочая сила лучше всего подходит для России
+   - Category: Market Insights / Аналитика рынка
+   - Content covers: technical skills, work ethic, cost efficiency, cultural adaptability
+
+3. **how-to-hire-foreign-workers-legally-russia**
+   - Title (RU): Как легально нанимать индийских/иностранных работников в России
+   - Category: Compliance / Соответствие
+   - Content covers: employer authorization, work permits, candidate verification, visa processing
+
+### SEO Landing Pages — NEW (`src/app/seo/*/`)
+5 new keyword-targeted landing pages. Not linked in navigation (SEO-only). Each has layout.js (metadata) + page.js (bilingual client component):
+
+| # | Directory | Target Keywords (RU) |
+|---|-----------|---------------------|
+| 1 | `seo/indian-manpower-russia/` | найм работников из Индии в Россию |
+| 2 | `seo/recruitment-agency-russia/` | кадровое агентство Россия Индия |
+| 3 | `seo/construction-workers-russia/` | строительные рабочие Россия Индия |
+| 4 | `seo/fast-workforce-deployment-russia/` | быстрое размещение персонала Россия |
+| 5 | `seo/visa-work-permit-russia/` | визовое оформление рабочей визы Россия |
+
+### Sitemap Update (`src/app/sitemap.js`)
+- 22 → 30 URLs: +3 blog slugs, +5 SEO page slugs
+- SEO pages priority: 0.6
+
+### Documentation Updates
+- SEO.md: Complete rewrite (all 30 URLs, keyword lists, metadata tables)
+- PROJECT_SOP.md: Updated to Session 12, added §3.6 SEO Landing Pages
+- CHANGELOG.md: Added Session 12 entry
 
 ---
 

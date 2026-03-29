@@ -134,7 +134,7 @@ export default function HomeServiceBento() {
                             </div>
                         </ScrollReveal>
 
-                        {/* Stats card */}
+                        {/* Stats card — Driven by Speed + Focused on Quality */}
                         <ScrollReveal variant="fadeRight" delay={0.2}>
                             <div className="rounded-2xl p-8 flex-1 flex flex-col justify-center gap-6 relative overflow-hidden"
                                 style={{ background: "#8A0029" }}>
@@ -151,13 +151,13 @@ export default function HomeServiceBento() {
                                 </svg>
 
                                 <div>
-                                    <p className="text-5xl font-black mb-1" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>500+</p>
-                                    <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-poppins)" }}>{t('heroStat1Label')}</p>
+                                    <p className="text-lg font-black mb-1 leading-tight" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>{t('bentoStatTitle1')}</p>
+                                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-poppins)" }}>{t('bentoStatDesc1')}</p>
                                 </div>
                                 <div className="h-px" style={{ background: "rgba(255,255,255,0.15)" }} />
                                 <div>
-                                    <p className="text-5xl font-black mb-1" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>10+</p>
-                                    <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-poppins)" }}>{t('heroStat3Label')}</p>
+                                    <p className="text-lg font-black mb-1 leading-tight" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>{t('bentoStatTitle2')}</p>
+                                    <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-poppins)" }}>{t('bentoStatDesc2')}</p>
                                 </div>
                             </div>
                         </ScrollReveal>

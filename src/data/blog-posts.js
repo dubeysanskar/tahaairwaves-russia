@@ -83,4 +83,254 @@ export const BLOG_POSTS = [
         readTime: "6 min read",
         readTime_ru: "6 мин чтения",
     },
+    {
+        slug: "cost-of-hiring-indian-workers-russia",
+        title: "Cost of Hiring Indian Workers in Russia | Complete Guide",
+        title_ru: "Стоимость найма работников из Индии в России | Полное руководство",
+        excerpt: "Learn the cost of hiring Indian workers in Russia including recruitment, visa, and deployment expenses for businesses.",
+        excerpt_ru: "Узнайте стоимость найма работников из Индии в России, включая расходы на подбор, визы и оформление.",
+        content: `Cost of Hiring Indian Workers in Russia
+
+Hiring Indian workers in Russia is a cost-effective solution for many industries. The overall cost depends on several factors including recruitment fees, visa processing, documentation, and deployment.
+
+**Key Cost Components**
+
+**1. Recruitment Fees**
+Working with a professional recruitment agency like Taha Airwaves ensures transparent pricing. Recruitment fees cover candidate sourcing, screening, trade testing, and shortlisting. Our structured approach minimizes hiring risks and reduces overall costs.
+
+**2. Visa & Documentation**
+Visa processing for Russia includes work permit applications, document attestation, emigration clearance, and medical examinations. Taha Airwaves handles the entire process, ensuring compliance with both Indian and Russian regulations.
+
+**3. Travel & Deployment**
+Travel costs include flights, pre-departure orientation, and initial settlement support. We coordinate group deployments to optimize travel expenses and ensure smooth transitions.
+
+**4. Ongoing Costs**
+Employers benefit from competitive salary expectations, high productivity, and long-term workforce stability. Additional costs may include accommodation, insurance, and transportation arrangements.
+
+**Why Indian Manpower is Cost-Effective**
+- Competitive salary expectations compared to European workers
+- High productivity and strong work ethic
+- Lower turnover rates with proper management
+- Reduced training costs with pre-verified, trade-tested candidates
+
+Working with a professional recruitment agency ensures transparency and efficient cost management throughout the hiring process. Taha Airwaves provides detailed cost breakdowns and ensures no hidden charges at any stage.
+
+Contact us at +7 985 074-88-28 or info@tahaairwaves.ru for a detailed cost proposal tailored to your workforce requirements.`,
+        content_ru: `Стоимость найма работников из Индии в России
+
+Найм работников из Индии в России является экономически эффективным решением для многих отраслей. Общая стоимость зависит от различных факторов, включая оплату подбора, оформление виз, документы и процесс отправки работников.
+
+**Основные компоненты стоимости**
+
+**1. Оплата подбора персонала**
+Сотрудничество с профессиональным кадровым агентством, таким как Taha Airwaves, гарантирует прозрачное ценообразование. Оплата подбора включает поиск кандидатов, проверку, профессиональное тестирование и формирование шорт-листа. Наш структурированный подход минимизирует риски найма и снижает общие затраты.
+
+**2. Визовое оформление и документация**
+Визовое оформление для России включает заявления на разрешение на работу, аттестацию документов, эмиграционное оформление и медицинские обследования. Taha Airwaves управляет всем процессом, обеспечивая соответствие нормативам Индии и России.
+
+**3. Транспорт и размещение**
+Транспортные расходы включают перелёты, предвыездную ориентацию и первичную поддержку в адаптации. Мы координируем групповые выезды для оптимизации расходов и обеспечения плавного перехода.
+
+**4. Текущие расходы**
+Работодатели получают выгоду за счет конкурентных зарплатных ожиданий, высокой производительности и стабильности рабочей силы. Дополнительные расходы могут включать проживание, страховку и транспорт.
+
+**Почему индийская рабочая сила экономически выгодна**
+- Конкурентные зарплатные ожидания по сравнению с европейскими работниками
+- Высокая производительность и трудолюбие
+- Низкая текучесть кадров при правильном управлении
+- Сниженные затраты на обучение благодаря проверенным кандидатам
+
+Сотрудничество с профессиональным кадровым агентством обеспечивает прозрачность и эффективное управление затратами на всех этапах найма. Taha Airwaves предоставляет подробные расчёты стоимости и гарантирует отсутствие скрытых платежей на любом этапе.
+
+Свяжитесь с нами: +7 985 074-88-28 или info@tahaairwaves.ru для получения индивидуального коммерческого предложения.`,
+        date: "Mar 25, 2026",
+        category: "Employer Guide",
+        category_ru: "Для работодателей",
+        readTime: "5 min read",
+        readTime_ru: "5 мин чтения",
+    },
+    {
+        slug: "why-indian-labour-best-for-russia",
+        title: "Why Indian Labour is Best for Russia | Benefits of Hiring Indian Workers",
+        title_ru: "Почему индийская рабочая сила лучше всего подходит для России | Преимущества найма",
+        excerpt: "Discover why Indian labour is preferred in Russia due to reliability, skills, and cost efficiency for various industries.",
+        excerpt_ru: "Узнайте, почему индийская рабочая сила востребована в России благодаря надежности, навыкам и экономичности.",
+        content: `Why Indian Labour is Best for Russia
+
+Indian workers are highly valued in Russia for their dedication, adaptability, and strong work ethic. They are skilled across industries such as construction, manufacturing, logistics, and hospitality.
+
+**Key Advantages of Indian Workers**
+
+**1. Strong Technical Skills**
+Indian workers come from a country with a massive workforce training infrastructure. From ITI-certified technicians to experienced construction workers, Indian manpower brings verified skills that meet international standards.
+
+**2. Work Ethic & Discipline**
+Indian workers are known for their dedication and willingness to work long hours in demanding conditions. This reliability makes them preferred by Russian employers across construction, manufacturing, and logistics sectors.
+
+**3. Cost-Effective Solutions**
+Indian manpower is cost-effective while maintaining high productivity and quality standards. Competitive salary expectations combined with high output make Indian workers an economical choice for Russian businesses.
+
+**4. Cultural Adaptability**
+Indian workers have a proven track record of adapting to different work environments and cultures. Their flexibility and openness make integration into Russian workplaces smooth and effective.
+
+**5. Language & Communication**
+Many Indian workers have basic English proficiency, and with pre-departure Russian language training provided by agencies like Taha Airwaves, communication barriers are minimized.
+
+**6. Government-Backed Recruitment**
+India's structured overseas recruitment regulatory framework through licensed agencies ensures that workers are properly documented, verified, and protected throughout their deployment.
+
+**Industries Where Indian Workers Excel in Russia**
+- Construction: masons, electricians, plumbers, welders
+- Manufacturing: machine operators, assembly workers, QC inspectors
+- Logistics: warehouse staff, drivers, loading workers
+- Hospitality: cleaners, housekeeping, food service
+- Oil & Gas: drilling crew, pipeline workers, maintenance staff
+
+Hiring Indian workers helps businesses improve efficiency and maintain consistent operations. Contact Taha Airwaves at +7 985 074-88-28 to discuss your workforce requirements.`,
+        content_ru: `Почему индийская рабочая сила лучше всего подходит для России
+
+Индийские работники высоко ценятся в России за их преданность, адаптивность и трудолюбие. Они обладают навыками в таких отраслях, как строительство, производство, логистика и гостиничный бизнес.
+
+**Ключевые преимущества индийских работников**
+
+**1. Сильные технические навыки**
+Индийские работники приходят из страны с масштабной инфраструктурой профессиональной подготовки. От сертифицированных техников ITI до опытных строительных рабочих — индийская рабочая сила предлагает проверенные навыки, соответствующие международным стандартам.
+
+**2. Трудовая этика и дисциплина**
+Индийские работники известны своей преданностью и готовностью работать в сложных условиях. Эта надёжность делает их предпочтительным выбором для российских работодателей в строительстве, производстве и логистике.
+
+**3. Экономическая эффективность**
+Индийская рабочая сила является экономически выгодной при сохранении высокой производительности и качества. Конкурентные зарплатные ожидания в сочетании с высокой отдачей делают индийских работников экономичным выбором.
+
+**4. Культурная адаптивность**
+Индийские работники имеют подтверждённый опыт адаптации к различным рабочим средам и культурам. Их гибкость и открытость обеспечивают плавную интеграцию на российских предприятиях.
+
+**5. Язык и коммуникация**
+Многие индийские работники владеют базовым английским, а предвыездная подготовка по русскому языку от агентств, таких как Taha Airwaves, минимизирует коммуникативные барьеры.
+
+**6. Государственная поддержка рекрутинга**
+Структурированная нормативная база Индии по зарубежному рекрутингу через лицензированные агентства гарантирует, что работники должным образом оформлены, проверены и защищены.
+
+**Отрасли, где индийские работники преуспевают в России**
+- Строительство: каменщики, электрики, сантехники, сварщики
+- Производство: операторы станков, сборщики, контролёры качества
+- Логистика: складской персонал, водители, грузчики
+- Гостеприимство: уборщики, хозяйственный персонал
+- Нефть и газ: буровые бригады, трубопроводчики
+
+Найм индийских работников помогает компаниям повышать эффективность и обеспечивать стабильную работу. Свяжитесь с Taha Airwaves: +7 985 074-88-28.`,
+        date: "Mar 22, 2026",
+        category: "Market Insights",
+        category_ru: "Аналитика рынка",
+        readTime: "5 min read",
+        readTime_ru: "5 мин чтения",
+    },
+    {
+        slug: "how-to-hire-foreign-workers-legally-russia",
+        title: "How to Hire Indian/Foreign Workers Legally in Russia | Step-by-Step Guide",
+        title_ru: "Как легально нанимать индийских/иностранных работников в России | Пошаговое руководство",
+        excerpt: "Learn the legal process of hiring Indian and foreign workers in Russia including permits, visas, and compliance requirements.",
+        excerpt_ru: "Узнайте юридический процесс найма индийских и иностранных работников в России, включая разрешения, визы и требования.",
+        content: `How to Hire Indian/Foreign Workers Legally in Russia
+
+Hiring Indian and foreign workers in Russia requires compliance with legal regulations and proper documentation. This step-by-step guide explains the complete process for Russian employers.
+
+**Step 1: Obtain Employer Authorization**
+Russian employers must apply for the right to hire foreign workers through the relevant government agencies. This includes obtaining a quota for foreign worker recruitment and registering with migration services.
+
+**Step 2: Work Permit Application**
+Once authorized, the employer applies for work permits for the specific foreign workers they want to hire. This involves submitting employment contracts, job descriptions, and proof of employer compliance.
+
+**Step 3: Candidate Selection & Verification**
+Working with a licensed recruitment agency like Taha Airwaves streamlines candidate selection. We handle:
+- Candidate sourcing from India's verified talent pools
+- Trade testing and skill assessment
+- Background verification and document authentication
+- Shortlisting and profile presentation
+
+**Step 4: Employment Visa Processing**
+After candidate selection and work permit approval, employment visa applications are filed. Required documents typically include:
+- Employment contract signed by both parties
+- Work permit approval
+- Medical fitness certificate
+- Document attestation (educational and professional)
+- Passport with minimum 6 months validity
+
+**Step 5: Emigration Clearance (India Side)**
+Indian workers require emigration clearance from the Protector of Emigrants (POE) before departure. Taha Airwaves manages this complete process including:
+- Registration with POE
+- Employment contract validation
+- Pre-departure orientation
+
+**Step 6: Arrival Registration & Integration**
+Upon arrival in Russia, workers must register with local migration authorities. Employers are responsible for:
+- Registration within required timeframes
+- Providing proper working conditions
+- Ensuring compliance with Russian labour laws
+- Worker accommodation and welfare
+
+**Key Compliance Requirements**
+- Valid work permits for all foreign workers
+- Proper employment contracts adhering to Russian labour law
+- Regular reporting to migration authorities
+- Worker insurance and medical coverage
+- Adherence to salary payment regulations
+
+Working with an experienced recruitment agency like Taha Airwaves simplifies the legal process and ensures full compliance at every step.
+
+Contact us: +7 985 074-88-28 | info@tahaairwaves.ru`,
+        content_ru: `Как легально нанимать индийских/иностранных работников в России
+
+Найм индийских и иностранных работников в России требует соблюдения законодательства и правильного оформления документов. Данное пошаговое руководство объясняет весь процесс для российских работодателей.
+
+**Шаг 1: Получение разрешения работодателя**
+Российские работодатели должны подать заявление на право найма иностранных работников через соответствующие государственные органы. Это включает получение квоты на привлечение иностранной рабочей силы и регистрацию в миграционной службе.
+
+**Шаг 2: Оформление разрешения на работу**
+После получения разрешения работодатель подаёт заявления на рабочие разрешения для конкретных иностранных работников. Это включает предоставление трудовых договоров, описаний должностей и подтверждение соответствия работодателя.
+
+**Шаг 3: Отбор и проверка кандидатов**
+Сотрудничество с лицензированным кадровым агентством, таким как Taha Airwaves, упрощает отбор кандидатов. Мы обеспечиваем:
+- Поиск кандидатов из проверенных кадровых резервов Индии
+- Профессиональное тестирование и оценку навыков
+- Проверку биографических данных и аутентификацию документов
+- Формирование шорт-листа и представление профилей
+
+**Шаг 4: Оформление рабочей визы**
+После отбора кандидатов и одобрения разрешения на работу подаются заявления на рабочую визу. Необходимые документы обычно включают:
+- Трудовой договор, подписанный обеими сторонами
+- Одобренное разрешение на работу
+- Медицинское свидетельство о пригодности
+- Аттестацию документов (образовательных и профессиональных)
+- Паспорт со сроком действия не менее 6 месяцев
+
+**Шаг 5: Эмиграционное оформление (индийская сторона)**
+Индийские работники должны получить эмиграционное разрешение от Управления защиты эмигрантов (POE) перед выездом. Taha Airwaves управляет всем процессом, включая:
+- Регистрацию в POE
+- Валидацию трудового договора
+- Предвыездную ориентацию
+
+**Шаг 6: Регистрация по прибытии и интеграция**
+По прибытии в Россию работники должны зарегистрироваться в местных миграционных органах. Работодатели несут ответственность за:
+- Регистрацию в установленные сроки
+- Обеспечение надлежащих условий труда
+- Соблюдение российского трудового законодательства
+- Проживание и благополучие работников
+
+**Ключевые требования соответствия**
+- Действующие разрешения на работу для всех иностранных работников
+- Надлежащие трудовые договоры в соответствии с законодательством РФ
+- Регулярная отчётность в миграционные органы
+- Страхование и медицинское покрытие работников
+- Соблюдение правил выплаты заработной платы
+
+Сотрудничество с опытным кадровым агентством, таким как Taha Airwaves, упрощает процесс и гарантирует полное соответствие требованиям на каждом этапе.
+
+Свяжитесь с нами: +7 985 074-88-28 | info@tahaairwaves.ru`,
+        date: "Mar 20, 2026",
+        category: "Compliance",
+        category_ru: "Соответствие",
+        readTime: "7 min read",
+        readTime_ru: "7 мин чтения",
+    },
 ]

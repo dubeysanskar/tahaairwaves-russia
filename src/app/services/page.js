@@ -2,12 +2,30 @@ import Cta from "@/components/home/cta";
 import ServicesMain from "@/components/services/services-main";
 
 export const metadata = {
-    title: "Услуги по подбору персонала — Taha Airwaves Россия",
-    description: "Полный спектр услуг по подбору персонала для России: уборщики, водители, разнорабочие, грузчики, бариста, упаковщики, техники, аттестация документов, аутсорсинг. Офис в Москве.",
-    keywords: ["услуги подбор персонала Россия", "рабочие из Индии", "кадровые услуги Москва", "аутсорсинг персонала", "рекрутинг для России"],
+    title: "Услуги по подбору персонала | Найм квалифицированных работников из Индии для России и GCC | Taha Airwaves",
+    description: "Ознакомьтесь с нашими услугами по подбору персонала, включая водителей, уборщиков, фабричных рабочих и разнорабочих для России и международных рынков с быстрым подбором и полным соблюдением требований.",
+    keywords: [
+        "услуги индийской рабочей силы Россия",
+        "нанять квалифицированных работников из Индии за рубежом",
+        "компания по поставке рабочей силы Индия",
+        "международные кадровые услуги",
+        "аутсорсинг рабочей силы",
+        "услуги по подбору персонала",
+        "Indian manpower services Russia",
+        "hire Indian skilled workers abroad",
+        "labour supply company India",
+        "international manpower services",
+        "outsourcing workforce solutions",
+        "manpower recruitment services",
+        // Master keywords
+        "hire Indian workers in Russia",
+        "Indian manpower for Russia",
+        "workforce solutions Russia",
+        "найм работников из Индии в Россию",
+    ],
     openGraph: {
-        title: "Услуги по подбору персонала — Taha Airwaves Россия",
-        description: "Подбор квалифицированных и полуквалифицированных работников из Индии для российских компаний.",
+        title: "Услуги по подбору персонала | Найм квалифицированных работников из Индии для России и GCC | Taha Airwaves",
+        description: "Ознакомьтесь с нашими услугами по подбору персонала для России и международных рынков.",
         url: "https://tahaairwaves.ru/services",
     },
 }

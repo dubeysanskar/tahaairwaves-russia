@@ -4,6 +4,38 @@
 
 ---
 
+## Session 12 — SEO Expansion & Content Update (March 29, 2026)
+
+### 3 New Blog Posts
+- **File**: `src/data/blog-posts.js`
+- Added: "Cost of Hiring Indian Workers in Russia" (cost-of-hiring-indian-workers-russia)
+- Added: "Why Indian Labour is Best for Russia" (why-indian-labour-best-for-russia)
+- Added: "How to Hire Indian/Foreign Workers Legally in Russia" (how-to-hire-foreign-workers-legally-russia)
+- All with full RU/EN content, categories, read times. Total blog posts: 9.
+
+### 5 SEO Landing Pages (Not In Navigation)
+- **Directory**: `src/app/seo/*/`
+- `/seo/indian-manpower-russia` — Targeting "найм работников из Индии в Россию"
+- `/seo/recruitment-agency-russia` — Targeting "кадровое агентство Россия Индия"
+- `/seo/construction-workers-russia` — Targeting "строительные рабочие Россия"
+- `/seo/fast-workforce-deployment-russia` — Targeting "быстрое размещение персонала"
+- `/seo/visa-work-permit-russia` — Targeting "визовое оформление рабочей визы"
+- Each page has: layout.js (SEO metadata), page.js (bilingual client component)
+- All pages: Taha Airwaves brand palette, Inter font, CTA to /contact
+
+### Sitemap Update
+- **File**: `src/app/sitemap.js`
+- Updated from 22 → 30 URLs
+- Added 3 new blog slugs + 5 SEO page slugs
+- SEO pages priority: 0.6
+
+### Documentation Updates
+- Updated `SEO.md` — Complete rewrite with all 30 URLs, keyword lists, page metadata
+- Updated `PROJECT_SOP.md` — New §3.6 SEO Landing Pages section, blog count 6→9, sitemap 22→30
+- Updated `DEVELOPMENT_CHANGELOG.md` — Session 12 audit trail
+
+---
+
 ## Session 10 — Homepage Content Overhaul (March 27, 2026)
 
 ### Hero Section — Complete Text Rewrite

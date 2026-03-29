@@ -29,48 +29,60 @@ export const metadata = {
     metadataBase: new URL("https://tahaairwaves.ru"),
 
     title: {
-        default: "Taha Airwaves | Подбор и размещение персонала в Россию",
+        default: "Найм работников из Индии в Россию | Агентство по подбору персонала | Taha Airwaves",
         template: "%s | Taha Airwaves"
     },
 
     description:
-        "Taha Airwaves — лицензированное агентство по подбору квалифицированного и полуквалифицированного персонала из Индии для работы в России. Полный цикл рекрутинга, визовое оформление, размещение работников. Офис в Москве.",
+        "Аккредитованное агентство по подбору персонала, предоставляющее квалифицированных работников из Индии для России и мировых рынков. Быстрый найм, проверенные кандидаты и полная визовая поддержка.",
 
     keywords: [
-        "Taha Airwaves",
+        // Master keywords (RU) — repeat across pages
+        "найм работников из Индии в Россию",
+        "поставка рабочей силы из Индии в Россию",
+        "кадровое агентство Россия Индия",
+        "индийские рабочие в России",
+        "международное кадровое агентство Индия",
+        "нанять работников из Индии",
+        "решения по рабочей силе из Индии Россия",
+        "аутсорсинг персонала из Индии",
+        "агентство по поставке рабочей силы Индия Россия",
+        "Taha Airwaves персонал",
+        // Master keywords (EN) — repeat across pages
+        "hire Indian workers in Russia",
+        "Indian manpower supply Russia",
+        "recruitment agency Russia India",
+        "Indian labour for Russia",
+        "overseas manpower agency India",
+        "hire workers from India",
+        "Indian workforce solutions Russia",
+        "Indian manpower outsourcing company",
+        "Indian labour supply agency Russia",
+        "Taha Airwaves Indian manpower",
+        // Additional Russian keywords
         "подбор персонала Россия",
         "рекрутинг из Индии",
         "размещение работников Россия",
-        "индийские работники Россия",
         "визовое оформление",
-        "аутсорсинг персонала",
         "кадровое агентство Москва",
         "строительные рабочие Россия",
         "разнорабочие из Индии",
         "водители для России",
         "грузчики Москва",
         "уборщики для предприятий",
-        "бариста для кафе",
-        "упаковщики склад",
-        "сварщики электрики сантехники",
-        "аттестация документов",
-        "эмиграционное оформление",
         "рабочая сила из Индии",
         "массовый подбор персонала",
-        "рекрутинговое агентство Нью-Дели",
-        "найм иностранных работников Россия",
+        "быстрое размещение индийского персонала",
+        "проверенные индийские работники",
+        // Additional English keywords
+        "fast Indian manpower deployment",
+        "verified Indian manpower supply",
+        "skilled workers from India",
+        "workforce solutions Russia",
         "manpower recruitment Russia",
         "Indian workers Russia",
         "workforce deployment Russia",
         "overseas recruitment agency",
-        "hire workers from India",
-        "нанять работников из Индии",
-        "кадровый аутсорсинг Россия",
-        "подбор рабочих для строительства Москва",
-        "помощники на производстве Россия",
-        "рабочие для нефтегазовой отрасли",
-        "персонал для гостиниц Россия",
-        "логистический персонал Москва",
     ],
 
     authors: [{ name: "Taha Airwaves Private Limited" }],
@@ -86,9 +98,9 @@ export const metadata = {
     },
 
     openGraph: {
-        title: "Taha Airwaves | Подбор и размещение персонала в Россию",
+        title: "Найм работников из Индии в Россию | Агентство по подбору персонала | Taha Airwaves",
         description:
-            "Лицензированное кадровое агентство — подбор и размещение квалифицированного персонала из Индии в Россию. Офис в Москве, более 500 работников размещено.",
+            "Аккредитованное агентство по подбору персонала, предоставляющее квалифицированных работников из Индии для России и мировых рынков. Быстрый найм, проверенные кандидаты и полная визовая поддержка.",
         url: "https://tahaairwaves.ru",
         siteName: "Taha Airwaves",
         locale: "ru_RU",
@@ -98,16 +110,16 @@ export const metadata = {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Taha Airwaves — Подбор и размещение персонала в Россию"
+                alt: "Taha Airwaves — Найм работников из Индии в Россию"
             }
         ]
     },
 
     twitter: {
         card: "summary_large_image",
-        title: "Taha Airwaves | Подбор и размещение персонала в Россию",
+        title: "Найм работников из Индии в Россию | Taha Airwaves",
         description:
-            "Лицензированное агентство по подбору и размещению индийского персонала в России.",
+            "Аккредитованное агентство по подбору персонала из Индии для России. Быстрый найм и полная визовая поддержка.",
         images: ["/og-image.jpg"]
     },
 
@@ -127,7 +139,7 @@ export const metadata = {
         yandex: "",
     },
 
-    category: "Подбор и размещение персонала",
+    category: "Найм работников из Индии в Россию | Подбор персонала",
 
     icons: {
 		icon: [

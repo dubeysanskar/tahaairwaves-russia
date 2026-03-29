@@ -9,9 +9,23 @@ import { useLanguage } from "@/context/language"
 
 const OFFICES = [
     {
+        id: "office-moscow",
+        city: "Moscow, Russia",
+        cityRu: "Москва, Россия",
+        address: "Skolkovo Innovation Center, Malevicha Street, 2k4, 143026",
+        addressRu: "Инновационный центр Сколково, ул. Малевича, 2к4, 143026",
+        phone: "+7 985 074-88-28",
+        email: "info@tahaairwaves.ru",
+        website: "www.tahaairwaves.ru",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.1426425262143!2d37.3377322!3d55.7212732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54fc19d3da9ab%3A0xa53e316700ab8ad7!2zVGFoYSBBaXJ3YXZlcyBSdXNzaWEgLSDQrdC60YHQv9C10YDRgtGLINC_0L4g0L_QvtC00LHQvtGA0YMg0LjQvdC00LjQudGB0LrQuNGFINGA0LDQsdC_0YLQvdC40LrQvtCyINCyINCg0L7RgdGB0LjQuA!5e0!3m2!1sen!2sin!4v1774001324192!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/z8SxP7mCixzbLGqcA",
+    },
+    {
         id: "office-delhi",
         city: "India (Delhi) — Head Office",
+        cityRu: "Индия (Дели) — Головной офис",
         address: "71A, 3rd Floor, Block A, Taimoor Nagar, New Friends Colony, New Delhi 110065",
+        addressRu: "71A, 3-й этаж, блок A, Таймур Нагар, Нью Френдс Колони, Нью-Дели 110065",
         phone: "+91 93152 26961",
         email: "info@tahaairwaves.com",
         website: "www.tahaairwaves.com",
@@ -21,21 +35,36 @@ const OFFICES = [
     {
         id: "office-noida",
         city: "India (Noida)",
+        cityRu: "Индия (Нойда)",
         address: "Bhutani Alphathum, Tower C, 2nd Floor, A06, Sector 90, Noida, Uttar Pradesh 201304",
+        addressRu: "Бхутани Альфатхум, башня C, 2-й этаж, A06, сектор 90, Нойда, Уттар-Прадеш 201304",
         email: "marketing@tahaairwaves.com",
         website: "www.tahaairwaves.com",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8811434315994!2d77.4107801!3d28.513235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce9fcbe0273a1%3A0xd8ed754838e2f8a4!2sBhutani%20Alphathum!5e0!3m2!1sen!2sin!4v1774001112471!5m2!1sen!2sin",
         mapLink: "https://maps.app.goo.gl/8hj6U2PwFGQviqBCA",
     },
     {
-        id: "office-moscow",
-        city: "Moscow, Russia",
-        address: "Skolkovo Innovation Center, Malevicha Street, 2k4, 143026",
-        phone: "+7 985 074-88-28",
-        email: "info@tahaairwaves.ru",
-        website: "www.tahaairwaves.ru",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.1426425262143!2d37.3377322!3d55.7212732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54fc19d3da9ab%3A0xa53e316700ab8ad7!2zVGFoYSBBaXJ3YXZlcyBSdXNzaWEgLSDQrdC60YHQv9C10YDRgtGLINC_0L4g0L_QvtC00LHQvtGA0YMg0LjQvdC00LjQudGB0LrQuNGFINGA0LDQsdC_0YLQvdC40LrQvtCyINCyINCg0L7RgdGB0LjQuA!5e0!3m2!1sen!2sin!4v1774001324192!5m2!1sen!2sin",
-        mapLink: "https://maps.app.goo.gl/z8SxP7mCixzbLGqcA",
+        id: "office-saudi",
+        city: "Jeddah, Saudi Arabia",
+        cityRu: "Джидда, Саудовская Аравия",
+        address: "056, King Fahad Road, Al-Safa District, Jeddah",
+        addressRu: "056, Кинг Фахад Роуд, район Аль-Сафа, Джидда",
+        phone: "+966 532 464 195",
+        email: "ksa@tahaairwaves.com",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118645.1611797207!2d39.117145217436034!3d21.58525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d11159b4f451%3A0x15f5f6e033478b8f!2sAl-Safa%2C%2BJeddah%2BSaudi%2BArabia!5e0!3m2!1sen!2sin!4v1742492931109!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/zH53vbogocDCBoAe6",
+    },
+    {
+        id: "office-dubai",
+        city: "Dubai, UAE",
+        cityRu: "Дубай, ОАЭ",
+        address: "Jafza Sales Center, Building 15, Jafza 15, Sheikh Zayed Rd, Jebel Ali Freezone, Dubai",
+        addressRu: "Jafza Sales Center, Здание 15, Jafza 15, Шейх Заед Роуд, свободная зона Джебель-Али, Дубай",
+        email: "uae@tahaairwaves.com",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14457.747069172462!2d55.039148487158226!3d25.0532296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f1333f6c9d1f9%3A0x5ec239c20b4c3185!2sJebel%2BAli%2BPort!5e0!3m2!1sen!2sin!4v1742493054173!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/QTDPTA1U4btyfcBf7",
     },
 ]
 
@@ -235,7 +264,7 @@ export default function ContactMain() {
                                     fontFamily: "var(--font-inter)",
                                 }}
                             >
-                                {office.city}
+                                {lang === 'ru' ? (office.cityRu || office.city) : office.city}
                             </button>
                         ))}
                     </div>
@@ -252,10 +281,10 @@ export default function ContactMain() {
                                 <div className="flex-1">
                                     <h3 className="font-black text-base mb-1"
                                         style={{ fontFamily: "var(--font-inter)", color: "#8A0029" }}>
-                                        {OFFICES[selectedOffice].city}
+                                        {lang === 'ru' ? (OFFICES[selectedOffice].cityRu || OFFICES[selectedOffice].city) : OFFICES[selectedOffice].city}
                                     </h3>
                                     <p className="text-sm leading-relaxed" style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
-                                        {OFFICES[selectedOffice].address}
+                                        {lang === 'ru' ? (OFFICES[selectedOffice].addressRu || OFFICES[selectedOffice].address) : OFFICES[selectedOffice].address}
                                     </p>
                                 </div>
                             </div>
