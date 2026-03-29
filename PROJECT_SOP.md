@@ -306,37 +306,37 @@ npm run build && npm start  # Production
 
 | Page | URL |
 |------|-----|
-| Indian Manpower Russia | https://tahaairwaves.ru/seo/indian-manpower-russia |
-| Recruitment Agency Russia | https://tahaairwaves.ru/seo/recruitment-agency-russia |
-| Construction Workers Russia | https://tahaairwaves.ru/seo/construction-workers-russia |
-| Fast Workforce Deployment | https://tahaairwaves.ru/seo/fast-workforce-deployment-russia |
-| Visa & Work Permit Russia | https://tahaairwaves.ru/seo/visa-work-permit-russia |
+| Indian Manpower Russia | https://tahaairwaves.ru/indian-manpower-russia |
+| Recruitment Agency Russia | https://tahaairwaves.ru/recruitment-agency-russia |
+| Construction Workers Russia | https://tahaairwaves.ru/construction-workers-russia |
+| Fast Workforce Deployment | https://tahaairwaves.ru/fast-workforce-deployment-russia |
+| Visa & Work Permit Russia | https://tahaairwaves.ru/visa-work-permit-russia |
 
 **City-Specific Pages:**
 
 | City | URL |
 |------|-----|
-| Moscow | https://tahaairwaves.ru/seo/hire-indian-workers-moscow |
-| Saint Petersburg | https://tahaairwaves.ru/seo/hire-indian-workers-saint-petersburg |
-| Mytishchi | https://tahaairwaves.ru/seo/hire-indian-workers-mytishchi |
-| Lyubertsy | https://tahaairwaves.ru/seo/hire-indian-workers-lyubertsy |
-| Korolyov | https://tahaairwaves.ru/seo/hire-indian-workers-korolyov |
-| Krasnogorsk | https://tahaairwaves.ru/seo/hire-indian-workers-krasnogorsk |
-| Zheleznodorozhny | https://tahaairwaves.ru/seo/hire-indian-workers-zheleznodorozhny |
-| Odintsovo | https://tahaairwaves.ru/seo/hire-indian-workers-odintsovo |
-| Zhukovsky | https://tahaairwaves.ru/seo/hire-indian-workers-zhukovsky |
-| Kolomna | https://tahaairwaves.ru/seo/hire-indian-workers-kolomna |
-| Mozhaysk | https://tahaairwaves.ru/seo/hire-indian-workers-mozhaysk |
+| Moscow | https://tahaairwaves.ru/hire-indian-workers-moscow |
+| Saint Petersburg | https://tahaairwaves.ru/hire-indian-workers-saint-petersburg |
+| Mytishchi | https://tahaairwaves.ru/hire-indian-workers-mytishchi |
+| Lyubertsy | https://tahaairwaves.ru/hire-indian-workers-lyubertsy |
+| Korolyov | https://tahaairwaves.ru/hire-indian-workers-korolyov |
+| Krasnogorsk | https://tahaairwaves.ru/hire-indian-workers-krasnogorsk |
+| Zheleznodorozhny | https://tahaairwaves.ru/hire-indian-workers-zheleznodorozhny |
+| Odintsovo | https://tahaairwaves.ru/hire-indian-workers-odintsovo |
+| Zhukovsky | https://tahaairwaves.ru/hire-indian-workers-zhukovsky |
+| Kolomna | https://tahaairwaves.ru/hire-indian-workers-kolomna |
+| Mozhaysk | https://tahaairwaves.ru/hire-indian-workers-mozhaysk |
 
 **General Agency Pages:**
 
 | Page | URL |
 |------|-----|
-| Indian Workers for Russia | https://tahaairwaves.ru/seo/indian-workers-for-russia |
-| Indian Manpower Agency Contact | https://tahaairwaves.ru/seo/indian-manpower-agency-contact |
-| Recruitment Offices in India | https://tahaairwaves.ru/seo/recruitment-offices-india |
-| Best Recruitment Agencies India | https://tahaairwaves.ru/seo/best-recruitment-agencies-india |
-| Best Staffing Agencies India | https://tahaairwaves.ru/seo/best-staffing-agencies-india |
+| Indian Workers for Russia | https://tahaairwaves.ru/indian-workers-for-russia |
+| Indian Manpower Agency Contact | https://tahaairwaves.ru/indian-manpower-agency-contact |
+| Recruitment Offices in India | https://tahaairwaves.ru/recruitment-offices-india |
+| Best Recruitment Agencies India | https://tahaairwaves.ru/best-recruitment-agencies-india |
+| Best Staffing Agencies India | https://tahaairwaves.ru/best-staffing-agencies-india |
 
 ### 8.5 Auto-Generated Files
 

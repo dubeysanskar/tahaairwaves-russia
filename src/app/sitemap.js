@@ -76,7 +76,7 @@ export default function sitemap() {
     }))
 
     const seoPages = SEO_PAGES.map(slug => ({
-        url: `${BASE}/seo/${slug}`,
+        url: `${BASE}/${slug}`,
         lastModified: now,
         changeFrequency: 'monthly',
         priority: 0.6,

@@ -3,8 +3,8 @@ import ServiceDetailContent from '@/components/services/service-detail'
 
 const servicesData = {
     'cleaners': {
-        title: 'Hire Indian Cleaners for Russia | Professional Cleaning Staff | Taha Airwaves',
-        title_ru: 'Найм уборщиков из Индии для России | Профессиональный клининговый персонал | Taha Airwaves',
+        title: 'Hire Indian Cleaners for Russia | Professional Cleaning Staff',
+        title_ru: 'Найм уборщиков из Индии для России | Профессиональный клининговый персонал',
         metaDesc: 'Hire skilled cleaners for Russian industrial and commercial facilities. Professional cleaning staff from India with fast deployment.',
         metaDesc_ru: 'Подбор квалифицированного клинингового персонала из Индии для российских объектов. Быстрый найм и полная визовая поддержка.',
         images: ['/service-and-blog/Cleaners.jpeg', '/service-and-blog/Cleaners2.jpeg'],
@@ -24,8 +24,8 @@ const servicesData = {
         faqs_ru: [{ q: 'В какие регионы России вы направляете уборщиков?', a: 'Мы направляем в Москву, Санкт-Петербург, Сибирь и промышленные зоны по всей России.' }, { q: 'Проверяются ли уборщики перед размещением?', a: 'Да, каждый уборщик проходит проверку данных, квалификации и безопасности.' }, { q: 'Вы оформляете визы для России?', a: 'Да, мы полностью управляем визовым процессом и документацией для России.' }],
     },
     'all-types-of-drivers': {
-        title: 'Hire Indian Drivers for Russia | Heavy & Light Vehicle Drivers | Taha Airwaves',
-        title_ru: 'Найм водителей из Индии для России | Водители легкового и грузового транспорта | Taha Airwaves',
+        title: 'Hire Indian Drivers for Russia | Heavy & Light Vehicle Drivers',
+        title_ru: 'Найм водителей из Индии для России | Водители легкового и грузового транспорта',
         metaDesc: 'Hire professional drivers including truck, bus, and commercial drivers for Russia and global markets. Verified licenses and fast recruitment process.',
         metaDesc_ru: 'Наймите профессиональных водителей, включая грузовые, автобусные и коммерческие категории, для России и международных рынков. Проверенные лицензии и быстрый процесс найма.',
         images: ['/service-and-blog/drivers.jpeg', '/service-and-blog/drivers.jpeg'],
@@ -45,8 +45,8 @@ const servicesData = {
         faqs_ru: [{ q: 'Вы поставляете водителей для тяжёлого транспорта в Россию?', a: 'Да, мы предоставляем опытных водителей тяжёлого транспорта для строительства и логистики в России.' }, { q: 'Вы проверяете водительские права?', a: 'Да, все водительские удостоверения проверяются по категории транспорта и российским требованиям.' }],
     },
     'general-labour': {
-        title: 'Hire Indian General Labour for Russia | Indian Skilled Workforce Supply | Taha Airwaves',
-        title_ru: 'Найм разнорабочих из Индии для России | Поставка квалифицированной рабочей силы | Taha Airwaves',
+        title: 'Hire Indian General Labour for Russia | Indian Skilled Workforce Supply',
+        title_ru: 'Найм разнорабочих из Индии для России | Поставка квалифицированной рабочей силы',
         metaDesc: 'Hire reliable Indian general labour for construction, logistics, and industrial projects in Russia and GCC with fast deployment and verified workforce.',
         metaDesc_ru: 'Наймите надежных разнорабочих из Индии для строительства, логистики и промышленных проектов в России и странах GCC с быстрым подбором и проверенными кандидатами.',
         images: ['/service-and-blog/General-labours.jpeg', '/service-and-blog/General-labours.jpeg'],
@@ -87,8 +87,8 @@ const servicesData = {
         faqs_ru: [{ q: 'Вы направляете грузчиков в Россию?', a: 'Да, мы размещаем проверенных грузчиков по всей России.' }, { q: 'Проходят ли работники физическую оценку?', a: 'Да, мы оцениваем физические способности и подготовку.' }],
     },
     'factory-helpers': {
-        title: 'Indian Factory Workers for Russia | Hire Indian Skilled Factory Helpers | Taha Airwaves',
-        title_ru: 'Рабочие на фабрики из Индии для России | Найм квалифицированных фабричных работников | Taha Airwaves',
+        title: 'Indian Factory Workers for Russia | Hire Indian Skilled Factory Helpers',
+        title_ru: 'Рабочие на фабрики из Индии для России | Найм квалифицированных фабричных работников',
         metaDesc: 'Hire skilled Indian factory workers and helpers for Russian manufacturing plants. Verified, trained, and deployment-ready.',
         metaDesc_ru: 'Подбор квалифицированных фабричных работников из Индии для российских заводов. Проверенные, обученные и готовые к размещению.',
         images: ['/service-and-blog/Factory-helpers.jpeg', '/service-and-blog/Factory-helpers2.jpeg'],
@@ -150,8 +150,8 @@ const servicesData = {
         faqs_ru: [{ q: 'Вы поставляете упаковщиков в Россию?', a: 'Да, мы размещаем проверенных упаковщиков на российских логистических и производственных объектах.' }],
     },
     'emigration-immigration-clearance': {
-        title: 'Visa & Immigration Services for Workers | Taha Airwaves',
-        title_ru: 'Визовые и иммиграционные услуги для работников | Taha Airwaves',
+        title: 'Visa & Immigration Services for Workers',
+        title_ru: 'Визовые и иммиграционные услуги для работников',
         metaDesc: 'Complete visa processing, emigration clearance and immigration support for Indian workers deploying to Russia.',
         metaDesc_ru: 'Полное визовое оформление, эмиграционное и иммиграционное оформление для индийских работников, направляемых в Россию.',
         images: ['/service-and-blog/Immigration-clearance.jpeg', '/service-and-blog/Immigration-clearance2.jpeg'],
@@ -213,8 +213,8 @@ const servicesData = {
         faqs_ru: [{ q: 'Вы направляете сварщиков в Россию?', a: 'Да, мы размещаем сертифицированных сварщиков на строительных и промышленных проектах в России.' }],
     },
     'employee-outsourcing-solutions': {
-        title: 'Employee Outsourcing Services | Global Workforce Solutions | Taha Airwaves',
-        title_ru: 'Аутсорсинг персонала | Глобальные решения по рабочей силе | Taha Airwaves',
+        title: 'Employee Outsourcing Services | Global Workforce Solutions',
+        title_ru: 'Аутсорсинг персонала | Глобальные решения по рабочей силе',
         metaDesc: 'Complete employee outsourcing services with global workforce solutions for Russian employers. Staffing, payroll, and HR compliance.',
         metaDesc_ru: 'Комплексные услуги аутсорсинга персонала с глобальными решениями по рабочей силе для российских работодателей. Кадры, зарплата и HR-соответствие.',
         images: ['/service-and-blog/employe-outsourcing-.jpeg', '/service-and-blog/Employee-outsourcing2.jpeg'],
@@ -243,10 +243,10 @@ export async function generateMetadata({ params }) {
     const { slug } = await params
     const service = servicesData[slug] || {}
     return {
-        title: `${service.title_ru || service.title || 'Услуга'} — Taha Airwaves`,
+        title: `${service.title_ru || service.title || 'Услуга'}`,
         description: service.metaDesc_ru || service.metaDesc || 'Услуги по подбору персонала от Taha Airwaves.',
         openGraph: {
-            title: `${service.title_ru || service.title || 'Услуга'} — Taha Airwaves`,
+            title: `${service.title_ru || service.title || 'Услуга'}`,
             description: service.metaDesc_ru || service.metaDesc || 'Услуги по подбору персонала от Taha Airwaves.',
             url: `https://tahaairwaves.ru/services/${slug}`,
         },
