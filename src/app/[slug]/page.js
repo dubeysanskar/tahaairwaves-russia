@@ -6,16 +6,7 @@ import { SEO_PAGES_RU } from '@/data/seo-pages-ru'
 export const dynamicParams = true
 
 export function generateStaticParams() {
-    // Return both encoded and decoded versions for maximum compatibility
-    const params = []
-    for (const key of Object.keys(SEO_PAGES_RU)) {
-        params.push({ slug: key })
-        const encoded = encodeURIComponent(key)
-        if (encoded !== key) {
-            params.push({ slug: encoded })
-        }
-    }
-    return params
+    return Object.keys(SEO_PAGES_RU).map(slug => ({ slug }))
 }
 
 function resolveSlug(rawSlug) {
