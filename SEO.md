@@ -4,7 +4,7 @@
 > **Domain:** https://tahaairwaves.ru
 > **Framework:** Next.js 14 (App Router)
 > **Primary Market:** Russia (Yandex + Google)
-> **Language Strategy:** Russian-first, all SEO pages in Cyrillic URLs
+> **Language Strategy:** Russian-first, English secondary
 
 ---
 
@@ -16,12 +16,13 @@ All URLs on **tahaairwaves.ru** — core pages, services, blog, and SEO landing 
 
 | Metric | Count |
 |--------|-------|
-| Total Sitemap URLs | **57** |
+| Total Sitemap URLs | **78** |
 | Static Pages | 6 |
 | Service Pages | 11 |
 | Blog Posts | 9 |
-| SEO Landing Pages (Cyrillic URLs) | 31 |
-| Total Keywords Targeted | 70+ (Russian) |
+| English SEO Landing Pages | 21 |
+| Russian SEO Landing Pages (Cyrillic URLs) | 31 |
+| Total Keywords Targeted | 70+ (RU + EN) |
 | Canonical URLs | ✅ Per-page canonicals on all pages |
 
 ---
@@ -75,15 +76,35 @@ All URLs on **tahaairwaves.ru** — core pages, services, blog, and SEO landing 
 
 ---
 
+### SEO Landing Pages — English (21)
+
+| # | URL | Описание |
+|---|-----|----------|
+| 1 | `https://tahaairwaves.ru/indian-manpower-russia` | Найм работников из Индии в Россию |
+| 2 | `https://tahaairwaves.ru/recruitment-agency-russia` | Кадровое агентство Россия–Индия |
+| 3 | `https://tahaairwaves.ru/construction-workers-russia` | Строительные рабочие из Индии |
+| 4 | `https://tahaairwaves.ru/fast-workforce-deployment-russia` | Быстрое размещение персонала |
+| 5 | `https://tahaairwaves.ru/visa-work-permit-russia` | Визовое оформление рабочей визы |
+| 6 | `https://tahaairwaves.ru/hire-indian-workers-moscow` | Найм работников в Москве |
+| 7 | `https://tahaairwaves.ru/hire-indian-workers-saint-petersburg` | Найм работников в Санкт-Петербурге |
+| 8 | `https://tahaairwaves.ru/indian-workers-for-russia` | Индийские работники для России |
+| 9 | `https://tahaairwaves.ru/indian-manpower-agency-contact` | Контакты кадровых агентств Индии |
+| 10 | `https://tahaairwaves.ru/recruitment-offices-india` | Рекрутинговые офисы в Индии |
+| 11 | `https://tahaairwaves.ru/best-recruitment-agencies-india` | Лучшие рекрутинговые агентства Индии |
+| 12 | `https://tahaairwaves.ru/best-staffing-agencies-india` | Лучшие кадровые агентства Индии |
+| 13 | `https://tahaairwaves.ru/hire-indian-workers-lyubertsy` | Найм работников в Люберцах |
+| 14 | `https://tahaairwaves.ru/hire-indian-workers-korolyov` | Найм работников в Королёве |
+| 15 | `https://tahaairwaves.ru/hire-indian-workers-krasnogorsk` | Найм работников в Красногорске |
+| 16 | `https://tahaairwaves.ru/hire-indian-workers-zheleznodorozhny` | Найм работников в Железнодорожном |
+| 17 | `https://tahaairwaves.ru/hire-indian-workers-odintsovo` | Найм работников в Одинцово |
+| 18 | `https://tahaairwaves.ru/hire-indian-workers-zhukovsky` | Найм работников в Жуковском |
+| 19 | `https://tahaairwaves.ru/hire-indian-workers-kolomna` | Найм работников в Коломне |
+| 20 | `https://tahaairwaves.ru/hire-indian-workers-mozhaysk` | Найм работников в Можайске |
+| 21 | `https://tahaairwaves.ru/hire-indian-workers-mytishchi` | Найм работников в Мытищах |
+
+---
+
 ### SEO Landing Pages — Russian / Cyrillic URLs (31)
-
-All SEO landing pages use **Cyrillic URLs** for maximum Yandex relevance.
-
-**Architecture:**
-- **Data file:** `src/data/seo-pages-ru.js` — all 31 pages with metaTitle, metaDesc, keywords, h1, tagline, sections[], ctaDescription
-- **Dynamic route:** `src/app/[slug]/page.js` — server component with `generateStaticParams()` + `generateMetadata()`
-- **Cross-linking:** `src/data/seo-links.js` — 31 internal links for SEO interlinking
-- **`dynamicParams = false`** — unknown slugs return 404
 
 | # | URL | Описание |
 |---|-----|----------|
@@ -121,104 +142,27 @@ All SEO landing pages use **Cyrillic URLs** for maximum Yandex relevance.
 
 ---
 
-## Technical Configuration
-
-### Metadata (Russian-First)
-
-| Page | Title (RU) |
-|------|-----------|
-| **Homepage** (`/`) | Найм работников из Индии в Россию \| Taha Airwaves |
-| **About** (`/about`) | О компании Taha Airwaves \| Надежное кадровое агентство |
-| **Services** (`/services`) | Услуги по подбору персонала \| Taha Airwaves |
-| **Blog** (`/blog`) | Блог — Новости рекрутинга \| Taha Airwaves |
-| **Contact** (`/contact`) | Контакты Taha Airwaves \| Найм персонала из Индии |
-| **Projects** (`/projects`) | Проекты Taha Airwaves |
-
-### Canonical URLs
-
-Per-page canonicals on **all 57 pages**. Each page's canonical points to itself — NOT to the homepage.
-
-### Keywords (70+)
-
-**Русские ключевые слова:**
-- найм работников из Индии в Россию
-- поставка рабочей силы из Индии в Россию
-- кадровое агентство Россия Индия
-- индийские рабочие в России
-- международное кадровое агентство Индия
-- нанять работников из Индии
-- аутсорсинг персонала из Индии
-- подбор персонала Россия
-- рекрутинг из Индии
-- размещение работников Россия
-- визовое оформление
-- кадровое агентство Москва
-- строительные рабочие Россия
-- рабочие из Индии для строительства
-- рабочие из Индии для производства
-- индийские рабочие для склада
-- персонал из Индии для гостиниц
-- массовый подбор персонала из Индии
-- заказать рабочих из Индии
-- подбор рабочих из Индии цена
-- рабочие из Индии с документами
-- официальный наём рабочих из Индии
-- массовый рекрутинг в Индии
-- сколько стоит нанять рабочих из Индии
-- процесс оформления работников из Индии
-
-### Cross-Linking
-
-**File:** `src/data/seo-links.js`
-- **31 cross-links** (all Russian/Cyrillic)
-- Used by `SEOPageTemplate` footer on every SEO page
-- `getLinksExcluding(currentPath)` prevents self-linking
-
-### Sitemap
-
-**URL:** https://tahaairwaves.ru/sitemap.xml
-**File:** `src/app/sitemap.js`
-
-Covers **57 pages**: 6 static + 11 services + 9 blogs + 31 Russian SEO
-
-Priorities: Homepage (1.0) > Services (0.9) > About/Blog (0.8) > Service pages (0.8) > Blog posts (0.7) > Contact (0.7) > SEO pages (0.6)
-
-### robots.txt
-
-**URL:** https://tahaairwaves.ru/robots.txt
-
-```
-User-agent: *
-Allow: /
-Disallow: /api/, /_next/, /projects/
-
-User-agent: Yandex
-Allow: /
-Crawl-delay: 1
-
-Sitemap: https://tahaairwaves.ru/sitemap.xml
-```
-
----
-
 ## Architecture Summary
 
 ```
 src/app/
-├── layout.js              ← Root layout (lang='ru')
-├── page.js                ← Homepage
-├── about/page.js          ← О компании
-├── services/page.js       ← Все услуги
-├── services/[slug]/       ← 11 individual service pages
-├── blog/page.js           ← Блог
-├── blog/[slug]/           ← 9 blog posts
-├── contact/page.jsx       ← Контакты
-├── projects/page.js       ← Проекты
-├── [slug]/page.js         ← 31 Russian SEO pages (dynamic route)
-├── sitemap.js             ← Auto-generated sitemap (57 URLs)
-└── robots.js              ← robots.txt
+├── layout.js                    ← Root layout (lang='ru')
+├── page.js                      ← Homepage
+├── about/page.js                ← О компании
+├── services/page.js             ← Все услуги
+├── services/[slug]/             ← 11 individual service pages
+├── blog/page.js                 ← Блог
+├── blog/[slug]/                 ← 9 blog posts
+├── contact/page.jsx             ← Контакты
+├── projects/page.js             ← Проекты
+├── indian-manpower-russia/      ← English SEO page (example)
+├── hire-indian-workers-moscow/  ← English SEO page (city)
+├── ... (21 English SEO pages)
+├── [slug]/page.js               ← 31 Russian SEO pages (dynamic route)
+├── sitemap.js                   ← Auto-generated sitemap (78 URLs)
+└── robots.js                    ← robots.txt
 
 src/data/
-├── seo-pages-ru.js        ← All 31 Russian SEO page data
-└── seo-links.js           ← 31 internal cross-links
+├── seo-pages-ru.js              ← All 31 Russian SEO page data
+└── seo-links.js                 ← 52 internal cross-links (21 EN + 31 RU)
 ```

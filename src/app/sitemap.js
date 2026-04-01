@@ -26,6 +26,30 @@ const BLOGS = [
     'how-to-hire-foreign-workers-legally-russia',
 ]
 
+const SEO_PAGES_EN = [
+    'indian-manpower-russia',
+    'recruitment-agency-russia',
+    'construction-workers-russia',
+    'fast-workforce-deployment-russia',
+    'visa-work-permit-russia',
+    'hire-indian-workers-moscow',
+    'hire-indian-workers-saint-petersburg',
+    'indian-workers-for-russia',
+    'indian-manpower-agency-contact',
+    'recruitment-offices-india',
+    'best-recruitment-agencies-india',
+    'best-staffing-agencies-india',
+    'hire-indian-workers-mytishchi',
+    'hire-indian-workers-lyubertsy',
+    'hire-indian-workers-korolyov',
+    'hire-indian-workers-krasnogorsk',
+    'hire-indian-workers-zheleznodorozhny',
+    'hire-indian-workers-odintsovo',
+    'hire-indian-workers-zhukovsky',
+    'hire-indian-workers-kolomna',
+    'hire-indian-workers-mozhaysk',
+]
+
 const SEO_PAGES_RU = [
     'индийские-работники-в-россии',
     'нанять-рабочих-из-индии',
@@ -86,6 +110,13 @@ export default function sitemap() {
         priority: 0.7,
     }))
 
+    const seoEnPages = SEO_PAGES_EN.map(slug => ({
+        url: `${BASE}/${slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+    }))
+
     const seoRuPages = SEO_PAGES_RU.map(slug => ({
         url: `${BASE}/${encodeURIComponent(slug)}`,
         lastModified: now,
@@ -93,5 +124,5 @@ export default function sitemap() {
         priority: 0.6,
     }))
 
-    return [...staticPages, ...servicePages, ...blogPages, ...seoRuPages]
+    return [...staticPages, ...servicePages, ...blogPages, ...seoEnPages, ...seoRuPages]
 }
