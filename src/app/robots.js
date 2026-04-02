@@ -4,7 +4,7 @@ export default function robots() {
             {
                 userAgent: '*',
                 allow: '/',
-                disallow: ['/api/', '/_next/', '/projects/'],
+                disallow: ['/api/', '/_next/'],
             },
             {
                 userAgent: 'Yandex',
