@@ -10,6 +10,7 @@ const translations = {
         services: 'Услуги',
         blog: 'Блог',
         contactUs: 'Контакты',
+        cvBuilder: 'Конструктор CV',
         whatsappUs: 'Написать в WhatsApp',
         // Hero
         heroTitle1: 'КАДРОВЫЕ',
@@ -277,6 +278,7 @@ const translations = {
         services: 'Services',
         blog: 'Blog',
         contactUs: 'Contact Us',
+        cvBuilder: 'CV Builder',
         whatsappUs: 'WhatsApp Us',
         heroTitle1: 'WORKFORCE',
         heroTitle2: 'RUSSIA',

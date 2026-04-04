@@ -224,6 +224,20 @@ export default function ContactMain() {
                                     )
                                 })}
                             </div>
+                            {/* Russian License */}
+                            <div className="mt-4 p-3 rounded"
+                                style={{ background: "rgba(138,0,41,0.04)", border: "1px solid rgba(138,0,41,0.08)" }}>
+                                <p className="text-[10px] uppercase tracking-widest font-bold mb-0.5"
+                                    style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
+                                    {lang === 'ru' ? 'ТАХА ЭЙРВЭЙВС РУС ООО' : 'TAHA AIRWAVES RUS LLC'}
+                                </p>
+                                <p className="text-[10px]" style={{ color: "#9CA3AF", fontFamily: "var(--font-inter)" }}>
+                                    ОГРН: 1217700215149 | ИНН: 9710089433
+                                </p>
+                                <p className="text-[10px] mt-1" style={{ color: "#9CA3AF", fontFamily: "var(--font-inter)" }}>
+                                    RA License: B-3260/DEL/COM/100/5/11259/2025
+                                </p>
+                            </div>
                         </div>
 
                         {/* Social — VK, Telegram, WhatsApp */}

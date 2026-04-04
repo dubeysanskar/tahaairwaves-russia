@@ -113,7 +113,7 @@ const STATS = [
     { value: "gov", suffix: "", label: "Government Approved", labelRu: "Гос. лицензия", svg: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
     { value: "Moscow📍", suffix: "", label: "Local Office in Russia", labelRu: "Офис в России", svg: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", link: "/contact#office-moscow" },
     { value: 50, suffix: "+", label: "Active Clients", labelRu: "Активных клиентов", svg: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M12 11a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z" },
-    { value: "panIndia", suffix: "", label: "Recruitment Network", labelRu: "Сеть найма по Индии", svg: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+    { value: "rusLLC", suffix: "", label: "TAHA AIRWAVES RUS LLC", labelRu: "ТАХА ЭЙРВЭЙВС РУС ООО", svg: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
 ]
 
 /* ── Particles config ── */
@@ -477,9 +477,9 @@ export default function Hero() {
                                                 ? <CountUp end={stat.value} suffix={stat.suffix} />
                                                 : stat.value === 'gov'
                                                     ? <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#262626" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                                                    : stat.value === 'panIndia'
-                                                        ? <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.2rem)' }}>{lang === 'ru' ? 'Вся Индия' : 'Pan-India'}</span>
-                                                        : <span>{stat.value}{stat.suffix}</span>}
+                                                    : stat.value === 'rusLLC'
+                                                        ? <span style={{ fontSize: 'clamp(0.8rem, 1.5vw, 1.1rem)' }}>{lang === 'ru' ? 'Зарег. в России' : 'Registered'}</span>
+                                                        : <span style={{ fontSize: 'clamp(0.8rem, 1.5vw, 1.1rem)' }}>{stat.value}{stat.suffix}</span>}
                                         </div>
                                         <div className="text-[10px] sm:text-xs font-semibold tracking-wide uppercase"
                                             style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>

@@ -11,8 +11,9 @@ const quickLinksData = [
     { key: "home", href: "/" },
     { key: "aboutUs", href: "/about" },
     { key: "services", href: "/services" },
-    { key: "contactUs", href: "/contact" },
     { key: "blog", href: "/blog" },
+    { key: "cvBuilder", href: "/cv-builder" },
+    { key: "contactUs", href: "/contact" },
 ]
 
 const serviceLinksData = [
@@ -191,14 +192,20 @@ export default function Footer() {
                     </div>
 
                     {/* Bottom row */}
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-5 text-center">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-5 pb-20 text-center">
                         <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-inter)" }}>
                             © {new Date().getFullYear()} Taha Airwaves Pvt Ltd. All Rights Reserved.
                         </p>
-                        <span className="inline-block px-3 py-1 rounded-sm text-[10px] font-bold tracking-wide"
-                            style={{ background: "rgba(142,9,53,0.2)", color: "rgba(253,251,239,0.4)" }}>
-                            RA License: B-3260/DEL/COM/100/5/11259/2025
-                        </span>
+                        <div className="flex flex-wrap items-center gap-2 justify-center">
+                            <span className="inline-block px-3 py-1 rounded-sm text-[10px] font-bold tracking-wide"
+                                style={{ background: "rgba(142,9,53,0.2)", color: "rgba(253,251,239,0.4)" }}>
+                                RA License: B-3260/DEL/COM/100/5/11259/2025
+                            </span>
+                            <span className="inline-block px-3 py-1 rounded-sm text-[10px] font-bold tracking-wide"
+                                style={{ background: "rgba(142,9,53,0.2)", color: "rgba(253,251,239,0.4)" }}>
+                                ОГРН: 1217700215149 | ИНН: 9710089433
+                            </span>
+                        </div>
                     </div>
                 </div>
             </footer>

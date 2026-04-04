@@ -128,8 +128,8 @@ export default function ServiceDetailContent({ service }) {
                                         </div>
                                     </div>
                                     {(ru
-                                        ? ['Представительство в Москве', '500+ работников размещено', 'Строительство, производство, нефть и газ', 'Полное визовое сопровождение']
-                                        : ['Moscow Representative Office', '500+ Workers Deployed', 'Construction, Manufacturing, Oil & Gas', 'Full Visa Support']
+                                        ? ['ТАХА ЭЙРВЭЙВС РУС ООО', 'ОГРН: 1217700215149 | ИНН: 9710089433', 'Представительство в Москве', '5000+ работников размещено', 'Строительство, производство, нефть и газ', 'Полное визовое сопровождение']
+                                        : ['TAHA AIRWAVES RUS LLC', 'OGRN: 1217700215149 | Tax ID: 9710089433', 'Moscow Representative Office', '5000+ Workers Deployed', 'Construction, Manufacturing, Oil & Gas', 'Full Visa Support']
                                     ).map(d => (
                                         <div key={d} className="flex items-center gap-2">
                                             <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#BC264B' }} />
@@ -155,7 +155,7 @@ export default function ServiceDetailContent({ service }) {
                     {/* Key Highlights */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
-                            { number: '500+', label: ru ? 'Размещено работников' : 'Workers Deployed', icon: <FaGlobeAsia style={{ color: '#8E0935' }} /> },
+                            { number: '5000+', label: ru ? 'Размещено работников' : 'Workers Deployed', icon: <FaGlobeAsia style={{ color: '#8E0935' }} /> },
                             { number: '95%', label: ru ? 'Трудоустройство' : 'Placement Rate', icon: <MdVerified style={{ color: '#8E0935' }} /> },
                             { number: '21+', label: ru ? 'Стран обслужено' : 'Countries Served', icon: <FaGlobeAsia style={{ color: '#BC264B' }} /> },
                             { number: '24/7', label: ru ? 'Постоянная поддержка' : 'Dedicated Support', icon: <MdVerified style={{ color: '#BC264B' }} /> },

@@ -61,8 +61,8 @@ const GLOBAL_PRESENCE = [
         country: "Russia", flag: "🇷🇺",
         address: "Moscow, Russian Federation",
         phone: "+7 985 074-88-28", email: "info@tahaairwaves.ru",
-        details: ["Moscow Representative Office", "500+ Workers Deployed", "Construction, Manufacturing, Oil & Gas"],
-        details_ru: ["Представительство в Москве", "500+ работников размещено", "Строительство, производство, нефть и газ"]
+        details: ["TAHA AIRWAVES RUS LLC", "OGRN: 1217700215149 | Tax ID: 9710089433", "Moscow Representative Office", "5000+ Workers Deployed", "Construction, Manufacturing, Oil & Gas"],
+        details_ru: ["ТАХА ЭЙРВЭЙВС РУС ООО", "ОГРН: 1217700215149 | ИНН: 9710089433", "Представительство в Москве", "5000+ работников размещено", "Строительство, производство, нефть и газ"]
     },
     {
         country: "UAE / GCC", flag: "🇦🇪",
@@ -183,6 +183,17 @@ export default function AboutMain() {
                                         : 'Our RA License (B-3260/DEL/COM/100/5/11259/2025) stands as proof of our compliance with Indian emigration laws and our commitment to ethical recruitment practices. We offer a wide range of services from selecting, interviewing, recruiting and imparting all types of training to the employees.'
                                     }
                                 </p>
+                                <div className="p-4 rounded-lg mt-2"
+                                    style={{ background: "rgba(142,9,53,0.04)", border: "1px solid rgba(142,9,53,0.08)" }}>
+                                    <p className="text-sm font-bold mb-1" style={{ color: "#8E0935", fontFamily: "var(--font-inter)" }}>
+                                        {lang === 'ru' ? 'ТАХА ЭЙРВЭЙВС РУС ООО' : 'TAHA AIRWAVES RUS LLC'}
+                                    </p>
+                                    <p className="text-sm" style={{ color: "#4B5563", fontFamily: "var(--font-poppins)" }}>
+                                        {lang === 'ru'
+                                            ? 'ОГРН: 1217700215149 | ИНН: 9710089433 — наша дочерняя компания, зарегистрированная в России для обеспечения полного юридического присутствия на территории РФ.'
+                                            : 'OGRN: 1217700215149 | Tax ID: 9710089433 — our subsidiary registered in Russia, ensuring full legal presence within the Russian Federation.'}
+                                    </p>
+                                </div>
                             </div>
                         </motion.div>
 

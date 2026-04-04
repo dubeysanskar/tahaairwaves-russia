@@ -24,6 +24,7 @@ const navLinks = [
     { key: "aboutUs", href: "/about" },
     { key: "services", href: "/services" },
     { key: "blog", href: "/blog" },
+    { key: "cvBuilder", href: "/cv-builder" },
     { key: "contactUs", href: "/contact" },
 ]
 
@@ -80,13 +81,15 @@ export default function Header() {
                             ))}
                         </div>
                         <div className="h-3 w-px" style={{ background: "rgba(142,9,53,0.12)" }} />
-                        {/* Language toggle */}
-                        <button
-                            onClick={toggleLang}
-                            className="flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-bold tracking-wide transition-all duration-200 cursor-pointer border"
+                        {/* Global website link */}
+                        <a
+                            href="https://tahaairwaves.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-bold tracking-wide transition-all duration-200 hover:text-[#8E0935] border"
                             style={{ color: "#4B5563", borderColor: "rgba(142,9,53,0.12)", fontFamily: "var(--font-inter)" }}>
-                            {lang === 'ru' ? '🇬🇧 EN' : '🇷🇺 РУ'}
-                        </button>
+                            🌐 tahaairwaves.com
+                        </a>
                     </div>
                 </div>
             </div>

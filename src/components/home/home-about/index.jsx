@@ -49,6 +49,23 @@ export default function HomeAbout() {
                                     </span>
                                 </div>
                             </div>
+
+                            {/* Russian LLC badge */}
+                            <div className="absolute bottom-2 right-2 sm:-bottom-4 sm:-right-4 lg:-right-6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl shadow-lg z-20" style={{ background: "#262626" }}>
+                                <div className="flex items-center gap-2">
+                                    <FiShield className="w-4 h-4" color="#D32F2F" />
+                                    <div>
+                                        <span className="block text-[9px] uppercase tracking-wider font-bold"
+                                            style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
+                                            {lang === 'ru' ? 'РУС ООО' : 'RUS LLC'}
+                                        </span>
+                                        <span className="block text-[8px]"
+                                            style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-inter)" }}>
+                                            ОГРН: 1217700215149
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </ScrollReveal>
 
@@ -114,6 +131,7 @@ export default function HomeAbout() {
                                 </Link>
                             </div>
                         </ScrollReveal>
+
                     </div>
                 </div>
             </Container>
